@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/Test.unity
+    guid: af2f8793acf0922438fdff0eaecf3a95
+  - enabled: 0
+    path: Assets/Scenes/Test 2.unity
+    guid: 3a4ff30adf68dc7488171b82cf8d1f5b
+  - enabled: 1
+    path: Assets/JMRSDK/Example/Scenes/JMRBezierDemo.unity
+    guid: 119cbeb34279a47439b7afb2440fce3d
   m_configObjects: {}
