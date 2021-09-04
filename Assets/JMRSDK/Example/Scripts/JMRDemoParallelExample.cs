@@ -17,13 +17,13 @@ public class JMRDemoParallelExample : MonoBehaviour
 
     // public Material renderMat;
     // public Material renderMat2;
-    private List<FrameSize> previewResolutionsList = null;
-    private List<FrameSize> captureResolutionsList = null;
+    private List<FrameSize> previewResolutionsList = new List<FrameSize>();
+    private List<FrameSize> captureResolutionsList = new List<FrameSize>();
     private FrameSize CurrentRes;
     private Texture2D camTexture;
     private Texture2D camTexture2;
 
-    private bool previewStarted;
+    //private bool previewStarted;
 
     public Button startPreviewButton, stopPreviewButton;
     public Button captureImageButton, captureImageNameButton;
@@ -33,49 +33,37 @@ public class JMRDemoParallelExample : MonoBehaviour
     public Dropdown PrevResDropdown;
     public Dropdown CaptureResDropdown;
 
+    //Todo: Add function to get state of camera
     private void Start()
     {
+        startPreviewButton.gameObject.SetActive(false);
+        if (Application.isEditor)
+            startPreviewButton.gameObject.SetActive(true);
         pauseRecordButton.gameObject.SetActive(false);
         resumeRecordButton.gameObject.SetActive(false);
+        stopPreviewButton.gameObject.SetActive(false);
+        captureImageButton.gameObject.SetActive(false);
+        captureImageNameButton.gameObject.SetActive(false);
+        startRecordButton.gameObject.SetActive(false);
+        startRecordNameButton.gameObject.SetActive(false);
         stopRecordButton.gameObject.SetActive(false);
         //resolutionControlParent.SetActive(false);
-        InvokeRepeating("DisplayParameters", 1f, 2f);
+        InvokeRepeating("DisplayParameters", 1f, 1f);
+        Invoke("GetCameraStatus", 1f);
     }
 
     private void OnApplicationPause(bool pause)
     {
         if (pause)
         {
-            previewStarted = false;
+            //previewStarted = false;
             stopPreviewButton.gameObject.SetActive(false);
             captureImageButton.gameObject.SetActive(false);
             captureImageNameButton.gameObject.SetActive(false);
             startRecordButton.gameObject.SetActive(false);
             startRecordNameButton.gameObject.SetActive(false);
-            startPreviewButton.gameObject.SetActive(true);
+            startPreviewButton.gameObject.SetActive(false);
             stopPreviewButton.gameObject.SetActive(false);
-        }
-    }
-
-    private void Update()
-    {
-        if (previewStarted)
-        {
-            stopPreviewButton.gameObject.SetActive(true);
-            captureImageButton.gameObject.SetActive(true);
-            captureImageNameButton.gameObject.SetActive(true);
-            startRecordButton.gameObject.SetActive(true);
-            startRecordNameButton.gameObject.SetActive(true);
-            //resolutionControlParent.SetActive(true);
-        }
-        else
-        {
-            stopPreviewButton.gameObject.SetActive(false);
-            captureImageButton.gameObject.SetActive(false);
-            captureImageNameButton.gameObject.SetActive(false);
-            startRecordButton.gameObject.SetActive(false);
-            startRecordNameButton.gameObject.SetActive(false);
-            //resolutionControlParent.SetActive(false);
         }
     }
 
@@ -86,6 +74,8 @@ public class JMRDemoParallelExample : MonoBehaviour
         JMRCameraManager.OnImageCapture += OnImageCapture;
         JMRCameraManager.OnCameraError += OnError;
         JMRCameraManager.OnVideoRecord += OnVideoRecord;
+        JMRCameraManager.OnCameraPreviewStart += OnCameraPreviewStart;
+        JMRCameraManager.OnCameraPreviewStop += OnCameraPreviewStop;
 
         PrevResDropdown.onValueChanged.AddListener(ResDropDownChange);
         CaptureResDropdown.onValueChanged.AddListener(CaptureResDropDownChange);
@@ -104,9 +94,98 @@ public class JMRDemoParallelExample : MonoBehaviour
         JMRCameraManager.OnImageCapture -= OnImageCapture;
         JMRCameraManager.OnCameraError -= OnError;
         JMRCameraManager.OnVideoRecord -= OnVideoRecord;
+        JMRCameraManager.OnCameraPreviewStart -= OnCameraPreviewStart;
+        JMRCameraManager.OnCameraPreviewStop -= OnCameraPreviewStop;
 
         PrevResDropdown.onValueChanged.RemoveListener(ResDropDownChange);
         CaptureResDropdown.onValueChanged.RemoveListener(CaptureResDropDownChange);
+    }
+
+    private void GetCameraStatus()
+    {
+        if (!Application.isEditor)
+        {
+            //Get Preview Status
+            GetCameraState();
+
+            //Get Recording Status
+            GetRecordingState();
+
+            //Get Resolution list
+            UpdateDrodownLists();
+        }
+    }
+
+    void GetCameraState()
+    {
+        Debug.Log("===================Preview Status : " + JMRCameraManager.Instance.IsPreviewing);
+        if (JMRCameraManager.Instance.IsPreviewing)
+        {
+            startPreviewButton.gameObject.SetActive(false);
+            stopPreviewButton.gameObject.SetActive(true);
+            captureImageButton.gameObject.SetActive(true);
+            captureImageNameButton.gameObject.SetActive(true);
+            startRecordButton.gameObject.SetActive(true);
+            startRecordNameButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            if (!JMRCameraManager.Instance.IsAvailable)
+            {
+                startPreviewButton.gameObject.SetActive(false);
+            }
+            else
+            {
+                startPreviewButton.gameObject.SetActive(true);
+            }
+            stopPreviewButton.gameObject.SetActive(false);
+            captureImageButton.gameObject.SetActive(false);
+            captureImageNameButton.gameObject.SetActive(false);
+            startRecordButton.gameObject.SetActive(false);
+            startRecordNameButton.gameObject.SetActive(false);
+        }
+    }
+
+    void GetRecordingState()
+    {
+        Debug.Log("===================Recording Status : " + JMRCameraManager.Instance.IsRecording);
+        if (JMRCameraManager.Instance.IsRecording)
+        {
+            //Recording state
+            if (JMRCameraManager.Instance.GetRecordingState() == JMRCameraManager.VideoRecordState.Paused)
+            {
+                //Paused
+                pauseRecordButton.gameObject.SetActive(false);
+                resumeRecordButton.gameObject.SetActive(true);
+                stopRecordButton.gameObject.SetActive(true);
+            }
+            else if (JMRCameraManager.Instance.GetRecordingState() == JMRCameraManager.VideoRecordState.Started)
+            {
+                //Resumed
+                pauseRecordButton.gameObject.SetActive(true);
+                resumeRecordButton.gameObject.SetActive(false);
+                stopRecordButton.gameObject.SetActive(true);
+            }
+            else if (JMRCameraManager.Instance.GetRecordingState() == JMRCameraManager.VideoRecordState.Resumed)
+            {
+                //Resumed
+                pauseRecordButton.gameObject.SetActive(true);
+                resumeRecordButton.gameObject.SetActive(false);
+                stopRecordButton.gameObject.SetActive(true);
+            }
+            PrevResDropdown.interactable = false;
+            CaptureResDropdown.interactable = false;
+        }
+        else
+        {
+            //Not recording state
+            Debug.Log("===============Not Recording");
+            pauseRecordButton.gameObject.SetActive(false);
+            resumeRecordButton.gameObject.SetActive(false);
+            stopRecordButton.gameObject.SetActive(false);
+            PrevResDropdown.interactable = true;
+            CaptureResDropdown.interactable = true;
+        }
     }
 
     string videoRecordStatus = "";
@@ -117,18 +196,34 @@ public class JMRDemoParallelExample : MonoBehaviour
         {
             case JMRCameraManager.VideoRecordState.Started:
                 videoRecordStatus = "Record : VIDEO_RECORD_STATE_STARTED";
+                pauseRecordButton.gameObject.SetActive(true);
+                resumeRecordButton.gameObject.SetActive(false);
+                stopRecordButton.gameObject.SetActive(true);
+                PrevResDropdown.interactable = false;
+                CaptureResDropdown.interactable = false;
                 break;
             case JMRCameraManager.VideoRecordState.Paused:
                 videoRecordStatus = "Record : VIDEO_RECORD_STATE_PAUSED";
+                pauseRecordButton.gameObject.SetActive(false);
+                resumeRecordButton.gameObject.SetActive(true);
+                stopRecordButton.gameObject.SetActive(true);
                 break;
             case JMRCameraManager.VideoRecordState.Resumed:
                 videoRecordStatus = "Record : VIDEO_RECORD_STATE_RESUMED";
+                pauseRecordButton.gameObject.SetActive(true);
+                resumeRecordButton.gameObject.SetActive(false);
+                stopRecordButton.gameObject.SetActive(true);
                 break;
             case JMRCameraManager.VideoRecordState.Stopped:
                 videoRecordStatus = "Record : VIDEO_RECORD_STATE_STOPPED";
                 break;
             case JMRCameraManager.VideoRecordState.Completed:
                 videoRecordStatus = "Record : VIDEO_RECORD_STATE_COMPLETED";
+                pauseRecordButton.gameObject.SetActive(false);
+                resumeRecordButton.gameObject.SetActive(false);
+                stopRecordButton.gameObject.SetActive(false);
+                PrevResDropdown.interactable = true;
+                CaptureResDropdown.interactable = true;
                 break;
             default:
                 videoRecordStatus = "Record : UNKNOWN STATE";
@@ -136,6 +231,28 @@ public class JMRDemoParallelExample : MonoBehaviour
         }
 
         mediacapturepath = obj;
+    }
+
+    public void OnCameraPreviewStart()
+    {
+        Debug.Log("Preview Start");
+        startPreviewButton.gameObject.SetActive(false);
+        stopPreviewButton.gameObject.SetActive(true);
+        captureImageButton.gameObject.SetActive(true);
+        captureImageNameButton.gameObject.SetActive(true);
+        startRecordButton.gameObject.SetActive(true);
+        startRecordNameButton.gameObject.SetActive(true);
+    }
+
+    public void OnCameraPreviewStop()
+    {
+        Debug.Log("Preview Stop");
+        startPreviewButton.gameObject.SetActive(true);
+        stopPreviewButton.gameObject.SetActive(false);
+        captureImageButton.gameObject.SetActive(false);
+        captureImageNameButton.gameObject.SetActive(false);
+        startRecordButton.gameObject.SetActive(false);
+        startRecordNameButton.gameObject.SetActive(false);
     }
 
     public void ResDropDownChange(int resolutionindex)
@@ -150,6 +267,7 @@ public class JMRDemoParallelExample : MonoBehaviour
             }
         }
     }
+
     public void CaptureResDropDownChange(int resolutionindex)
     {
         foreach (var val in captureResolutionsList)
@@ -202,7 +320,7 @@ public class JMRDemoParallelExample : MonoBehaviour
         PrevResDropdown.ClearOptions();
         previewResolutionsList = JMRCameraManager.Instance.GetPreviewResolutions();
 
-        if (previewResolutionsList != null)
+        if (previewResolutionsList != null && previewResolutionsList.Count > 0)
         {
             //Debug.LogError("+++++++++++++++++++++++Preview Resolution count: " + previewResolutionsList.Count);
 
@@ -226,6 +344,7 @@ public class JMRDemoParallelExample : MonoBehaviour
         else
         {
             Debug.LogError("Preview Resolution List NULL");
+            Dropdown.OptionData option = new Dropdown.OptionData();
         }
 
         CaptureResDropdown.ClearOptions();
@@ -259,37 +378,70 @@ public class JMRDemoParallelExample : MonoBehaviour
 
     public void CaptureImage()
     {
-        JMRCameraManager.Instance.CaptureImage();
+        if(!Application.isEditor)
+            JMRCameraManager.Instance.CaptureImage();
     }
 
     public void CaptureImage(string name)
     {
-        JMRCameraManager.Instance.CaptureImage(Application.persistentDataPath + "/" + name);
+        if (!Application.isEditor)
+            JMRCameraManager.Instance.CaptureImage(Application.persistentDataPath + "/" + name);
     }
 
     public void StartPreview()
     {
-        JMRCameraManager.Instance.StartPreview();
-        startPreviewButton.gameObject.SetActive(false);
-        stopPreviewButton.gameObject.SetActive(true);
-        previewStarted = true;
+        if (!Application.isEditor)
+        {
+            JMRCameraManager.Instance.StartPreview();
+        }
+        else
+        {
+            startPreviewButton.gameObject.SetActive(false);
+            stopPreviewButton.gameObject.SetActive(true);
+            captureImageButton.gameObject.SetActive(true);
+            captureImageNameButton.gameObject.SetActive(true);
+            startRecordButton.gameObject.SetActive(true);
+            startRecordNameButton.gameObject.SetActive(true);
+        }
     }
 
     public void StopPreview()
     {
-        JMRCameraManager.Instance.StopPreview();
-        startPreviewButton.gameObject.SetActive(true);
-        stopPreviewButton.gameObject.SetActive(false);
-        previewStarted = false;
+        if (!Application.isEditor)
+        {
+            JMRCameraManager.Instance.StopPreview();
+        }
+        else
+        {
+            startPreviewButton.gameObject.SetActive(true);
+            stopPreviewButton.gameObject.SetActive(false);
+            captureImageButton.gameObject.SetActive(false);
+            captureImageNameButton.gameObject.SetActive(false);
+            startRecordButton.gameObject.SetActive(false);
+            startRecordNameButton.gameObject.SetActive(false);
+        }
     }
 
     public void StartRecording()
     {
-        if (JMRCameraManager.Instance.StartRecording())
+        if (!Application.isEditor)
+        {
+            if (JMRCameraManager.Instance.StartRecording())
+            {
+                //pauseRecordButton.gameObject.SetActive(true);
+                //resumeRecordButton.gameObject.SetActive(false);
+                //stopRecordButton.gameObject.SetActive(true);
+                //PrevResDropdown.interactable = false;
+                //CaptureResDropdown.interactable = false;
+            }
+        }
+        else
         {
             pauseRecordButton.gameObject.SetActive(true);
             resumeRecordButton.gameObject.SetActive(false);
             stopRecordButton.gameObject.SetActive(true);
+            PrevResDropdown.interactable = false;
+            CaptureResDropdown.interactable = false;
         }
     }
 
@@ -305,24 +457,62 @@ public class JMRDemoParallelExample : MonoBehaviour
 
     public void StopRecording()
     {
-        JMRCameraManager.Instance.StopRecording();
-        pauseRecordButton.gameObject.SetActive(false);
-        resumeRecordButton.gameObject.SetActive(false);
-        stopRecordButton.gameObject.SetActive(false);
+        if (!Application.isEditor)
+        {
+            JMRCameraManager.Instance.StopRecording();
+        }
+        else
+        {
+            pauseRecordButton.gameObject.SetActive(false);
+            resumeRecordButton.gameObject.SetActive(false);
+            stopRecordButton.gameObject.SetActive(false);
+            PrevResDropdown.interactable = true;
+            CaptureResDropdown.interactable = true;
+        }
     }
 
     public void PauseRecording()
     {
-        JMRCameraManager.Instance.PauseRecording();
-        pauseRecordButton.gameObject.SetActive(false);
-        resumeRecordButton.gameObject.SetActive(true);
+        if (!Application.isEditor)
+        {
+            if (JMRCameraManager.Instance.PauseRecording())
+            {
+                Debug.Log("Recording Paused");
+                pauseRecordButton.gameObject.SetActive(false);
+                resumeRecordButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                Debug.LogError("Recording is not Paused");
+            }
+        }
+        else
+        {
+            pauseRecordButton.gameObject.SetActive(false);
+            resumeRecordButton.gameObject.SetActive(true);
+        }
     }
 
     public void ResumeRecording()
     {
-        JMRCameraManager.Instance.ResumeRecording();
-        pauseRecordButton.gameObject.SetActive(true);
-        resumeRecordButton.gameObject.SetActive(false);
+        if (!Application.isEditor)
+        {
+            if (JMRCameraManager.Instance.ResumeRecording())
+            {
+                Debug.Log("Recording Resumed");
+                pauseRecordButton.gameObject.SetActive(true);
+                resumeRecordButton.gameObject.SetActive(false);
+            }
+            else
+            {
+                Debug.LogError("Recording not Resumed");
+            }
+        }
+        else
+        {
+            pauseRecordButton.gameObject.SetActive(true);
+            resumeRecordButton.gameObject.SetActive(false);
+        }
     }
 
     public void SetPreviewRes(int res)
@@ -340,6 +530,7 @@ public class JMRDemoParallelExample : MonoBehaviour
             JMRCameraManager.Instance.SetCaptureResolution(captureResolutionsList[res]);
         }
     }
+
     private double latency = -1, maxLatency = -1, prevLatency = -1;
 
     private float latencyDisplayDelay = 0.5f;
@@ -354,10 +545,13 @@ public class JMRDemoParallelExample : MonoBehaviour
     {
         if (!Application.isEditor)
         {
+            //if (JMRCameraManager.Instance.IsAvailable)
+            //{
             if (previewResolutionsList == null || captureResolutionsList == null)
             {
                 UpdateDrodownLists();
             }
+            //}
         }
         else
         {
@@ -369,28 +563,33 @@ public class JMRDemoParallelExample : MonoBehaviour
     {
         if (!Application.isEditor)
         {
-            CalculateMaxLatency(JMRCameraManager.Instance.GetPreviewLatency());
+            if (JMRCameraManager.Instance.IsAvailable)
+            {
+                CalculateMaxLatency(JMRCameraManager.Instance.GetPreviewLatency());
 
-            LogText.text = "Camera API \n "
-                                + "isCamera Available:\t" + (JMRCameraManager.Instance.IsAvailable ? "Connect" : "Disconnect") + "\n"
+                LogText.text = "Camera API \n"
+                                    + "isCamera Available:\t" + (JMRCameraManager.Instance.IsAvailable ? "Connect" : "Disconnect") + "\n"
 
-                                + "isRecording:\t" + JMRCameraManager.Instance.IsRecording + "\n"
+                                    + "isRecording:\t" + JMRCameraManager.Instance.IsRecording + "\n"
 
-                                + "RecordingState:\t" + JMRCameraManager.Instance.GetRecordingState() + "\n"
+                                    + "RecordingState:\t" + JMRCameraManager.Instance.GetRecordingState() + "\n"
 
-                                + "Video Record Status:\t" + videoRecordStatus + "\n"
+                                    + "Video Record Status:\t" + videoRecordStatus + "\n"
 
-                                + "Preview Latency:\t" + (previewStarted ? (int)latency + " ms" : "Preview Not Started") + "\n"
+                                    + "Preview Latency:\t" + (JMRCameraManager.Instance.IsPreviewing ? (int)latency + " ms" : "Preview Not Started") + "\n"
 
-                                + "Preview Max Latency:\t" + (previewStarted ? (int)maxLatency + " ms" : "Preview Not Started") + "\n"
+                                    + "Preview Max Latency:\t" + (JMRCameraManager.Instance.IsPreviewing ? (int)maxLatency + " ms" : "Preview Not Started") + "\n"
 
-                                + "Prev Res:\t" + JMRCameraManager.Instance.GetCurrentPreviewResolution().frameSizeText + "\n"
+                                    + "Prev Res:\t" + JMRCameraManager.Instance.GetCurrentPreviewResolution().frameSizeText + "\n"
 
-                                + "Capture Res:\t" + JMRCameraManager.Instance.GetCurrentCaptureResolution().frameSizeText + "\n"
+                                    + "Capture Res:\t" + JMRCameraManager.Instance.GetCurrentCaptureResolution().frameSizeText + "\n"
 
-                                + "Error Text:\t" + cameraError + "\n"
-
-                    ;
+                                    + "Error Text:\t" + cameraError + "\n";
+            }
+            else
+            {
+                LogText.text = "Camera not available";
+            }
         }
         else
         {

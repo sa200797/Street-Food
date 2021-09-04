@@ -38,7 +38,7 @@ Material:
     - _Distort:
         m_Texture: {fileID: 2800000, guid: 4c8646fa6f9569c4db28f0b608e341ce, type: 3}
         m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 9.991993, y: 0}
+        m_Offset: {x: 1.5176218, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -71,7 +71,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DistortX: 0.27
     - _DistortY: 0.3
-    - _DstBlend: 1
+    - _DstBlend: 10
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1

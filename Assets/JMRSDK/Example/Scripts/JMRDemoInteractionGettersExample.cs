@@ -25,11 +25,13 @@ public class JMRDemoInteractionGettersExample : MonoBehaviour
     public TMP_Text txt_BackDown;
     public TMP_Text txt_HomeDown;
     public TMP_Text txt_FunctionDown;
+    public TMP_Text txt_VoiceDown;
 
     public TMP_Text txt_SelectUp;
     public TMP_Text txt_BackUp;
     public TMP_Text txt_HomeUp;
     public TMP_Text txt_FunctionUp;
+    public TMP_Text txt_VoiceUp;
 
     private float swipeLeftVal = 0;
     private float swipeRightVal = 0;
@@ -62,10 +64,12 @@ public class JMRDemoInteractionGettersExample : MonoBehaviour
         txt_BackDown.text = JMRInteraction.GetSourceDown(JMRInteractionSourceInfo.Back).ToString();
         txt_HomeDown.text = JMRInteraction.GetSourceDown(JMRInteractionSourceInfo.Home).ToString();
         txt_FunctionDown.text = JMRInteraction.GetSourceDown(JMRInteractionSourceInfo.Function).ToString();
+        txt_VoiceDown.text = JMRInteraction.GetSourceDown(JMRInteractionSourceInfo.Voice).ToString();
 
         txt_SelectUp.text = JMRInteraction.GetSourceUp(JMRInteractionSourceInfo.Select).ToString();
         txt_BackUp.text = JMRInteraction.GetSourceUp(JMRInteractionSourceInfo.Back).ToString();
         txt_HomeUp.text = JMRInteraction.GetSourceUp(JMRInteractionSourceInfo.Home).ToString();
         txt_FunctionUp.text = JMRInteraction.GetSourceUp(JMRInteractionSourceInfo.Function).ToString();
+        txt_VoiceUp.text = JMRInteraction.GetSourceUp(JMRInteractionSourceInfo.Voice).ToString();
     }
 }

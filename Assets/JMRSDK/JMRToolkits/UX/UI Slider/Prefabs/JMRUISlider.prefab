@@ -333,6 +333,7 @@ GameObject:
   - component: {fileID: 5806802236520018794}
   - component: {fileID: 5806802236520018795}
   - component: {fileID: 3555915760546466362}
+  - component: {fileID: 7853546530612554920}
   m_Layer: 5
   m_Name: JMRUISlider
   m_TagString: Untagged
@@ -495,3 +496,15 @@ MonoBehaviour:
   OnSwipe:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7853546530612554920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5806802236520018806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -402723244, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

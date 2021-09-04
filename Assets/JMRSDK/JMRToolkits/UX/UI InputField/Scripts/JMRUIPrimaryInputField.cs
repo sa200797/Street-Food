@@ -620,7 +620,8 @@ namespace JMRSDK.Toolkit.UI
 
         [SerializeField]
         protected Graphic placeholder;
-
+        [SerializeField]
+        private JMRUIPrimaryButton clearButton;
         public bool supportMultiLine = false;
 
         //[SerializeField]
@@ -933,6 +934,11 @@ namespace JMRSDK.Toolkit.UI
             //Debug.Log("*** OnEnable() *** - " + this.name);
 
             base.OnEnable();
+            if (clearButton == null && GetComponentInChildren<JMRUIPrimaryButton>())
+            {
+                clearButton = GetComponentInChildren<JMRUIPrimaryButton>();
+            }
+            
             wasError = !IsError;
             if (Submit == null)
             {
@@ -996,7 +1002,11 @@ namespace JMRSDK.Toolkit.UI
 
                 UpdateLabel();
             }
-
+            if(clearButton != null)
+            {
+                clearButton.OnClick.AddListener(onClearButtonClicked);
+                clearButton.gameObject.SetActive(textComponent.text.Length > 1);
+            }
             // Subscribe to event fired when text object has been regenerated.
             TMPro_EventManager.TEXT_CHANGED_EVENT.Add(ON_TEXT_CHANGED);
         }
@@ -1038,7 +1048,8 @@ namespace JMRSDK.Toolkit.UI
 
             // Unsubscribe to event triggered when text object has been regenerated
             TMPro_EventManager.TEXT_CHANGED_EVENT.Remove(ON_TEXT_CHANGED);
-
+            if (clearButton != null)
+                clearButton.OnClick.RemoveAllListeners();
             //base.OnDisable();
         }
 
@@ -2079,7 +2090,10 @@ namespace JMRSDK.Toolkit.UI
         #endregion
 
         #region PRIVATE METHODS
-
+        private void onClearButtonClicked()
+        {
+            textComponent.text = text = "";
+        }
         private bool InteractableActive()
         {
             return interactable;
@@ -2092,6 +2106,8 @@ namespace JMRSDK.Toolkit.UI
         /// <param name="obj"></param>
         private void ON_TEXT_CHANGED(UnityEngine.Object obj)
         {
+            if(clearButton!=null)
+            clearButton.gameObject.SetActive(textComponent.text.Length > 1);
             if (!InteractableActive())
                 return;
             if (obj == textComponent && Application.isPlaying && j_CompositionString.Length == 0)

@@ -20,6 +20,7 @@ MonoBehaviour:
   SWIPE_DOWN: 118
   SWIPE_LEFT: 99
   SWIPE_RIGHT: 98
+  VOICE_BTN: 122
   defaultEmulatorConfig: {fileID: 11400000, guid: 59dcbbbf1f4f2ec48932438951711abd,
     type: 2}
   currentState: JHGKFVCB

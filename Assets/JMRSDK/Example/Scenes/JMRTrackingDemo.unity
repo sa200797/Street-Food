@@ -382,6 +382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LogText: {fileID: 1086593457}
   cubeParent: {fileID: 311036773}
+  timeInterval: 60
 --- !u!1 &1086593455
 GameObject:
   m_ObjectHideFlags: 0

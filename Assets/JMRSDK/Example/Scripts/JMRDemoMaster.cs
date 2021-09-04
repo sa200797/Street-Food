@@ -23,12 +23,12 @@ public class JMRDemoMaster : MonoBehaviour
     {
         if (!Application.isEditor)
         {
-            if (!string.IsNullOrEmpty(JMRUpdateManager.Instance.GetFirmwareVersion("cx3")) && !isGetVersionNum)
-            {
-                string logString = logText.text;
-                logText.text = logString + "Firmware Version:\t" + JMRUpdateManager.Instance.GetFirmwareVersion("cx3");
-                isGetVersionNum = true;
-            }
+            //if (!string.IsNullOrEmpty(JMRUpdateManager.Instance.GetFirmwareVersion("cx3")) && !isGetVersionNum)
+            //{
+            //    string logString = logText.text;
+            //    logText.text = logString + "Firmware Version:\t" + JMRUpdateManager.Instance.GetFirmwareVersion("cx3");
+            //    isGetVersionNum = true;
+            //}
         }
         else
         {

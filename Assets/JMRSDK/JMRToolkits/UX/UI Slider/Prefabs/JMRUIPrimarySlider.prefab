@@ -199,6 +199,7 @@ GameObject:
   - component: {fileID: 2585468805998447934}
   - component: {fileID: 2585468805998447935}
   - component: {fileID: 1570418599289910026}
+  - component: {fileID: 7647611487883885468}
   m_Layer: 5
   m_Name: JMRUIPrimarySlider
   m_TagString: Untagged
@@ -336,6 +337,18 @@ MonoBehaviour:
   OnSwipe:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7647611487883885468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2585468805998447932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -402723244, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2585468806446022946
 GameObject:
   m_ObjectHideFlags: 0

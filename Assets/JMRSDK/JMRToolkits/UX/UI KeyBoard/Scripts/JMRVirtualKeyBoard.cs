@@ -5,7 +5,6 @@ using Tesseract.Utility;
 using TMPro;
 using UnityEngine.Events;
 using UnityEngine.Animations;
-using System.Collections.Generic;
 using JMRSDK.InputModule;
 using System;
 
@@ -13,7 +12,7 @@ namespace JMRSDK.Toolkit.UI
 {
     public delegate void DMessageHandler(string command);
 
-    public class JMRVirtualKeyBoard : JMRPersistance<JMRVirtualKeyBoard>, IMessageHandler,ISelectClickHandler
+    public class JMRVirtualKeyBoard : JMRPersistance<JMRVirtualKeyBoard>, IMessageHandler, ISelectClickHandler
     {
         #region SERIALIZED FIELDS
         [SerializeField]
@@ -24,6 +23,8 @@ namespace JMRSDK.Toolkit.UI
         private GameObject alphabets, special_characters, alphabetsText, special_charactersText;
         [SerializeField]
         private UnityEngine.UI.Button searchBtn;
+        [SerializeField]
+        private JMRUIPrimaryButton clearBtn;
         [SerializeField]
         private LookAtConstraint lookAt;
         #endregion
@@ -36,10 +37,17 @@ namespace JMRSDK.Toolkit.UI
         private IKeyboardInput j_input;
         private Transform j_ThisTransform;
         private ConstraintSource j_LookAtSource = new ConstraintSource() { weight = 1 };
+        private bool isCleared = false;
+        private bool showInputfieldTxt = false;
         #endregion
 
         #region PUBLIC FIELDS
         public bool isShown;
+        public event Action OnHideKeyboard;
+        #endregion
+
+        #region Static Actions
+        public static Action<string> OnKeyPressed = null;
         #endregion
 
         #region MONO METHODS
@@ -54,6 +62,7 @@ namespace JMRSDK.Toolkit.UI
             if (!j_ThisTransform)
                 j_ThisTransform = transform;
             JMRInputManager.Instance.AddGlobalListener(gameObject);
+            clearBtn.OnClick.AddListener(OnClearButtonClicked);
         }
 
         private void OnDisable()
@@ -62,30 +71,64 @@ namespace JMRSDK.Toolkit.UI
             {
                 JMRInputManager.Instance.RemoveGlobalListener(gameObject);
             }
+            clearBtn.OnClick.RemoveAllListeners();
         }
 
         private string prevText = "";
+        [SerializeField]
+        private int maxTexEllipsis = 25;
+
         private void Update()
         {
             if (j_counter < j_doubleTapDelay)
                 j_counter += Time.deltaTime;
-
-            if (j_input != null && prevText != suggestedText.text)
+            string suggestText = "";
+            ellipsistext = "";
+            if (j_input != null)
             {
-                prevText = suggestedText.text;
-                j_input.Text = cachedTex + suggestedText.text;
-                //j_input.OnTextChanged();
+                int lastSpaceIndx = 0;
+                lastSpaceIndx = j_input.Text.LastIndexOf(" ");
+                if(isCleared)
+                {
+                    suggestText = "";
+                    isCleared = false;
+                    j_input.Text = showInputfieldTxt ? suggestText : j_input.Text.Substring(0, lastSpaceIndx+1);
+                }
+                if(showInputfieldTxt && !string.IsNullOrEmpty(cachedTex))
+                {
+                    suggestText = j_input.Text;
+                    int textLength = suggestText.Length;
+                    if (textLength >= (maxTexEllipsis + 3))
+                    {
+                        suggestText = "..." + suggestText.Substring(textLength - (maxTexEllipsis + 1), maxTexEllipsis + 1);
+                    }
+                }
+                else
+                {
+                    suggestText = j_input.Text;
+                    if (lastSpaceIndx > 0 && j_input.Text.Length > lastSpaceIndx + 1)
+                    {
+                        suggestText = j_input.Text.Substring(lastSpaceIndx + 1, j_input.Text.Length - (lastSpaceIndx + 1));
+                    }
+                    else if (j_input.Text.Length == lastSpaceIndx + 1)
+                    {
+                        suggestText = "";
+                    }
+                    int textLength = suggestText.Length;
+                    if (textLength >= (maxTexEllipsis + 3))
+                    {
+                        suggestText = "..." + suggestText.Substring(textLength - (maxTexEllipsis + 1), maxTexEllipsis + 1);
+                    }
+                }
             }
-
-            if (string.IsNullOrEmpty(j_input.Text))
-            {
-                suggestedText.text = cachedTex = prevText = "";
-            }
+            prevText = j_input.Text;
+            suggestedText.text = suggestText;
 
             if (j_prevButton == "NEWLINE" && j_input != null)
             {
                 HandleMultiLine(j_input);
             }
+            clearBtn.gameObject.SetActive(suggestedText.text.Length > 0);
         }
 
 
@@ -105,7 +148,14 @@ namespace JMRSDK.Toolkit.UI
         }
 
         #endregion
+        #region PRIVATE METHODS
 
+        private void OnClearButtonClicked()
+        {
+            suggestedText.text = cachedTex = prevText = "";
+            isCleared = true;
+        }
+        #endregion
         #region PUBLIC METHODS
 
         /// <summary>
@@ -122,18 +172,18 @@ namespace JMRSDK.Toolkit.UI
                 return;
             }
 
-            if(eventData.selectedObject == null || eventData.selectedObject.transform.root.GetComponent<JMRVirtualKeyBoard>() == null)
+            if (eventData.selectedObject == null || eventData.selectedObject.transform.root.GetComponent<JMRVirtualKeyBoard>() == null)
             {
                 if (eventData.selectedObject == null || (eventData.selectedObject.tag != "Search" && (eventData.selectedObject.GetComponent<IKeyboardInput>() == null || eventData.selectedObject.GetComponent<IKeyboardInput>() != j_input)))
                 {
-                    HideKeyBoard(true);
+                    HideKeyBoard();
                 }
             }
         }
 
         public void ShowKeyBoard(IKeyboardInput j_InputField)
         {
-            if(j_InputField == j_input)
+            if (j_InputField == j_input)
             {
                 return;
             }
@@ -179,8 +229,9 @@ namespace JMRSDK.Toolkit.UI
                 cachedTex = string.IsNullOrEmpty(j_input.Text) ? "" : j_input.Text;
                 if (string.IsNullOrEmpty(cachedTex))
                     StartCoroutine(WaitTillEOF());
-                suggestedText.text = prevText = "";
+                prevText = "";
                 isShown = true;
+                showInputfieldTxt = true;
             }
         }
 
@@ -197,20 +248,23 @@ namespace JMRSDK.Toolkit.UI
             // anim.SetTrigger("Hide");
             if (j_input != null && !hideWitoutNotify)
             {
-                Constants.SearchString = suggestedText.text;
+                Constants.SearchString = j_input.Text;
                 j_input.EditEnd();
                 if (!hideWithoutDeselect)
                 {
                     j_input.OnDeselect();
                 }
-            } else if (voiceCommandField != null && !hideWitoutNotify) {
-                Constants.SearchString = suggestedText.text;
+            }
+            else if (voiceCommandField != null && !hideWitoutNotify)
+            {
+                Constants.SearchString = voiceCommandField.Text;
                 voiceCommandField.EditEnd();
                 if (!hideWithoutDeselect)
                 {
                     voiceCommandField.OnDeselect();
                 }
-            } else if (hideWitoutNotify)
+            }
+            else if (hideWitoutNotify)
             {
                 if (!hideWithoutDeselect)
                 {
@@ -224,9 +278,15 @@ namespace JMRSDK.Toolkit.UI
                 JMRVoiceManager.OnSpeechError -= OnSpeechError;
                 JMRVoiceManager.OnSpeechCancelled -= OnSpeechCancelled;
             }
-
             isShown = false;
-            this.j_input = null;
+            if (!hideWitoutNotify && !hideWithoutDeselect)
+            {
+                this.j_input = null;
+            }
+            else if(hideWitoutNotify)
+            {
+                this.j_input = null;
+            }
             special_characters.SetActive(false);
             alphabets.gameObject.SetActive(true);
             if (special_charactersText != null)
@@ -238,6 +298,7 @@ namespace JMRSDK.Toolkit.UI
                 alphabetsText.gameObject.SetActive(true);
             }
             gameObject.SetActive(false);
+            OnHideKeyboard?.Invoke();
         }
 
         /// <summary>
@@ -248,7 +309,7 @@ namespace JMRSDK.Toolkit.UI
         {
             this.j_handler += Key.HandleMessage;
         }
-
+        private string ellipsistext = string.Empty;
         /// <summary>
         /// Handle Virtual Keyboard Actions.
         /// </summary>
@@ -284,14 +345,13 @@ namespace JMRSDK.Toolkit.UI
                     {
                         j_input.Text = "";
                         suggestedText.text = cachedTex = "";
+                        ellipsistext = "";
                     }
                     else
                     {
                         j_input.Text = j_input.Text.Substring(0, j_input.Text.Length - 1);
                         if (j_input.Text.Length < cachedTex.Length)
-                            cachedTex = j_input.Text;
-                        else
-                            suggestedText.text = j_input.Text.Substring(cachedTex.Length, j_input.Text.Length - cachedTex.Length);
+                            cachedTex = j_input.Text;// j_input.Text.Substring(cachedTex.Length, j_input.Text.Length - cachedTex.Length);
                     }
                     break;
                 case Constants.ALPHABETS:
@@ -323,7 +383,7 @@ namespace JMRSDK.Toolkit.UI
                 case Constants.NEWLINE:
                     if (j_input.isMultiLineSupported())
                     {
-                        suggestedText.text += "\n";
+                        j_input.Text += "\n";
                     }
                     break;
                 case Constants.VOICECOMMAND:
@@ -336,9 +396,9 @@ namespace JMRSDK.Toolkit.UI
                     }
                     break;
                 default:
-                    if (command == " " && (j_input == null || j_input.Text.Length <= 0))
+                    if (command == " " && (j_input == null))
                         break;
-                    suggestedText.text += command;
+                    j_input.Text += command;
                     break;
             }
 
@@ -350,19 +410,26 @@ namespace JMRSDK.Toolkit.UI
                 j_handler(Constants.CASE_LOWER);
                 isTempUpper = false;
             }
+            if (command != Constants.CASE_TAP)
+            {
+                OnKeyPressed?.Invoke(command);
+            }
             j_prevButton = command;
         }
 
 
         private IKeyboardInput voiceCommandField = null;
-        private bool isListeningForVoiceCommand=false;
+        private bool isListeningForVoiceCommand = false;
         private void OnSpeechError(string obj)
         {
             JMRVoiceManager.Instance.HideVoiceToolkit();
             if (isListeningForVoiceCommand && voiceCommandField != null)
             {
                 isListeningForVoiceCommand = false;
-                ShowKeyBoard(voiceCommandField);
+                if (obj == "ERROR_NO_MATCH")
+                    HideKeyBoard();
+                else
+                    ShowKeyBoard(voiceCommandField);
             }
             voiceCommandField = null;
         }
@@ -373,7 +440,7 @@ namespace JMRSDK.Toolkit.UI
             if (isListeningForVoiceCommand && voiceCommandField != null)
             {
                 isListeningForVoiceCommand = false;
-                ShowKeyBoard(voiceCommandField);
+                HideKeyBoard();
             }
             voiceCommandField = null;
         }
@@ -383,10 +450,9 @@ namespace JMRSDK.Toolkit.UI
             JMRVoiceManager.Instance.HideVoiceToolkit();
             if (isListeningForVoiceCommand && voiceCommandField != null)
             {
-                prevText = suggestedText.text = command;
-                voiceCommandField.Text = cachedTex + suggestedText.text;
+                prevText = voiceCommandField.Text = command;
                 isListeningForVoiceCommand = false;
-                HideKeyBoard(false,false,true);
+                HideKeyBoard(false, false, true);
             }
             voiceCommandField = null;
         }
@@ -414,7 +480,7 @@ namespace JMRSDK.Toolkit.UI
         System.Collections.IEnumerator WaitTillEOF()
         {
             yield return new WaitForEndOfFrame();
-            if (string.IsNullOrEmpty(suggestedText.text))
+            if (string.IsNullOrEmpty(j_input.Text))
                 HandleMessage(Constants.CASE_TAP);
             // HideKeyBoard();
             while (JMRCameraUtility.Main == null)
