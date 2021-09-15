@@ -350,7 +350,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294111986
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -410,13 +410,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 502624362544787903}
-    characterCount: 0
+    characterCount: 8
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 0
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 1
+    pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -690,10 +690,10 @@ RectTransform:
   m_Father: {fileID: 7520085776418514905}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.2}
-  m_SizeDelta: {x: 400, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0.20000076}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4525592376434293568
 CanvasRenderer:
@@ -733,6 +733,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 0.9
+--- !u!114 &4567620297137951110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210877501938467732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -402723244, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8022227227989257120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1020,6 +1032,12 @@ PrefabInstance:
 --- !u!224 &3641939297632038751 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6763959516349367551, guid: f0371df0e21755443a849ffcc98dad0d,
+    type: 3}
+  m_PrefabInstance: {fileID: 8022227227989257120}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &210877501938467732 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7906494457232369716, guid: f0371df0e21755443a849ffcc98dad0d,
     type: 3}
   m_PrefabInstance: {fileID: 8022227227989257120}
   m_PrefabAsset: {fileID: 0}

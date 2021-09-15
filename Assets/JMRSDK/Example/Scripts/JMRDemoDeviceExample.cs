@@ -39,9 +39,9 @@ public class JMRDemoDeviceExample : MonoBehaviour
         if (!Application.isEditor)
         {
             LogText.text = "Device API \n" +
-                           "Device ManufacturerName :\t" + (string.IsNullOrEmpty(JMRRigManager.Instance.GetManufacturerName()) ? "Device Not Found!" : JMRRigManager.Instance.GetManufacturerName()) + "\n" +
-                           "Device Protocal version :\t" + JMRRigManager.Instance.GetProtocolVersion() + "\n" +
-                           "HMD Device version :\t" + (string.IsNullOrEmpty(JMRRigManager.Instance.GetHmdDeviceVersion()) ? "Device Not Found!" : JMRRigManager.Instance.GetHmdDeviceVersion()) + "\n";
+                           "Device ManufacturerName :\t" + (string.IsNullOrEmpty(JMRRigManager.Instance.GetManufacturerName()) ? "Not applicable!" : JMRRigManager.Instance.GetManufacturerName()) + "\n" +
+                           "Device Protocal version :\t" + (((float)JMRRigManager.Instance.GetProtocolVersion() < 0) ? "Not applicable!" : JMRRigManager.Instance.GetProtocolVersion().ToString())  + "\n" +
+                           "HMD Device version :\t" + (string.IsNullOrEmpty(JMRRigManager.Instance.GetHmdDeviceVersion()) ? "Not applicable!" : JMRRigManager.Instance.GetHmdDeviceVersion()) + "\n";
         }
         else
         {

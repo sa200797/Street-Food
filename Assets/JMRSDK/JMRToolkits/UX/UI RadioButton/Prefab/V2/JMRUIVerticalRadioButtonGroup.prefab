@@ -213,10 +213,10 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 10
-    m_Top: 25
-    m_Bottom: 25
+    m_Top: 10
+    m_Bottom: 10
   m_ChildAlignment: 4
-  m_Spacing: 15
+  m_Spacing: 10
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -245,22 +245,22 @@ PrefabInstance:
     - target: {fileID: 5017203026660985703, guid: 2898394119e46244bba948d38e62351b,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5017203026660985703, guid: 2898394119e46244bba948d38e62351b,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5017203026660985703, guid: 2898394119e46244bba948d38e62351b,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5017203026660985703, guid: 2898394119e46244bba948d38e62351b,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5017203026660985703, guid: 2898394119e46244bba948d38e62351b,
         type: 3}
@@ -400,22 +400,22 @@ PrefabInstance:
     - target: {fileID: 5017203026660985703, guid: 2898394119e46244bba948d38e62351b,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5017203026660985703, guid: 2898394119e46244bba948d38e62351b,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5017203026660985703, guid: 2898394119e46244bba948d38e62351b,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5017203026660985703, guid: 2898394119e46244bba948d38e62351b,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5017203026660985703, guid: 2898394119e46244bba948d38e62351b,
         type: 3}
@@ -555,22 +555,22 @@ PrefabInstance:
     - target: {fileID: 5017203026660985703, guid: 2898394119e46244bba948d38e62351b,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5017203026660985703, guid: 2898394119e46244bba948d38e62351b,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5017203026660985703, guid: 2898394119e46244bba948d38e62351b,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5017203026660985703, guid: 2898394119e46244bba948d38e62351b,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5017203026660985703, guid: 2898394119e46244bba948d38e62351b,
         type: 3}
@@ -710,22 +710,22 @@ PrefabInstance:
     - target: {fileID: 5017203026660985703, guid: 2898394119e46244bba948d38e62351b,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5017203026660985703, guid: 2898394119e46244bba948d38e62351b,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5017203026660985703, guid: 2898394119e46244bba948d38e62351b,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5017203026660985703, guid: 2898394119e46244bba948d38e62351b,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5017203026660985703, guid: 2898394119e46244bba948d38e62351b,
         type: 3}
