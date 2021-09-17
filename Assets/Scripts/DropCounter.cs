@@ -7,21 +7,18 @@ public class DropCounter : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        Debug.Log("VadaPawComplete1");
+        if (collision.gameObject.CompareTag("Finish"))
         {
-            Debug.Log("VadaPawComplete");
+            Debug.Log("VadaPawComplete2");
+            VadaSpawn.foodtemspawn = false;
+            VadaSpawn.vadapawcount = 0;
+            Destroy(collision.gameObject);
         }
     }
 
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    Debug.Log("VadaPawComplete");
-    //    if (other.gameObject.CompareTag("Finish"))
-    //    {
-    //        Debug.Log("VadaPawComplete++++");
-    //    }
-    //}
+  
 
     // Start is called before the first frame update
     void Start()

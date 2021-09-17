@@ -13,8 +13,8 @@ public class VadaSpawn : MonoBehaviour
     public GameObject vadapaw; // to delete th clones;
 
 
-    bool foodtemspawn; //only to spawn vadapaw;
-    int vadapawcount = 0; //to check the foodcount for vadapav;
+   public static bool foodtemspawn; //only to spawn vadapaw;
+   public static int vadapawcount = 0; //to check the foodcount for vadapav;
 
     // Start is called before the first frame update
     void Start()
