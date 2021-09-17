@@ -10,13 +10,16 @@ public class VadaSpawn : MonoBehaviour
     public int whatToSpawn;
     public Transform dropppoint;
 
-    public GameObject vadapaw;
+    public GameObject vadapaw; // to delete th clones;
 
+
+    bool foodtemspawn; //only to spawn vadapaw;
+    int vadapawcount = 0; //to check the foodcount for vadapav;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        foodtemspawn = false;
     }
 
     // Update is called once per frame
@@ -61,29 +64,51 @@ public class VadaSpawn : MonoBehaviour
 
     public void MakeVadapaw()
     {
-       
+        
 
-        switch(whatToSpawn)
+        if (!foodtemspawn)
         {
-            case 1:
-                
-               GameObject bomb =Instantiate(breadprefab, dropppoint.transform.position, Quaternion.identity) ;
-               vadapaw = bomb;
-                
-                break;
-            case 2:
+            switch (whatToSpawn)
+            {
 
-                Destroy(vadapaw);
-                GameObject bomb2= Instantiate(masalaprefab, dropppoint.transform.position, Quaternion.identity);
-                vadapaw = bomb2;
+                case 1:
+                    if(vadapawcount == 0)
+                    {
+                        GameObject bomb = Instantiate(breadprefab, dropppoint.transform.position, Quaternion.identity);
+                        vadapaw = bomb;
+                        vadapawcount++;
+                        Debug.Log(vadapawcount);
+                    }
+                    break;
+                case 2:
+                    if(vadapawcount == 1)
+                    {
+                        Destroy(vadapaw);
+                        GameObject bomb2 = Instantiate(masalaprefab, dropppoint.transform.position, Quaternion.identity);
+                        vadapaw = bomb2;
+                        vadapawcount++;
+                        Debug.Log(vadapawcount);
+                    }
+                    break;
+                case 3:
+                    if(vadapawcount== 2)
+                    {
+                        Destroy(vadapaw);
+                        Instantiate(vadapawprefab, dropppoint.transform.position, Quaternion.identity);
+                        vadapawcount++;
+                        Debug.Log(vadapawcount);
 
-                break;
-            case 3:
-                Destroy(vadapaw);
-                Instantiate(vadapawprefab, dropppoint.transform.position, Quaternion.identity);
-                break;
+                    }
+                    break;
+                default:
+                    Debug.Log("Please follow the food itme menu");
+                    break;
 
-        }
+                  
+
+            }
+
+       }    
     }
         
 }
