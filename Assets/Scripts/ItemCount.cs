@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FooCheck : MonoBehaviour
+public class ItemCount : MonoBehaviour
 {
     // public Transform dropppoint;
 
@@ -10,7 +10,7 @@ public class FooCheck : MonoBehaviour
 
     // public GameObject[] items;
 
-    public static FooCheck instance;
+    public static ItemCount instance;
 
 
     public int foodvalue;

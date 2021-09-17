@@ -11,8 +11,8 @@ public class DropCounter : MonoBehaviour
         if (collision.gameObject.CompareTag("Finish"))
         {
             Debug.Log("VadaPawComplete2");
-            VadaSpawn.foodtemspawn = false;
-            VadaSpawn.vadapawcount = 0;
+            GameManager.foodtemspawn = false;
+            GameManager.vadapawcount = 0;
             Destroy(collision.gameObject);
         }
     }

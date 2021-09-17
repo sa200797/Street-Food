@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VadaSpawn : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public GameObject breadprefab, masalaprefab, vadapawprefab;
 
@@ -55,7 +55,7 @@ public class VadaSpawn : MonoBehaviour
         {
             if (hit.collider.tag == "Player")
             {
-                whatToSpawn = hit.collider.GetComponent<FooCheck>().Foodvalue;
+                whatToSpawn = hit.collider.GetComponent<ItemCount>().Foodvalue;
                 MakeVadapaw();
                 //Debug.Log("Shubham");
             }
