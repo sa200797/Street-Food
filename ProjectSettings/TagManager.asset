@@ -18,6 +18,12 @@ TagManager:
   - BackgroundTextLayer
   - DisabledTextLayer
   - DisabledLayer
+  - Search
+  - SecondryLayer
+  - Sandwich
+  - VadaPav
+  - C_Sandwich
+  - C_Vadapav
   layers:
   - Default
   - TransparentFX
@@ -54,4 +60,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: SystemUI
+    uniqueID: 291007281
     locked: 0
