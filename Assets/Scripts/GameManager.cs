@@ -20,7 +20,8 @@ public class GameManager : MonoBehaviour
 
 
     public Transform vada_dropppoint;
-    public Transform san_droppoint; 
+    public Transform san_droppoint;
+    public Transform toast_droppoint;
     
     public GameObject vadapaw; // to delete th clones;
 
@@ -59,29 +60,16 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+     
+        //TO Check on The Laptop or Unity Editor;
         if (Input.GetMouseButtonDown(0))
         {
             GetInfo();
             // JMRPointerManager.Instance.GetCurrentRay();
         }
-
-        
-
-       
     }
 
-    //private void OnMouseDown()
-    //{
 
-
-    //    whatToSpawn = FooCheck.instance.foodvalue;
-    //    MakeVadapaw();
-
-
-
-    //}
-
-    
 
     public void GetInfo()
     {
@@ -104,6 +92,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    #region Make Vada Pav
     public void MakeVadapaw()
     {
        
@@ -151,8 +141,9 @@ public class GameManager : MonoBehaviour
 
         }    
     }
-    
-    
+    #endregion
+
+    #region MakeSandwhich
     public void MakeSandwich()
     {
         if(!sandwichitemsspawn)
@@ -188,17 +179,6 @@ public class GameManager : MonoBehaviour
                         sandwichcount++;
                     }
                     break; 
-                case 4:
-                    if (sandwichcount == 3)
-                    {
-                        Destroy(sandwich);
-                        GameObject toastsandwich = Instantiate(toast_prefab, san_droppoint.transform.position, Quaternion.identity);
-                        sandwich = toastsandwich;
-                        sandwichcount++;
-                        Debug.Log(vadapawcount);
-
-                    }
-                    break;
                 default:
                     Debug.Log("Please follow the food itme menu");
                     break;
@@ -206,4 +186,16 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+
+    public void DropToast()
+    {
+            Destroy(sandwich);
+         Instantiate(toast_prefab,toast_droppoint.transform.position, transform.rotation);
+    }
+
+    #endregion 
+
+
+
 }

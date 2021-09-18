@@ -6,6 +6,9 @@ public class TostSandwich : MonoBehaviour
 {
     public Animator toast_anim;
 
+    
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -15,9 +18,12 @@ public class TostSandwich : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         if(collision.gameObject.CompareTag("BakeSandwich"))
         {
+            Debug.Log(">>>>>>>>>>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             toast_anim.SetBool("c_toaster", true);
+            StartCoroutine(OpenLid());
         }
     }
 

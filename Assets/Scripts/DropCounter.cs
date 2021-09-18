@@ -17,9 +17,9 @@ public class DropCounter : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("C_Sandwich"))
         {
-            Debug.Log("VadaPawComplete2");
-            GameManager.vadaitemspawn = false;
-            GameManager.vadapawcount = 0;
+            Debug.Log("Sandwich Complete");
+            GameManager.sandwichitemsspawn = false;
+            GameManager.sandwichcount = 0;
             Destroy(collision.gameObject);
         }
     }
