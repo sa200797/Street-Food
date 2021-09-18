@@ -20,6 +20,10 @@ TagManager:
   - DisabledLayer
   - Search
   - SecondryLayer
+  - Sandwich
+  - VadaPav
+  - C_Sandwich
+  - C_Vadapav
   layers:
   - Default
   - TransparentFX

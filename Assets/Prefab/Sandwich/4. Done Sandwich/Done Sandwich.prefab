@@ -931,9 +931,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2786684211010260796}
   - component: {fileID: 6900167898185447544}
+  - component: {fileID: 299171080421026721}
+  - component: {fileID: 6424371088993565755}
+  - component: {fileID: 3256507399287837695}
   m_Layer: 0
   m_Name: Done Sandwich
-  m_TagString: Untagged
+  m_TagString: C_Sandwich
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -973,6 +976,69 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &299171080421026721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7931594319333183303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1644185434, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HostTransform: {fileID: 0}
+  manipulationType: 1
+  AllowMovingInZ: 0
+  AllowScaling: 0
+  LookAtCamera: 0
+  DetachFromParent: 0
+  minScaleFactor: 0.4
+  maxScaleFactor: 2
+  minObjectDistance: 0.5
+  maxObjectDistance: 8
+  moveLerpTime: 0.001
+  rotateLerpTime: 0.001
+  scaleLerpTime: 0.001
+  OnManipulationStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnManipulationUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  OnManipulationComplete:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!54 &6424371088993565755
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7931594319333183303}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!65 &3256507399287837695
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7931594319333183303}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.13025059, y: 0.034787934, z: 0.1309306}
+  m_Center: {x: -0.06351351, y: -0.13866855, z: -0.05785586}
 --- !u!1 &8033968540633988283
 GameObject:
   m_ObjectHideFlags: 0

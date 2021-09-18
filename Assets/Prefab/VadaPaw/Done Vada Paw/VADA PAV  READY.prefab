@@ -382,7 +382,7 @@ GameObject:
   - component: {fileID: 3606369736782254053}
   m_Layer: 0
   m_Name: VADA PAV  READY
-  m_TagString: Finish
+  m_TagString: C_Vadapav
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -418,9 +418,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HostTransform: {fileID: 0}
   manipulationType: 1
-  AllowMovingInZ: 1
-  AllowScaling: 1
-  LookAtCamera: 1
+  AllowMovingInZ: 0
+  AllowScaling: 0
+  LookAtCamera: 0
   DetachFromParent: 0
   minScaleFactor: 0.4
   maxScaleFactor: 2
