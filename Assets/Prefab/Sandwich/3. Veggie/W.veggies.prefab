@@ -692,6 +692,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1116725975841095164}
   - component: {fileID: 8507705382387632824}
+  - component: {fileID: 821424733908187604}
+  - component: {fileID: 1184377241476209411}
+  - component: {fileID: -4409126542521818055}
   m_Layer: 0
   m_Name: W.veggies
   m_TagString: Untagged
@@ -734,6 +737,69 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!54 &821424733908187604
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5170569839023832455}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &1184377241476209411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5170569839023832455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1644185434, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HostTransform: {fileID: 0}
+  manipulationType: 1
+  AllowMovingInZ: 1
+  AllowScaling: 0
+  LookAtCamera: 1
+  DetachFromParent: 0
+  minScaleFactor: 0.4
+  maxScaleFactor: 2
+  minObjectDistance: 0.5
+  maxObjectDistance: 8
+  moveLerpTime: 0.001
+  rotateLerpTime: 0.001
+  scaleLerpTime: 0.001
+  OnManipulationStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnManipulationUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  OnManipulationComplete:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!65 &-4409126542521818055
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5170569839023832455}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7179108844714746157
 GameObject:
   m_ObjectHideFlags: 0
