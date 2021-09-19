@@ -26,6 +26,9 @@ TagManager:
   - C_Vadapav
   - BakeSandwich
   - Toast
+  - Pizza
+  - C_Pizza
+  - Bake
   layers:
   - Default
   - TransparentFX

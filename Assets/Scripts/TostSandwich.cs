@@ -18,10 +18,10 @@ public class TostSandwich : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+       
         if(collision.gameObject.CompareTag("BakeSandwich"))
         {
-            Debug.Log(">>>>>>>>>>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+           
             toast_anim.SetBool("c_toaster", true);
             StartCoroutine(OpenLid());
         }
