@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -49,7 +50,7 @@ public class GameManager : MonoBehaviour
     public static int pizzacount = 0;
 
 
-
+    public TextMeshProUGUI vadapavText;
 
     private void Awake()
     {
@@ -72,7 +73,12 @@ public class GameManager : MonoBehaviour
         vadaitemspawn = false;
         sandwichitemsspawn = false;
         playgame = false;
-      
+        vadapavtextUpdate();
+    }
+
+    public void vadapavtextUpdate()
+    {
+        vadapavText.text = "Vadapav x 1";
     }
 
     // Update is called once per frame
