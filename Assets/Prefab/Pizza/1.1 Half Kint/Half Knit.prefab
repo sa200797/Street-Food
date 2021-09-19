@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7873835521363198203}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2081379336028640130
 MeshFilter:
@@ -88,9 +88,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7873835521363198203}
+  - component: {fileID: 6856405526534609924}
+  - component: {fileID: 6681097000968255364}
   m_Layer: 0
   m_Name: Half Knit
-  m_TagString: Untagged
+  m_TagString: Pizza
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,11 +108,37 @@ Transform:
   m_LocalPosition: {x: -0.516, y: 0.4951, z: -0.047}
   m_LocalScale: {x: 0.05572045, y: 0.05572045, z: 0.05572045}
   m_Children:
-  - {fileID: 3359956240051815204}
   - {fileID: 6087009155305819534}
+  - {fileID: 3359956240051815204}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6856405526534609924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7354003382249757249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 690c4654058230548aa2574ef1df2301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodvalue: 3
+--- !u!65 &6681097000968255364
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7354003382249757249}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.1100583, y: 0.74085253, z: 3.387708}
+  m_Center: {x: -0.44742262, y: 0.2663761, z: 0.15722004}
 --- !u!1 &8412539578455489130
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +169,7 @@ Transform:
   m_LocalScale: {x: 236.00613, y: 211.7414, z: 100}
   m_Children: []
   m_Father: {fileID: 7873835521363198203}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2981833791381829927
 MeshFilter:

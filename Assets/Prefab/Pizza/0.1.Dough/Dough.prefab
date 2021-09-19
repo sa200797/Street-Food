@@ -122,9 +122,11 @@ GameObject:
   - component: {fileID: 7910106965474430530}
   - component: {fileID: 7863435951946946729}
   - component: {fileID: 178735224879749562}
+  - component: {fileID: 7802446908697603571}
+  - component: {fileID: 3608553250412018118}
   m_Layer: 0
   m_Name: Dough
-  m_TagString: Untagged
+  m_TagString: Pizza
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -190,3 +192,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &7802446908697603571
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8504229417014997578}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1.2972988, z: 2}
+  m_Center: {x: -0.19540444, y: 0.5912551, z: 6.570758}
+--- !u!114 &3608553250412018118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8504229417014997578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 690c4654058230548aa2574ef1df2301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodvalue: 2
