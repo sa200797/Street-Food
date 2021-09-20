@@ -5,70 +5,81 @@ using UnityEngine;
 public class DropCounter : MonoBehaviour
 {
 
+    public GameObject LevelMan;
+    public LevelManager levelmanager;
+
+    
+
+     public Transform startpoint;
+
+    public Transform snapPoint;
+
+    
+
+    void Start()
+    {
+        LevelMan = GameObject.Find("LevelManager");
+        levelmanager = LevelMan.GetComponent<LevelManager>();
+
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("VadaPawComplete1");
-        if (collision.gameObject.CompareTag("C_Vadapav")&& GameManager.instance.vadapavText.text == "Vadapav x 1")
+        
+       
+        if (collision.gameObject.CompareTag("C_Vadapav"))
         {
+                    
             Debug.Log("VadaPawComplete2");
             GameManager.vadaitemspawn = false;
             GameManager.vadapawcount = 0;
-            Destroy(collision.gameObject,3f);
-            StartCoroutine(ChangeText("Sandwich x 1"));
-            //GameManager.instance.vadapavText.text = "Sandwich x 1";
+
+            //tartpoint.position = collision.gameObject.transform.position;
+            //startpoint.position = GameObject.FindGameObjectWithTag("C_Vadapav").transform.position;
+           // startpoint.position = collision.transform.position;
+
+            collision.gameObject.transform.position = Vector3.Lerp(startpoint.position, snapPoint.position, 2f);
+            Destroy(collision.gameObject,10f);
+
+            CheckFood(FoodType.foodtype.vadapav);
+            
+
+            //check that list here which contain food type
+            // if its not there than its wrong food;
+
+
+
         }
-        else
-        {
-            GameManager.instance.vadapavText.text = "Wrong Recepie try again";
-            Destroy(collision.gameObject, 3f);
-            GameManager.instance.vadapavText.text = "Vadapav x 1";
-        }
-        if (collision.gameObject.CompareTag("C_Sandwich") && GameManager.instance.vadapavText.text == "Sandwich x 1")
+        if (collision.gameObject.CompareTag("C_Sandwich"))
         {
             Debug.Log("Sandwich Complete");
             GameManager.sandwichitemsspawn = false;
             GameManager.sandwichcount = 0;
             Destroy(collision.gameObject,3f);
-            StartCoroutine(ChangeText("Pizza x 1"));
-        }
-        else
-        {
-            GameManager.instance.vadapavText.text = "Wrong Recepie try again";
-            Destroy(collision.gameObject, 3f);
-            GameManager.instance.vadapavText.text = "Sandwich x 1";
         }
 
-        if (collision.gameObject.CompareTag("C_Pizza") && GameManager.instance.vadapavText.text == "Pizza x 1")
+        if(collision.gameObject.CompareTag("C_Pizza"))
         {
             Debug.Log("Pizza Complete");
             GameManager.pizzaitemspawn = false;
             GameManager.pizzacount = 0;
             Destroy(collision.gameObject, 3f);
-            StartCoroutine(ChangeText("Good Job!"));
-        }
-        else
-        {
-            GameManager.instance.vadapavText.text = "Wrong Recepie try again";
-            Destroy(collision.gameObject, 3f);
-            GameManager.instance.vadapavText.text = "Pizza x 1";
         }
     }
 
-    IEnumerator ChangeText(string a)
+
+
+    bool CheckFood(FoodType.foodtype checkfood)
     {
-        Debug.Log("corotune started");
-        GameManager.instance.vadapavText.text = "Completed";
-        yield return new WaitForSeconds(4f);
-        GameManager.instance.vadapavText.text = a;
-
+       return  levelmanager.orderList.Contains(checkfood); // bool return lar; 
     }
-
+  
 
     // Start is called before the first frame update
-    void Start()
-    {
+    //void Start()
+    //{
         
-    }
+    //}
 
     // Update is called once per frame
     void Update()

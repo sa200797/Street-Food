@@ -5,17 +5,26 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
 
-    public int ordercount;
+    public List<FoodType.foodtype> orderList;
 
-    public string vada, sandwhich, pizza;
-
-    public int foodcout;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        // put this block in for loop;
+
+        int totalnumberoffood = (int)FoodType.foodtype.NumberOfTypes;
+        int foodindex = Random.RandomRange(1, totalnumberoffood);
+        Debug.Log(foodindex);
+        //Debug.Log((int)FoodType.foodtype.NumberOfTypes);
+
+        FoodType.foodtype foodType = (FoodType.foodtype)foodindex;
+
+        Debug.Log(foodType + "??????????");
+
+        GenrateFood(foodType);
+       
     }
 
     // Update is called once per frame
@@ -24,19 +33,28 @@ public class LevelManager : MonoBehaviour
         
     }
 
-    public void IncreaseLevel()
+    public void GenrateFood(FoodType.foodtype food)
     {
-        switch(ordercount)
+        switch(food)
         {
-            case 1:
-                //Make Vada Paw;
-
-
-            break;
-
-                case 2:
-                //Make 2 vada pav;
+            case FoodType.foodtype.pizza:
+                Debug.Log("Make pizza");
+                orderList.Add(FoodType.foodtype.pizza);
+                break;
+            case FoodType.foodtype.vadapav:
+                Debug.Log("Make VadaPav");
+                orderList.Add(FoodType.foodtype.vadapav);
+                break;
+            case FoodType.foodtype.sandwich:
+                Debug.Log("Make Sandwhich");
+                orderList.Add(FoodType.foodtype.sandwich);
+                break;
+            default:
                 break;
         }
+
+
+
     }
+  
 }

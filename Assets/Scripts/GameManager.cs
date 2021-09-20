@@ -7,17 +7,26 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+
+   
+
     public static GameManager instance;
 
     public bool playgame;
-   
+
+
+    
+    public IngredientData vadapaw_I;
+    public IngredientData sandwich_I;
+    public IngredientData pizza_I;
+
 
     // [Header("Object For Vada Pav")]
-    public GameObject breadprefab, masalaprefab, vadapawprefab;
+    // public GameObject breadprefab, masalaprefab, vadapawprefab;
     // [Header("Object For SandWich")]
-    public GameObject san_breadprefab, breadsauce_prefab, veggie_prefab, toast_prefab;
+   // public GameObject san_breadprefab, breadsauce_prefab, veggie_prefab, toast_prefab;
     //[Header("Object For Pizza")]
-    public GameObject pizzadough_prefab, pizzakint_prefab, pizzabase_prefab, pizzasauce_prefab, pizzapep_prefab, pizzachesse_prefab, pizzaready_prefab;
+   // public GameObject pizzadough_prefab, pizzakint_prefab, pizzabase_prefab, pizzasauce_prefab, pizzapep_prefab, pizzachesse_prefab, pizzaready_prefab;
 
         
 
@@ -139,7 +148,7 @@ public class GameManager : MonoBehaviour
                 case 1:
                     if (vadapawcount == 0)
                     {
-                        GameObject bomb = Instantiate(breadprefab, vada_dropppoint.transform.position, Quaternion.identity);
+                        GameObject bomb = Instantiate(vadapaw_I.foodIngredient[0], vada_dropppoint.transform.position, Quaternion.identity);
                         vadapaw = bomb;
                         vadapawcount++;
                         Debug.Log(vadapawcount);
@@ -149,7 +158,7 @@ public class GameManager : MonoBehaviour
                     if (vadapawcount == 1)
                     {
                         Destroy(vadapaw);
-                        GameObject bomb2 = Instantiate(masalaprefab, vada_dropppoint.transform.position, Quaternion.identity);
+                        GameObject bomb2 = Instantiate(vadapaw_I.foodIngredient[1], vada_dropppoint.transform.position, Quaternion.identity);
                         vadapaw = bomb2;
                         vadapawcount++;
                         Debug.Log(vadapawcount);
@@ -158,8 +167,8 @@ public class GameManager : MonoBehaviour
                 case 3:
                     if (vadapawcount == 2)
                     {
-                        Destroy(vadapaw);
-                        Instantiate(vadapawprefab, vada_dropppoint.transform.position, Quaternion.identity);
+                       Destroy(vadapaw);
+                       Instantiate(vadapaw_I.foodIngredient[2], vada_dropppoint.transform.position, Quaternion.identity);
                         vadapawcount++;
                         Debug.Log(vadapawcount);
 
@@ -188,7 +197,7 @@ public class GameManager : MonoBehaviour
                 case 1:
                     if (sandwichcount == 0)
                     {
-                        GameObject bread = Instantiate(san_breadprefab, san_droppoint.transform.position, Quaternion.identity);
+                        GameObject bread = Instantiate(sandwich_I.foodIngredient[0], san_droppoint.transform.position, Quaternion.identity);
                         sandwichclone = bread;
                         sandwichcount++;
 
@@ -198,7 +207,7 @@ public class GameManager : MonoBehaviour
                     if (sandwichcount == 1)
                     {
                         Destroy(sandwichclone);
-                        GameObject breadsauce = Instantiate(breadsauce_prefab, san_droppoint.transform.position, Quaternion.identity);
+                        GameObject breadsauce = Instantiate(sandwich_I.foodIngredient[1], san_droppoint.transform.position, Quaternion.identity);
                         sandwichclone = breadsauce;
                         sandwichcount++;
 
@@ -208,7 +217,7 @@ public class GameManager : MonoBehaviour
                     if (sandwichcount == 2)
                     {
                         Destroy(sandwichclone);
-                        GameObject veggeprefab = Instantiate(veggie_prefab, san_droppoint.transform.position, Quaternion.identity);
+                        GameObject veggeprefab = Instantiate(sandwich_I.foodIngredient[2], san_droppoint.transform.position, Quaternion.identity);
                         sandwichclone = veggeprefab;
                         sandwichcount++;
                     }
@@ -225,14 +234,14 @@ public class GameManager : MonoBehaviour
     public void DropToast()
     {
         Destroy(sandwichclone);
-        Instantiate(toast_prefab, toast_droppoint.transform.position, transform.rotation);
+        Instantiate(sandwich_I.foodIngredient[3], toast_droppoint.transform.position, transform.rotation);
     }
 
     #endregion
 
 
 
-
+    #region Make Pizza
     public void MakePizza()
     {
         if (!pizzaitemspawn)
@@ -243,7 +252,7 @@ public class GameManager : MonoBehaviour
                 case 1:
                     if (pizzacount == 0)
                     {
-                        GameObject dough = Instantiate(pizzadough_prefab, pizza_droppoint.transform.position, Quaternion.identity);
+                        GameObject dough = Instantiate(pizza_I.foodIngredient[0], pizza_droppoint.transform.position, Quaternion.identity);
                         pizzaclone = dough;
                         pizzacount++;
 
@@ -253,7 +262,7 @@ public class GameManager : MonoBehaviour
                     if (pizzacount == 1)
                     {
                         Destroy(pizzaclone);
-                        GameObject pizzakint = Instantiate(pizzakint_prefab, pizza_droppoint.transform.position, Quaternion.identity);
+                        GameObject pizzakint = Instantiate(pizza_I.foodIngredient[1], pizza_droppoint.transform.position, Quaternion.identity);
                         pizzaclone = pizzakint;
                         pizzacount++;
 
@@ -263,7 +272,7 @@ public class GameManager : MonoBehaviour
                     if (pizzacount == 2)
                     {
                         Destroy(pizzaclone);
-                        GameObject pizzabase = Instantiate(pizzabase_prefab, pizza_droppoint.transform.position, Quaternion.identity);
+                        GameObject pizzabase = Instantiate(pizza_I.foodIngredient[2], pizza_droppoint.transform.position, Quaternion.identity);
                         pizzaclone = pizzabase;
                         pizzacount++;
                     }
@@ -272,7 +281,7 @@ public class GameManager : MonoBehaviour
                     if (pizzacount == 3)
                     {
                         Destroy(pizzaclone);
-                        GameObject pizzasauce = Instantiate(pizzasauce_prefab, pizza_droppoint.transform.position, Quaternion.identity);
+                        GameObject pizzasauce = Instantiate(pizza_I.foodIngredient[3], pizza_droppoint.transform.position, Quaternion.identity);
                         pizzaclone = pizzasauce;
                         pizzacount++;
                     }
@@ -281,7 +290,7 @@ public class GameManager : MonoBehaviour
                     if (pizzacount == 4)
                     {
                         Destroy(pizzaclone);
-                        GameObject pizzapep = Instantiate(pizzapep_prefab, pizza_droppoint.transform.position, Quaternion.identity);
+                        GameObject pizzapep = Instantiate(pizza_I.foodIngredient[4], pizza_droppoint.transform.position, Quaternion.identity);
                         pizzaclone = pizzapep;
                         pizzacount++;
                     }
@@ -290,7 +299,7 @@ public class GameManager : MonoBehaviour
                     if (pizzacount == 5)
                     {
                         Destroy(pizzaclone);
-                        GameObject chezse = Instantiate(pizzachesse_prefab, pizza_droppoint.transform.position, Quaternion.identity);
+                        GameObject chezse = Instantiate(pizza_I.foodIngredient[5], pizza_droppoint.transform.position, Quaternion.identity);
                         pizzaclone = chezse;
                         pizzacount++;
                     }
@@ -307,8 +316,10 @@ public class GameManager : MonoBehaviour
     public void BakePizza()
     {
         Destroy(pizzaclone);
-        Instantiate(pizzaready_prefab, pizza_droppoint.transform.position, Quaternion.identity);
+        Instantiate(pizza_I.foodIngredient[6], pizza_droppoint.transform.position, Quaternion.identity);
 
     }
+
+    #endregion
 }
 

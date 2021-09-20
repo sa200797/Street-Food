@@ -550,6 +550,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1977823733}
+    - target: {fileID: 6627717571967178765, guid: 633a1e3825e2f6e4c81ef8bf448d11cd,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1977823733}
     - target: {fileID: 9184605373608753297, guid: 633a1e3825e2f6e4c81ef8bf448d11cd,
         type: 3}
       propertyPath: m_Name
@@ -1132,6 +1137,50 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &469049408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 469049410}
+  - component: {fileID: 469049409}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &469049409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469049408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22e718a1cefb924e92e9bce2abba0d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderList: 
+--- !u!4 &469049410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469049408}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5369524, y: 0.51861334, z: 0.31191564}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &502070506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2537,7 +2586,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &971786486
 PrefabInstance:
@@ -2743,7 +2792,7 @@ Transform:
   m_LocalScale: {x: 0.062960476, y: 0.062960476, z: 0.062960476}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: -0.007, y: -359.066, z: 0.42100003}
 --- !u!114 &1008482685
 MonoBehaviour:
@@ -2758,12 +2807,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playgame: 0
-  breadprefab: {fileID: 4023617505885793596, guid: dfd1d74bcd75cb542af90bad15da52fc,
-    type: 3}
-  masalaprefab: {fileID: 942850680242988216, guid: f6f9b930c623c9a4db089932b8dd98b9,
-    type: 3}
-  vadapawprefab: {fileID: 8802997514190940365, guid: 48a4de65ba317b04d96f425a9513cf23,
-    type: 3}
+  vadapaw_I: {fileID: 11400000, guid: 3b6e5d849cb359a438d7cbfcb82348b8, type: 2}
+  sandwich_I: {fileID: 11400000, guid: 475b904fee0150d48a17a87751612f67, type: 2}
+  pizza_I: {fileID: 11400000, guid: 4bc3c3c2f7205b449b76911abc735f45, type: 2}
   san_breadprefab: {fileID: 8096450659790508658, guid: b8dc458b16b517a4682d5cc28804b7a2,
     type: 3}
   breadsauce_prefab: {fileID: 8046898783958029870, guid: dcbd3f157212c37449f712a2d94f6f10,
@@ -3664,6 +3710,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae2c81cd66168f4c91a4c8fb6055ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelMan: {fileID: 0}
+  levelmanager: {fileID: 469049409}
+  startpoint: {fileID: 569206362}
+  snapPoint: {fileID: 1939845545}
 --- !u!1001 &1397032985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3915,8 +3965,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.37701032, y: 0.015758222, z: 0.21411881}
-  m_Center: {x: -0.0006654551, y: 0.111830555, z: 0.088140525}
+  m_Size: {x: 0.37701032, y: 0.13737589, z: 0.21411881}
+  m_Center: {x: -0.0006654551, y: 0.17263907, z: 0.088140525}
 --- !u!1001 &1428700779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5174,6 +5224,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1926586742}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1939845544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1939845545}
+  m_Layer: 0
+  m_Name: Snap FoodItems_ Transform Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1939845545
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939845544}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.6235, y: 0.507, z: 0.731}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1943459302
 GameObject:
   m_ObjectHideFlags: 0
@@ -12073,7 +12153,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9134925676444712782}
   m_LocalRotation: {x: -0, y: 0.011369565, z: -0, w: 0.99993545}
-  m_LocalPosition: {x: -0.304, y: -0.2929, z: -0.181}
+  m_LocalPosition: {x: -0.304, y: -0.2929, z: -0.165}
   m_LocalScale: {x: 0.18079633, y: 0.18079631, z: 0.18079633}
   m_Children:
   - {fileID: 6664834226637449608}

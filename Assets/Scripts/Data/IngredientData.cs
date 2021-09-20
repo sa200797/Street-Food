@@ -5,16 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="IngredienData", menuName = "IndredientData",order =0)]
 public class IngredientData : ScriptableObject
 {
-    public IngredientType type;
-
-    [Header("Visuals")]
-    public Mesh Mesh;
+    public FoodType type;
 
 
+    public GameObject[] foodIngredient;
 
-    [Tooltip("UI Usage")]
-    public Sprite sprite;
-     
+    
 
     // Start is called before the first frame update
     void Start()

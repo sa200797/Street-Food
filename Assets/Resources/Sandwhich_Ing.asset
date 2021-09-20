@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9855efbada89ce741ab7c782db5a41e4, type: 3}
+  m_Name: Sandwhich_Ing
+  m_EditorClassIdentifier: 
+  type: {fileID: 11400000, guid: bf638fa088f0c174b8943366772a418d, type: 2}
+  foodIngredient:
+  - {fileID: 8096450659790508658, guid: b8dc458b16b517a4682d5cc28804b7a2, type: 3}
+  - {fileID: 8046898783958029870, guid: dcbd3f157212c37449f712a2d94f6f10, type: 3}
+  - {fileID: 5170569839023832455, guid: afdf64d271ec2994ca4d059af0c489f4, type: 3}
+  - {fileID: 7931594319333183303, guid: 743db29692eaa414b9d18cb39d9190e5, type: 3}
