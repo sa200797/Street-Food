@@ -38,11 +38,15 @@ public class DropCounter : MonoBehaviour
             //startpoint.position = GameObject.FindGameObjectWithTag("C_Vadapav").transform.position;
            // startpoint.position = collision.transform.position;
 
-            collision.gameObject.transform.position = Vector3.Lerp(startpoint.position, snapPoint.position, 2f);
-            Destroy(collision.gameObject,10f);
+            //collision.gameObject.transform.position = Vector3.Lerp(startpoint.position, snapPoint.position, 2f);
+
+            //collision.gameObject.transform.position = snapPoint.transform.position;
+
+            //Destroy(collision.gameObject,10f);
 
             CheckFood(FoodType.foodtype.vadapav);
-            
+
+
 
             //check that list here which contain food type
             // if its not there than its wrong food;
