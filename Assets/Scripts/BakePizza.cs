@@ -16,7 +16,7 @@ public class BakePizza : MonoBehaviour
 
     IEnumerator BakedPizza()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(3.0f);
         GameManager.instance.BakePizza();
 
     }

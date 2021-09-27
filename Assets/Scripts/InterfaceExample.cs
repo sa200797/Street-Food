@@ -12,6 +12,7 @@ public class InterfaceExample : MonoBehaviour, ISelectHandler,
     public void OnBackAction()
     {
         Debug.Log("OnBackAction");
+        UIManager.instance.BackButton();
     }
 
     public void OnFn1Action()

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
+public class Sound : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -13,13 +13,6 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-
-    public void PlayGame()
-    {
-        GameManager.instance.playgame = true;
         
     }
 }

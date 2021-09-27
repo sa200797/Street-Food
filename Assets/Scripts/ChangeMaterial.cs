@@ -24,7 +24,8 @@ public class ChangeMaterial : MonoBehaviour
 
     IEnumerator ChangeToastMaterial()
     {
-        yield return new WaitForSeconds(0.5f);
+       
+        yield return new WaitForSeconds(2.0f);
         GameManager.instance.DropToast();
 
     }

@@ -59,7 +59,31 @@ public class GameManager : MonoBehaviour
     public static int pizzacount = 0;
 
 
-    public TextMeshProUGUI vadapavText;
+
+
+    public Transform playerspawnPoint;
+
+    public GameObject player;
+
+
+
+
+    [Header("Score Value")]
+    public  static int amount;
+    public int price
+    {
+        get { return amount; }
+
+        set
+        {
+            amount = value;
+        }
+    }
+
+   
+
+
+
 
     private void Awake()
     {
@@ -79,16 +103,19 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("JMRMixedReality");
+        player.transform.position = playerspawnPoint.position;
+
+
         vadaitemspawn = false;
         sandwichitemsspawn = false;
         playgame = false;
-        vadapavtextUpdate();
+
+        
+        
     }
 
-    public void vadapavtextUpdate()
-    {
-        vadapavText.text = "Vadapav x 1";
-    }
+   
 
     // Update is called once per frame
     void Update()
@@ -170,6 +197,7 @@ public class GameManager : MonoBehaviour
                        Destroy(vadapaw);
                        Instantiate(vadapaw_I.foodIngredient[2], vada_dropppoint.transform.position, Quaternion.identity);
                         vadapawcount++;
+                        SoundManager.instance.SoundPlay_FD();
                         Debug.Log(vadapawcount);
 
                     }
@@ -230,12 +258,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
+    public void DeleteSandwich()
+    {
+       
+    }
     public void DropToast()
     {
-        Destroy(sandwichclone);
-        Instantiate(sandwich_I.foodIngredient[3], toast_droppoint.transform.position, transform.rotation);
+        Destroy(sandwichclone,1);
+        Instantiate(sandwich_I.foodIngredient[3], toast_droppoint.transform.position, Quaternion.Euler(new Vector3(0, -30, 0)));
+        SoundManager.instance.SoundPlay_FD();
     }
+   
 
     #endregion
 
@@ -317,6 +350,7 @@ public class GameManager : MonoBehaviour
     {
         Destroy(pizzaclone);
         Instantiate(pizza_I.foodIngredient[6], pizza_droppoint.transform.position, Quaternion.identity);
+        SoundManager.instance.SoundPlay_FD();
 
     }
 

@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Splash Screen.unity
+    guid: 689cb0c97de27a84eadb0e17191b1484
+  - enabled: 0
     path: Assets/Scenes/VADA test1.unity
     guid: 40ed0a5e48cfa5442b48a130c1388461
+  - enabled: 1
+    path: Assets/Scenes/ForTest.unity
+    guid: 0e032b81117a6d44fa3e71655f493255
   m_configObjects: {}

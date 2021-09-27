@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class TostSandwich : MonoBehaviour
 {
-    public Animator toast_anim;
+     Animator toast_anim;
+
+    public static Collider sandwich_coll;
 
     
-
 
 
     // Start is called before the first frame update
     void Start()
     {
+        sandwich_coll = GetComponent<Collider>();
         toast_anim = GetComponentInChildren<Animator>();    
     }
 
@@ -21,7 +23,8 @@ public class TostSandwich : MonoBehaviour
        
         if(collision.gameObject.CompareTag("BakeSandwich"))
         {
-           
+            sandwich_coll.enabled = false;
+          
             toast_anim.SetBool("c_toaster", true);
             StartCoroutine(OpenLid());
         }
@@ -30,7 +33,7 @@ public class TostSandwich : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+      
     }
 
 
@@ -38,6 +41,7 @@ public class TostSandwich : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         toast_anim.SetBool("c_toaster", false);
+        
 
         
 

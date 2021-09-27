@@ -754,7 +754,7 @@ MonoBehaviour:
   manipulationType: 1
   AllowMovingInZ: 1
   AllowScaling: 0
-  LookAtCamera: 1
+  LookAtCamera: 0
   DetachFromParent: 0
   minScaleFactor: 0.4
   maxScaleFactor: 2
@@ -813,8 +813,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 103e9ed9f06407248b884ad7b22e6b05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toastMaterial: {fileID: 0}
-  c_toastMaterial: {fileID: 2100000, guid: e45342309222f7344bb5c4037df6662a, type: 2}
 --- !u!1 &7179108844714746157
 GameObject:
   m_ObjectHideFlags: 0

@@ -236,7 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HostTransform: {fileID: 0}
   manipulationType: 1
-  AllowMovingInZ: 0
+  AllowMovingInZ: 1
   AllowScaling: 0
   LookAtCamera: 0
   DetachFromParent: 0
