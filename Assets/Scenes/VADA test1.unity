@@ -5725,6 +5725,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 550fec9d5e639d249935e20529b51b5d, type: 2}
   - {fileID: 2100000, guid: d908f6684680cb247bc18aa2e12072ca, type: 2}
   - {fileID: 2100000, guid: 03558d6c946b442429bb151a9be73038, type: 2}
+  timertext: {fileID: 0}
 --- !u!4 &933188281
 Transform:
   m_ObjectHideFlags: 0
@@ -7848,6 +7849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelMan: {fileID: 0}
   levelmanager: {fileID: 469049409}
+  transformPoint: {fileID: 543450652323013697}
 --- !u!1001 &1397032985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8087,7 +8089,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d7a1a901af77a45b2a78a60d87ea2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 0}
 --- !u!65 &1413812115
 BoxCollider:
   m_ObjectHideFlags: 0

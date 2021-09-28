@@ -12,7 +12,9 @@ public class DropCounter : MonoBehaviour
     bool move;
 
     public static int ordervalidity;
-   
+
+
+    public Transform transformPoint;
 
     void Start()
     {
@@ -37,9 +39,10 @@ public class DropCounter : MonoBehaviour
             GameManager.vadapawcount = 0;
 
             GameManager.amount = 10;
-           
+          //  collision.gameObject.GetComponent<JMRManipulation2>().enabled = false;
+            collision.gameObject.transform.position = Vector3.MoveTowards(collision.gameObject.transform.position, transform.position, 1);
 
-            Destroy(collision.gameObject,3f);
+            //Destroy(collision.gameObject,3f);
 
            // CheckFood(FoodType.foodtype.vadapav);
             MakeFood(FoodType.foodtype.VadaPav);

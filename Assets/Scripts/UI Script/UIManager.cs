@@ -63,6 +63,10 @@ public class UIManager : MonoBehaviour
 
 
 
+    [Header("Timer UI")]
+    public TextMeshProUGUI timertext;
+
+
     bool fooddrop = false;
 
     float scrollSpeed = 0.5f;
