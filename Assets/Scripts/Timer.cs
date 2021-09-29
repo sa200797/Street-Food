@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -32,7 +33,8 @@ public class Timer : MonoBehaviour
                 Debug.Log("Game Over");
                 timeRemaning = 0;
                 timerIsRunning = false;
-                
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
             }
 
             DisplayTimer(timeRemaning);

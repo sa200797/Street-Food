@@ -102,14 +102,14 @@ public class UIManager : MonoBehaviour
         totalAmoumt.text = GameManager.amount.ToString();
         ordercomplete.text = " ";
 ;
-            
-        ////jioGlasses = GameObject.Find("JMRRenderer");
 
-        ////if(jioGlasses != null)
-        ////{
-        ////    UI_canvas.transform.parent = jioGlasses.transform;
-        ////      UI_canvas.transform.localPosition = new Vector3(transform.position.x, -0.025f, transform.position.z);
-        ////}
+        jioGlasses = GameObject.Find("JMRRenderer");
+
+        if (jioGlasses != null)
+        {
+            UI_canvas.transform.parent = jioGlasses.transform;
+            //UI_canvas.transform.localPosition = new Vector3(transform.position.x, -0.025f, transform.position.z);
+        }
 
 
     }
