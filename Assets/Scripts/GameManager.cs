@@ -247,7 +247,10 @@ public class GameManager : MonoBehaviour
                     {
                         Destroy(sandwichclone);
                         GameObject veggeprefab = Instantiate(sandwich_I.foodIngredient[2], san_droppoint.transform.position, Quaternion.identity);
+                       
                         sandwichclone = veggeprefab;
+                      
+
                         sandwichcount++;
                     }
                     break;
@@ -259,13 +262,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void DeleteSandwich()
-    {
-       
-    }
+ 
     public void DropToast()
     {
-        Destroy(sandwichclone,1);
+        Destroy(sandwichclone,0.2f);
         Instantiate(sandwich_I.foodIngredient[3], toast_droppoint.transform.position, Quaternion.Euler(new Vector3(0, -70, 0)));
         SoundManager.instance.SoundPlay_FD();
     }

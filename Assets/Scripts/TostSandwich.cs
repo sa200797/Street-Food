@@ -8,6 +8,7 @@ public class TostSandwich : MonoBehaviour
 
     public static Collider sandwich_coll;
 
+   
     
 
 
@@ -24,7 +25,8 @@ public class TostSandwich : MonoBehaviour
         if(collision.gameObject.CompareTag("BakeSandwich"))
         {
             sandwich_coll.enabled = false;
-          
+            //Vector3.MoveTowards(collision.gameObject.transform.position, point.transform.position, 1);
+        
             toast_anim.SetBool("c_toaster", true);
             StartCoroutine(OpenLid());
         }
