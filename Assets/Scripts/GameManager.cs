@@ -296,7 +296,7 @@ public class GameManager : MonoBehaviour
                     if (pizzacount == 1)
                     {
                         Destroy(pizzaclone);
-                        GameObject pizzakint = Instantiate(pizza_I.foodIngredient[1], pizza_droppoint.transform.position, Quaternion.identity);
+                        GameObject pizzakint = Instantiate(pizza_I.foodIngredient[1], pizza_droppoint.transform.position, Quaternion.Euler(new Vector3(0, 90, 0)));
                         pizzaclone = pizzakint;
                         pizzacount++;
 
