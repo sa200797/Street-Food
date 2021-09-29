@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TostSandwich : MonoBehaviour
 {
-     Animator toast_anim;
+     public  Animator toast_anim;
 
     public static Collider sandwich_coll;
 

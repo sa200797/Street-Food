@@ -5,10 +5,7 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
 
-
-
-
-
+   
     public List<FoodType.foodtype> orderList;
 
 //    int numberoforders = 10;
@@ -20,7 +17,9 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      //  Application.targetFrameRate = 60;
+       
+
+        //  Application.targetFrameRate = 60;
         // put this block in for loop;
 
         //for(int o =0; o < numberoforders; o++)
@@ -39,7 +38,7 @@ public class LevelManager : MonoBehaviour
         //    GenrateFood(foodType);
         //}
 
-       
+
 
     }
 
@@ -64,9 +63,25 @@ public class LevelManager : MonoBehaviour
     public void UiUpdate()
     {
         UIManager.instance.orderid.text = "Order No-" + " " + GetOrderCount().ToString();
-        UIManager.instance.orderDetails.text = GetFoodName()+ " " + "X"+" "+"1";
-    }
 
+        // UIManager.instance.orderDetails.text = GetFoodName() + " " + "X" + " " + "1" + "--Rs" + 0010;
+
+        if (orderList[0] == FoodType.foodtype.VadaPav)
+        {
+            UIManager.instance.orderDetails.text = GetFoodName() + " " + "X" + " " + "1" + "--Rs10".ToString();
+            Debug.Log("10-----------");
+        }
+        else if (orderList[0] == FoodType.foodtype.Sandwich)
+        {
+            UIManager.instance.orderDetails.text = GetFoodName() + " " + "X" + " " + "1" + "--Rs30".ToString();
+            Debug.Log("30-----------");
+        }
+        else if (orderList[0] == FoodType.foodtype.Pizza)
+        {
+            UIManager.instance.orderDetails.text = GetFoodName() + " " + "X" + " " + "1" + "--Rs50".ToString();
+            
+        }
+    }
     public void GenrateFood(FoodType.foodtype food)
     {
         switch(food)
@@ -74,10 +89,12 @@ public class LevelManager : MonoBehaviour
             case FoodType.foodtype.Pizza:
                 Debug.Log("Make pizza");
                 orderList.Add(FoodType.foodtype.Pizza);
+              
                 break;
             case FoodType.foodtype.VadaPav:
                 Debug.Log("Make VadaPav");
                 orderList.Add(FoodType.foodtype.VadaPav);
+              
                 break;
             case FoodType.foodtype.Sandwich:
                 Debug.Log("Make Sandwhich");

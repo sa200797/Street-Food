@@ -15,6 +15,8 @@ public class FoodType : ScriptableObject
         NumberOfTypes  //to get the number of elements
     }
 
+   
+
     public foodtype f_type;
 
 

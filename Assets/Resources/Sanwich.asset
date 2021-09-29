@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2cd45567878ea343aa68277218a5723, type: 3}
   m_Name: Sanwich
   m_EditorClassIdentifier: 
+  price: 30
   f_type: 2

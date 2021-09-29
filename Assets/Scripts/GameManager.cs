@@ -80,7 +80,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-   
+
+    
 
 
 
@@ -265,7 +266,7 @@ public class GameManager : MonoBehaviour
     public void DropToast()
     {
         Destroy(sandwichclone,1);
-        Instantiate(sandwich_I.foodIngredient[3], toast_droppoint.transform.position, Quaternion.Euler(new Vector3(0, -30, 0)));
+        Instantiate(sandwich_I.foodIngredient[3], toast_droppoint.transform.position, Quaternion.Euler(new Vector3(0, -70, 0)));
         SoundManager.instance.SoundPlay_FD();
     }
    

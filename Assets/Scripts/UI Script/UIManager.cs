@@ -18,9 +18,7 @@ public class UIManager : MonoBehaviour
     GameObject openShop_btn;
 
 
-    [Header("Food TakeOut  Time")]
-    [SerializeField]
-    Image timer_Img;
+
 
    // float fill_time;
 
@@ -33,7 +31,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Sound ON/OFF Data")]
     [SerializeField]
-    Image image;
+    Image counterSound;
     [SerializeField]
     Sprite muteImage;
     [SerializeField]
@@ -51,7 +49,7 @@ public class UIManager : MonoBehaviour
     bool backscreen;
 
     [SerializeField]
-    GameObject backpannel;
+    GameObject pause_backpannel;
 
 
     [Header("Food Dekliver Option")]
@@ -66,6 +64,12 @@ public class UIManager : MonoBehaviour
     [Header("Timer UI")]
     public TextMeshProUGUI timertext;
 
+    [Header("Total Amount")]
+    public TextMeshProUGUI totalAmoumt;
+
+
+    [Header("Order Complete")]
+    public TextMeshProUGUI ordercomplete;
 
     bool fooddrop = false;
 
@@ -95,15 +99,17 @@ public class UIManager : MonoBehaviour
         sources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
 
 
-        timer_Img.fillAmount = 0;
+        totalAmoumt.text = GameManager.amount.ToString();
+        ordercomplete.text = " ";
+;
+            
+        ////jioGlasses = GameObject.Find("JMRRenderer");
 
-        jioGlasses = GameObject.Find("JMRRenderer");
-
-        if(jioGlasses != null)
-        {
-            UI_canvas.transform.parent = jioGlasses.transform;
-              UI_canvas.transform.localPosition = new Vector3(transform.position.x, -0.025f, transform.position.z);
-        }
+        ////if(jioGlasses != null)
+        ////{
+        ////    UI_canvas.transform.parent = jioGlasses.transform;
+        ////      UI_canvas.transform.localPosition = new Vector3(transform.position.x, -0.025f, transform.position.z);
+        ////}
 
 
     }
@@ -114,36 +120,47 @@ public class UIManager : MonoBehaviour
         if(fooddrop)
         ChangeMaterial();
 
-       // Dropfood_Timer(5.0f);
+        // Dropfood_Timer(5.0f);
+
+
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            BackButton();
+        }
+
+
     }
 
-   
+
 
 
     public void PlayGame()
     {
         Debug.Log("Call ho Raha hai baba");
         openShop_btn.SetActive(false);
+
         GameManager.instance.playgame = true;
-        
+        Timer.timerIsRunning = true;
+
     }
 
     public void Dropfood_Timer(float fill_time)
     {
-       Debug.Log("Timer>>>>>>>>>>???????/??");
-        image.fillAmount = Math.Abs(fill_time - 3.0f) / 3.0f;
+      // Debug.Log("Timer>>>>>>>>>>???????/??");
+        //image.fillAmount = Math.Abs(fill_time - 3.0f) / 3.0f;
     }
 
 
 
 
-    public void OnOFFSound()
+    public void CounterOnOFFSound()
     {
         sound = !sound;
 
         if (!sound)
         {
-            image.sprite = muteImage;
+            counterSound.sprite = muteImage;
 
             sources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
             foreach (AudioSource music in sources)
@@ -155,7 +172,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            image.sprite = soundImage;
+            counterSound.sprite = soundImage;
             sources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
             foreach (AudioSource music in sources)
             {
@@ -167,6 +184,8 @@ public class UIManager : MonoBehaviour
     }
 
 
+   
+
     public void BackButton()
     {
         backscreen = !backscreen;
@@ -174,20 +193,24 @@ public class UIManager : MonoBehaviour
         if(backscreen)
         {
             Time.timeScale = 0;
-            backpannel.SetActive(true);
+            pause_backpannel.SetActive(true);
 
         }
         else
         {
             Time.timeScale = 1;
-            backpannel.SetActive(false);
+            pause_backpannel.SetActive(false);
         }
     }
 
+    public void BackButtonPause()
+    {
+        Time.timeScale = 1;
+    }
 
     
 
-    #region Dislay
+    #region Dislay Material
     public void ChangeMaterial()
     {
         Debug.Log("Change Material");

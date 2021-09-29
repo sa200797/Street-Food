@@ -16,12 +16,24 @@ public class DropCounter : MonoBehaviour
 
     public Transform transformPoint;
 
+    int score;
+
+    [Header("Drop Objects")]
+    [SerializeField]
+    GameObject foodParcel;
+    [SerializeField]
+    GameObject pizzaBox;
+    int itemtype =0;
+
+
+
+
     void Start()
     {
         LevelMan = GameObject.Find("LevelManager");
         levelmanager = LevelMan.GetComponent<LevelManager>();
         move = true;
-
+       
 
         //Move this to LevelManager 
         levelmanager.UiUpdate();
@@ -33,19 +45,21 @@ public class DropCounter : MonoBehaviour
        
         if (collision.gameObject.CompareTag("C_Vadapav"))
         {
-                    
+            GameManager.amount = 10;
             Debug.Log("VadaPawComplete2");
             GameManager.vadaitemspawn = false;
             GameManager.vadapawcount = 0;
 
-            GameManager.amount = 10;
-          //  collision.gameObject.GetComponent<JMRManipulation2>().enabled = false;
-            collision.gameObject.transform.position = Vector3.MoveTowards(collision.gameObject.transform.position, transform.position, 1);
+            
+            //  collision.gameObject.GetComponent<JMRManipulation2>().enabled = false;
+            // collision.gameObject.transform.position = Vector3.MoveTowards(collision.gameObject.transform.position, transform.position, 1);
 
-            //Destroy(collision.gameObject,3f);
+            Destroy(collision.gameObject);
+           
 
            // CheckFood(FoodType.foodtype.vadapav);
             MakeFood(FoodType.foodtype.VadaPav);
+           
 
             //Debug.Log(CheckFood(FoodType.foodtype.vadapav)+ "11225");
 
@@ -57,14 +71,16 @@ public class DropCounter : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("C_Sandwich"))
         {
+            GameManager.amount = 30;
             Debug.Log("Sandwich Complete");
             GameManager.sandwichitemsspawn = false;
             GameManager.sandwichcount = 0;
-            Destroy(collision.gameObject,3f);
+           
+            Destroy(collision.gameObject);
             //CheckFood(FoodType.foodtype.sandwich);
             // MakeFood();
             MakeFood(FoodType.foodtype.Sandwich);
-            GameManager.amount = 30;
+           
             // TostSandwich.active_sandcol = true;
             TostSandwich.sandwich_coll.enabled = true;
 
@@ -73,13 +89,16 @@ public class DropCounter : MonoBehaviour
 
         if(collision.gameObject.CompareTag("C_Pizza"))
         {
+            GameManager.amount = 50;
             Debug.Log("Pizza Complete");
             GameManager.pizzaitemspawn = false;
             GameManager.pizzacount = 0;
-            Destroy(collision.gameObject, 3f);
+            Destroy(collision.gameObject);
+
+          
             //CheckFood(FoodType.foodtype.pizza);
             MakeFood(FoodType.foodtype.Pizza);
-            GameManager.amount = 50;
+         
 
 
 
@@ -106,21 +125,68 @@ public class DropCounter : MonoBehaviour
 
         if (levelmanager.orderList[0] == food)
         {
+            
+            if(levelmanager.orderList[0] == FoodType.foodtype.Pizza)
+            {
+                itemtype = 2;
+            }
+            else
+            {
+                itemtype = 1;
+            }
             levelmanager.orderList.Remove(food);
-            levelmanager.ordercount++;
+            score += GameManager.amount;
+            UIManager.instance.totalAmoumt.text = score.ToString(); 
 
-            //Move this to level Manager and Make a function then call here;
-            levelmanager.UiUpdate();
+            levelmanager.ordercount++;
             ordervalidity = 1;
+            UIManager.instance.ordercomplete.text = "Order Complete!! Thankyou ";
+
+                       
+            UIManager.instance.ChangeMaterial();
             StartCoroutine(FoodDropComplete());
+            // StartCoroutine(IncreaseLevel());
+            //Invoke("IncreaseLevel", 1.0f);
+
+            switch (itemtype)
+            {
+                case 1:
+                    foodParcel.SetActive(true);
+
+                    break;
+                case 2:
+                    pizzaBox.SetActive(true);
+                    break;
+                default:
+                    //foodParcel.SetActive(false);
+                    // pizzaBox.SetActive(false);
+                    break;
+
+
+            }
+
         }
         else
         {
+            
             Debug.Log("Wrong Food");
             ordervalidity = 2;
+            UIManager.instance.ordercomplete.text = "Wrong Order Delivered";
+            UIManager.instance.ChangeMaterial();
             StartCoroutine(FoodDropComplete());
         }
        
+        // void  IncreaseLevel()
+        //{
+          
+        //   // yield return new WaitForSeconds(4.0f);
+        //    levelmanager.UiUpdate();
+        //    ordervalidity = 1;
+        //    UIManager.instance.ordercomplete.text = "New Order";
+           
+
+        //}
+
 
         //if (CheckFood(FoodType.foodtype.vadapav) == true)
         //{
@@ -158,13 +224,19 @@ public class DropCounter : MonoBehaviour
 
     IEnumerator FoodDropComplete()
     {
-        UIManager.instance.ChangeMaterial();
+        //yield return new WaitForSeconds(1.0f);
+        
 
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(4.0f);
+        levelmanager.UiUpdate();
+        UIManager.instance.ordercomplete.text = "New Order";
         ordervalidity = 0;
-        UIManager.instance.ChangeMaterial();
-       
-       
+        foodParcel.SetActive(false);
+        pizzaBox.SetActive(false);
+        itemtype = 0;
+        // UIManager.instance.ChangeMaterial();
+
+
     }
    
 
