@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class ChangeMaterial : MonoBehaviour
 {
-    
-   
+  //  GameObject Droppoint;
+   // [SerializeField]
+   // Transform point;
 
     private void Start()
     {
-      
+        //Droppoint = GameObject.Find("Toast DropPoint");
+       // point.transform.position = Droppoint.transform.position;
       
     }
 
@@ -17,7 +19,7 @@ public class ChangeMaterial : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Toast"))
         {
-
+           // Vector3.MoveTowards(collision.gameObject.transform.position, point.transform.position, 1);
             StartCoroutine(ChangeToastMaterial());
         }
     }
