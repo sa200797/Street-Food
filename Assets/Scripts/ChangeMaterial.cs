@@ -19,6 +19,7 @@ public class ChangeMaterial : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Toast"))
         {
+            Destroy(gameObject);
            // Vector3.MoveTowards(collision.gameObject.transform.position, point.transform.position, 1);
             StartCoroutine(ChangeToastMaterial());
         }

@@ -54,4 +54,11 @@ public class Timer : MonoBehaviour
 
 
     }
+
+
+    public float AddTimer(float time)
+    {
+        timeRemaning = timeRemaning + time;
+        return timeRemaning;
+    }
 }

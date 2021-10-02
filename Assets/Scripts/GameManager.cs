@@ -255,7 +255,7 @@ public class GameManager : MonoBehaviour
                     }
                     break;
                 default:
-                    Debug.Log("Please follow the food itme menu");
+                    Debug.Log("Please follow the food item menu");
                     break;
 
             }
@@ -265,7 +265,7 @@ public class GameManager : MonoBehaviour
  
     public void DropToast()
     {
-        Destroy(sandwichclone,0.2f);
+        //Destroy(sandwichclone,0f);
         Instantiate(sandwich_I.foodIngredient[3], toast_droppoint.transform.position, Quaternion.Euler(new Vector3(0, -70, 0)));
         SoundManager.instance.SoundPlay_FD();
     }

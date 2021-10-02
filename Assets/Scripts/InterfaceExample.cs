@@ -1,19 +1,32 @@
 ﻿using JMRSDK.InputModule;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 public class InterfaceExample : MonoBehaviour, ISelectHandler,
   ISelectClickHandler, IFocusable, ISwipeHandler, ITouchHandler,
   IBackHandler, IMenuHandler, IVoiceHandler, IFn1Handler,
   IFn2Handler, IManipulationHandler
 {
+
+   
+
     void Start()
     {
+
         JMRInputManager.Instance.AddGlobalListener(gameObject);
+
+      
     }
     public void OnBackAction()
     {
-        Debug.Log("OnBackAction");
-        UIManager.instance.BackButton();
+        UIManager.instance.JioBackButton();
+ 
+
+       
     }
+
+
+
 
     public void OnFn1Action()
     {
