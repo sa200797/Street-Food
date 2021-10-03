@@ -69,12 +69,12 @@ public class LevelManager : MonoBehaviour
         if (orderList[0] == FoodType.foodtype.VadaPav)
         {
             UIManager.instance.orderDetails.text = GetFoodName() + " " + "X" + " " + "1" + "--Rs10".ToString();
-            Debug.Log("10-----------");
+            //Debug.Log("10-----------");
         }
         else if (orderList[0] == FoodType.foodtype.Sandwich)
         {
             UIManager.instance.orderDetails.text = GetFoodName() + " " + "X" + " " + "1" + "--Rs30".ToString();
-            Debug.Log("30-----------");
+           // Debug.Log("30-----------");
         }
         else if (orderList[0] == FoodType.foodtype.Pizza)
         {

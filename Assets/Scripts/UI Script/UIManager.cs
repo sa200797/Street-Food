@@ -163,7 +163,7 @@ public class UIManager : MonoBehaviour
     {
         Debug.Log("Call ho Raha hai baba");
         openShop_btn.SetActive(false);
-
+       // Time.timeScale = 1;
         GameManager.instance.playgame = true;
         Timer.timerIsRunning = true;
 
@@ -266,7 +266,10 @@ public class UIManager : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1;
-        UI_canvas.transform.parent = null;
+        // UI_canvas.transform.parent = null;
+        GameManager.vadapawcount = 0;
+        GameManager.sandwichcount = 0;
+        GameManager.pizzacount = 0;
         SavaData.instance.ordercount = 0;
         SavaData.instance.money = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -340,7 +343,7 @@ public class UIManager : MonoBehaviour
         current_mat = mat[num];
         Display.GetComponent<Renderer>().material = current_mat;
         current_mat.SetTextureOffset("_MainTex", new Vector2(offset, 0));
-        Debug.Log("Thankyou" + ">>>>>>>>>>>>>>>><<<<<<<<<<<");
+       // Debug.Log("Thankyou" + ">>>>>>>>>>>>>>>><<<<<<<<<<<");
     }
     #endregion
 }
