@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -17,6 +18,18 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject openShop_btn;
 
+    [Header("Main Game UI")]
+    [SerializeField]
+    GameObject MainUIPannel;
+
+
+    [Header("How To Play")]
+    [SerializeField]
+    GameObject howtoplay1;
+    [SerializeField]
+    GameObject howtoplay2;
+    [SerializeField]
+    GameObject howtoPlay_GamePlayCanvas;
 
 
 
@@ -48,8 +61,8 @@ public class UIManager : MonoBehaviour
 
     bool backscreen;
 
-    [SerializeField]
-    GameObject pause_backpannel;
+   // [SerializeField]
+    public GameObject pause_backpannel;
 
 
     [Header("Food Dekliver Option")]
@@ -74,7 +87,12 @@ public class UIManager : MonoBehaviour
     bool fooddrop = false;
 
     float scrollSpeed = 0.5f;
-    
+
+
+    bool howtoplay_cc;
+    bool gameplaycanvas_howtoplay;
+        
+
 
     private void Awake()
     {
@@ -87,6 +105,9 @@ public class UIManager : MonoBehaviour
         {
             Destroy(this);
         }
+
+        howtoplay_cc = false;
+        gameplaycanvas_howtoplay = false;
     }
 
     // Start is called before the first frame update
@@ -101,15 +122,18 @@ public class UIManager : MonoBehaviour
 
         totalAmoumt.text = GameManager.amount.ToString();
         ordercomplete.text = " ";
-;
 
+       // UI_canvas = GameObject.Find("GamePlay Canvas");
+              
         jioGlasses = GameObject.Find("JMRRenderer");
-
-        if (jioGlasses != null)
-        {
-            UI_canvas.transform.parent = jioGlasses.transform;
-            //UI_canvas.transform.localPosition = new Vector3(transform.position.x, -0.025f, transform.position.z);
-        }
+       // UI_canvas.transform.parent = jioGlasses.transform;
+        
+      
+        //if (jioGlasses != null)
+        //{
+        //    UI_canvas.transform.parent = jioGlasses.transform;
+        //    //UI_canvas.transform.localPosition = new Vector3(transform.position.x, -0.025f, transform.position.z);
+        //}
 
 
     }
@@ -126,7 +150,7 @@ public class UIManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            BackButton();
+            JioBackButton();
         }
 
 
@@ -183,32 +207,108 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void JioBackButton()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        Debug.Log("OnBackAction");
+        if (scene.name == "Environment full")
+        {
+            if (howtoplay_cc == true)
+            {
+                UIManager.instance.Deactivied_HowTOPlayPannel();
+               
+            }
+            else
+            {
+                if(gameplaycanvas_howtoplay ==true)
+                {
+                    deactive_GamePlayCanvasHTP();
+                }
+                else
+                {
+                    UIManager.instance.BackButton();
+                }
 
+               
+            }
+
+           
+        }
+        else
+        {
+            Application.Quit();
+        }
+    }
    
 
     public void BackButton()
     {
+        ///pause_backpannel = GameObject.FindGameObjectWithTag("Pause");
+
         backscreen = !backscreen;
 
         if(backscreen)
         {
             Time.timeScale = 0;
+
+            GameManager.instance.playgame = false;
             pause_backpannel.SetActive(true);
 
         }
         else
         {
             Time.timeScale = 1;
+            GameManager.instance.playgame = true;
             pause_backpannel.SetActive(false);
         }
     }
 
-    public void BackButtonPause()
+    public void RestartGame()
     {
         Time.timeScale = 1;
+        UI_canvas.transform.parent = null;
+        SavaData.instance.ordercount = 0;
+        SavaData.instance.money = 0;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    
+
+    #region How To Pannel Mech 
+    public void Deactivied_HowTOPlayPannel()
+    {
+        howtoplay_cc = false;
+
+        howtoplay1.SetActive(false);
+        howtoplay2.SetActive(false);
+        MainUIPannel.SetActive(true);
+        
+    }
+
+    public void Active_HowToPlay()
+    {
+        howtoplay_cc = true;
+
+        howtoplay1.SetActive(true);
+        howtoplay2.SetActive(true);
+        MainUIPannel.SetActive(false);
+
+    }
+
+   public void deactive_GamePlayCanvasHTP()
+    {
+        gameplaycanvas_howtoplay = false;
+        howtoPlay_GamePlayCanvas.SetActive(false);
+
+    }
+
+    public void active_GamePlayCanvasHTP()
+    {
+        gameplaycanvas_howtoplay = true;
+        howtoPlay_GamePlayCanvas.SetActive(true);
+    }
+
+    #endregion
+
 
     #region Dislay Material
     public void ChangeMaterial()

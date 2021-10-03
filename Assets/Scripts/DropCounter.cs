@@ -25,7 +25,7 @@ public class DropCounter : MonoBehaviour
     GameObject pizzaBox;
     int itemtype =0;
 
-
+    Timer GetTime;
 
 
     void Start()
@@ -33,8 +33,8 @@ public class DropCounter : MonoBehaviour
         LevelMan = GameObject.Find("LevelManager");
         levelmanager = LevelMan.GetComponent<LevelManager>();
         move = true;
-       
 
+        GetTime = FindObjectOfType<Timer>();
         //Move this to LevelManager 
         levelmanager.UiUpdate();
     }
@@ -126,19 +126,33 @@ public class DropCounter : MonoBehaviour
         if (levelmanager.orderList[0] == food)
         {
             
-            if(levelmanager.orderList[0] == FoodType.foodtype.Pizza)
+            if(levelmanager.orderList[0] == FoodType.foodtype.VadaPav)
+            {
+                itemtype = 1;
+               
+            }
+            else if(levelmanager.orderList[0] == FoodType.foodtype.Sandwich)
             {
                 itemtype = 2;
             }
+            else if(levelmanager.orderList[0] == FoodType.foodtype.Pizza)
+            {
+                itemtype = 3;
+            }
             else
             {
-                itemtype = 1;
+                
             }
             levelmanager.orderList.Remove(food);
             score += GameManager.amount;
+            SavaData.instance.money = score;
+           // SavaData.instance.TotalAmount(score);
             UIManager.instance.totalAmoumt.text = score.ToString(); 
 
             levelmanager.ordercount++;
+            SavaData.instance.ordercount = levelmanager.ordercount -1;
+            //SavaData.instance.TotalOrderCompleted();
+
             ordervalidity = 1;
             UIManager.instance.ordercomplete.text = "Order Complete!! Thankyou ";
 
@@ -152,10 +166,15 @@ public class DropCounter : MonoBehaviour
             {
                 case 1:
                     foodParcel.SetActive(true);
-
+                    GetTime.AddTimer(10);
                     break;
                 case 2:
+                    foodParcel.SetActive(true);
+                    GetTime.AddTimer(30);
+                    break;
+                case 3:
                     pizzaBox.SetActive(true);
+                    GetTime.AddTimer(50);
                     break;
                 default:
                     //foodParcel.SetActive(false);

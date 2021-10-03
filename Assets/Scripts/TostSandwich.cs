@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class TostSandwich : MonoBehaviour
 {
-     public  Animator toast_anim;
+    [SerializeField]
+    GameObject VeggieSandwhich;
+
+    
+
+    Animator toast_anim;
 
     public static Collider sandwich_coll;
 
@@ -24,6 +29,8 @@ public class TostSandwich : MonoBehaviour
        
         if(collision.gameObject.CompareTag("BakeSandwich"))
         {
+            Destroy(collision.gameObject);
+            VeggieSandwhich.SetActive(true);
             sandwich_coll.enabled = false;
             //Vector3.MoveTowards(collision.gameObject.transform.position, point.transform.position, 1);
         
@@ -38,10 +45,17 @@ public class TostSandwich : MonoBehaviour
       
     }
 
+    void SandWhichBake()
+    {
+        VeggieSandwhich.SetActive(false);
+        GameManager.instance.DropToast();
+    }
 
     IEnumerator OpenLid()
     {
-        yield return new WaitForSeconds(1.5f);
+        Invoke("SandWhichBake", 1.8f);
+        //VeggieSandwhich.SetActive(false);
+        yield return new WaitForSeconds(2f);
         toast_anim.SetBool("c_toaster", false);
         
 

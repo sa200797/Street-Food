@@ -29,6 +29,7 @@ TagManager:
   - Pizza
   - C_Pizza
   - Bake
+  - Pause
   layers:
   - Default
   - TransparentFX

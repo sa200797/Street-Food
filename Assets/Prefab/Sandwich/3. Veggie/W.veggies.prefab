@@ -695,7 +695,7 @@ GameObject:
   - component: {fileID: 1184377241476209411}
   - component: {fileID: 739105387144895168}
   - component: {fileID: 1511064362626842987}
-  - component: {fileID: 8917747571579787299}
+  - component: {fileID: -2661962934932425809}
   m_Layer: 0
   m_Name: W.veggies
   m_TagString: BakeSandwich
@@ -729,7 +729,7 @@ Animator:
   m_GameObject: {fileID: 5170569839023832455}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 30669f675d7555e49b12b50e0f1749fe, type: 2}
+  m_Controller: {fileID: 9100000, guid: bfea17a24414fe348be2b6277333b996, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -801,14 +801,14 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &8917747571579787299
+--- !u!114 &-2661962934932425809
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5170569839023832455}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 103e9ed9f06407248b884ad7b22e6b05, type: 3}
   m_Name: 
