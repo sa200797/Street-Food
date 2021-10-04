@@ -22,11 +22,15 @@ public class GameOver : MonoBehaviour
         orderCompletd.text="Orders Completed --" + SavaData.instance.TotalOrderCompleted().ToString();
         totalAmount.text = "Total Amount--" + SavaData.instance.TotalAmount();
         //orderCompletd.text = 
-
+        SavaData.instance.Save_TotalOrdrsandDisplay();
+        SavaData.instance.Save_TotalMoney();
     }
 
     public void RestartGame()
     {
+        GameManager.vadapawcount = 0;
+        GameManager.sandwichcount = 0;
+        GameManager.pizzacount = 0;
         SavaData.instance.ordercount = 0;
         SavaData.instance.money = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);

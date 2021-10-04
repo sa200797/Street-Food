@@ -145,13 +145,14 @@ public class GameManager : MonoBehaviour
                 {
                     whatToSpawn = hit.collider.GetComponent<ItemCount>().Foodvalue;
                     MakeVadapaw();
-                    //Debug.Log("Shubham");
+                    //Debug.Log("Shubham---Vaada");
                 }
 
                 if (hit.collider.tag == "Sandwich")
                 {
                     whatToSpawn = hit.collider.GetComponent<ItemCount>().Foodvalue;
                     MakeSandwich();
+                  //  Debug.Log("Shubham---Sand");
                 }
 
                 if (hit.collider.tag == "Pizza")
@@ -172,7 +173,7 @@ public class GameManager : MonoBehaviour
         {
             switch (whatToSpawn)
             {
-
+                
                 case 1:
                     if (vadapawcount == 0)
                     {

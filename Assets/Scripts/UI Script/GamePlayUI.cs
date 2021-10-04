@@ -36,6 +36,10 @@ public class GamePlayUI : MonoBehaviour
         Time.timeScale = 1;
         UIManager.instance.pause_backpannel.SetActive(true);
 
+         GameManager.vadapawcount = 0;
+        GameManager.sandwichcount = 0;
+        GameManager.pizzacount = 0;
+
         SavaData.instance.ordercount = 0;
         SavaData.instance.money = 0;
 
