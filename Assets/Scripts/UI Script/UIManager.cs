@@ -163,7 +163,9 @@ public class UIManager : MonoBehaviour
     {
         Debug.Log("Call ho Raha hai baba");
         openShop_btn.SetActive(false);
-       // Time.timeScale = 1;
+       //
+       //
+       //Time.timeScale = 1;
         GameManager.instance.playgame = true;
         Timer.timerIsRunning = true;
 
