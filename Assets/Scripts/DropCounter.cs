@@ -166,15 +166,15 @@ public class DropCounter : MonoBehaviour
             {
                 case 1:
                     foodParcel.SetActive(true);
-                    GetTime.AddTimer(10);
+                    GetTime.AddTimer(5);
                     break;
                 case 2:
                     foodParcel.SetActive(true);
-                    GetTime.AddTimer(30);
+                    GetTime.AddTimer(15);
                     break;
                 case 3:
                     pizzaBox.SetActive(true);
-                    GetTime.AddTimer(50);
+                    GetTime.AddTimer(25);
                     break;
                 default:
                     //foodParcel.SetActive(false);

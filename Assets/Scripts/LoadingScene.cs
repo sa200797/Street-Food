@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadingScene : MonoBehaviour
 {
-    float time =3f;
+    float time =3.5f;
 
     // Start is called before the first frame update
     void Start()

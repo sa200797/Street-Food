@@ -9,6 +9,10 @@ public class GameOver : MonoBehaviour
     public TextMeshProUGUI orderCompletd;
     public TextMeshProUGUI totalAmount;
 
+
+    public TextMeshProUGUI total_orderCompleted;
+    public TextMeshProUGUI total__totalAmount;
+
    
     private void Awake()
     {
@@ -19,11 +23,13 @@ public class GameOver : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        orderCompletd.text="Orders Completed --" + SavaData.instance.TotalOrderCompleted().ToString();
-        totalAmount.text = "Total Amount--" + SavaData.instance.TotalAmount();
+        orderCompletd.text=  SavaData.instance.TotalOrderCompleted().ToString();
+        totalAmount.text =  SavaData.instance.TotalAmount().ToString();
         //orderCompletd.text = 
-        SavaData.instance.Save_TotalOrdrsandDisplay();
-        SavaData.instance.Save_TotalMoney();
+
+        total_orderCompleted.text = SavaData.instance.Save_TotalOrdrsandDisplay();
+        total__totalAmount.text = SavaData.instance.Save_TotalMoney().ToString();
+        //SavaData.instance.Save_TotalMoney();
     }
 
     public void RestartGame()

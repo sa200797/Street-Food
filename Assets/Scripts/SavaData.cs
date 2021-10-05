@@ -84,29 +84,37 @@ public class SavaData : MonoBehaviour
         
     }
 
-    public void Save_TotalOrdrsandDisplay()
+    public string Save_TotalOrdrsandDisplay()
     {
         if (ordercount > GetInt(odercount_key))
         {
             higestorders += ordercount;
             SetInt(odercount_key, higestorders);
+            GetInt(odercount_key);
             Debug.Log(GetInt(odercount_key) + "---------------");
         }
         else
         {
             Debug.Log(GetInt(odercount_key) + "//////");
         }
+
+        string to = GetInt(odercount_key).ToString();
+
+        return to;
     }
 
 
-    public void Save_TotalMoney()
+    public int Save_TotalMoney()
     {
 
         totalmoney = GetInt(totalmoney_key);
         totalmoney = totalmoney + money;
         SetInt(totalmoney_key, totalmoney);
         GetInt(totalmoney_key);
-        Debug.Log(GetInt(totalmoney_key));
+
+        int s_tm = GetInt(totalmoney_key);
+        return s_tm;
+       // Debug.Log(GetInt(totalmoney_key));
     }
 
 }

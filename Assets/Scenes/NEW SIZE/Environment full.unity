@@ -2437,7 +2437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc308e0d12f5de46bd8bba085119ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaning: 60
+  timeRemaning: 45
 --- !u!114 &581101923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6299,7 +6299,7 @@ MonoBehaviour:
   Display: {fileID: 1455296274}
   current_mat: {fileID: 0}
   mat:
-  - {fileID: 2100000, guid: 550fec9d5e639d249935e20529b51b5d, type: 2}
+  - {fileID: 2100000, guid: 4d77cc27935a4fa45b3f5b45244aaf58, type: 2}
   - {fileID: 2100000, guid: d908f6684680cb247bc18aa2e12072ca, type: 2}
   - {fileID: 2100000, guid: 03558d6c946b442429bb151a9be73038, type: 2}
   timertext: {fileID: 830511346}
@@ -7594,6 +7594,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 4387774855514553701, guid: 8615bb7f6ffd5414890f3d81f964a209,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4d77cc27935a4fa45b3f5b45244aaf58, type: 2}
     - target: {fileID: 5382369649081946264, guid: 8615bb7f6ffd5414890f3d81f964a209,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7608,6 +7613,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268153146252178308, guid: 8615bb7f6ffd5414890f3d81f964a209,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6268153146252178308, guid: 8615bb7f6ffd5414890f3d81f964a209,
         type: 3}
@@ -7713,6 +7723,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8797369295320572808, guid: 8615bb7f6ffd5414890f3d81f964a209,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8797369295320572808, guid: 8615bb7f6ffd5414890f3d81f964a209,
         type: 3}
@@ -10074,7 +10089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22e718a1cefb924e92e9bce2abba0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orderList: 010000000200000003000000020000000300000001000000010000000200000001000000020000000300000002000000010000000100000002000000030000000100000002000000020000000100000002000000030000000300000002000000010000000200000003000000030000000200000001000000
+  orderList: 010000000200000003000000020000000300000001000000010000000200000001000000020000000300000002000000010000000100000002000000030000000100000002000000020000000100000002000000030000000300000002000000010000000200000003000000030000000200000001000000020000000300000003000000020000000200000001000000010000000200000002000000010000000300000003000000020000000100000001000000020000000300000002000000030000000100000001000000020000000300000003000000010000000200000001000000030000000100000002000000030000000100000003000000020000000300000002000000010000000200000002000000030000000300000002000000020000000300000001000000
   ordercount: 1
 --- !u!4 &1867225726
 Transform:
