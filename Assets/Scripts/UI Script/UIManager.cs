@@ -91,9 +91,7 @@ public class UIManager : MonoBehaviour
 
     bool howtoplay_cc;
     bool gameplaycanvas_howtoplay;
-        
-
-
+       
     private void Awake()
     {
 
@@ -145,9 +143,6 @@ public class UIManager : MonoBehaviour
         ChangeMaterial();
 
         // Dropfood_Timer(5.0f);
-
-
-
         if (Input.GetKeyDown(KeyCode.P))
         {
             JioBackButton();
@@ -155,10 +150,6 @@ public class UIManager : MonoBehaviour
 
 
     }
-
-
-
-
     public void PlayGame()
     {
         Debug.Log("Call ho Raha hai baba");
@@ -176,10 +167,6 @@ public class UIManager : MonoBehaviour
       // Debug.Log("Timer>>>>>>>>>>???????/??");
         //image.fillAmount = Math.Abs(fill_time - 3.0f) / 3.0f;
     }
-
-
-
-
     public void CounterOnOFFSound()
     {
         sound = !sound;

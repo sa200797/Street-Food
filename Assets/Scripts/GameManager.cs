@@ -7,40 +7,25 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-
-   
-
     public static GameManager instance;
 
     public bool playgame;
-
-
-    
     public IngredientData vadapaw_I;
     public IngredientData sandwich_I;
     public IngredientData pizza_I;
 
-
     // [Header("Object For Vada Pav")]
     // public GameObject breadprefab, masalaprefab, vadapawprefab;
     // [Header("Object For SandWich")]
-   // public GameObject san_breadprefab, breadsauce_prefab, veggie_prefab, toast_prefab;
+    // public GameObject san_breadprefab, breadsauce_prefab, veggie_prefab, toast_prefab;
     //[Header("Object For Pizza")]
-   // public GameObject pizzadough_prefab, pizzakint_prefab, pizzabase_prefab, pizzasauce_prefab, pizzapep_prefab, pizzachesse_prefab, pizzaready_prefab;
-
-        
-
+    // public GameObject pizzadough_prefab, pizzakint_prefab, pizzabase_prefab, pizzasauce_prefab, pizzapep_prefab, pizzachesse_prefab, pizzaready_prefab;
 
     public int whatToSpawn;
-
-    
-     public Transform vada_dropppoint;
-   
-    public  Transform san_droppoint;
-    
-    public  Transform toast_droppoint;
-    
-   public  Transform pizza_droppoint;
+    public Transform vada_dropppoint;
+    public Transform san_droppoint;
+    public Transform toast_droppoint;
+    public Transform pizza_droppoint;
 
     GameObject vadapaw; // to delete th clones;
     GameObject sandwichclone;
@@ -50,26 +35,17 @@ public class GameManager : MonoBehaviour
     public static bool vadaitemspawn; //only to spawn vadapaw;
     public static int vadapawcount = 0; //to check the foodcount for vadapav;
 
-
     public static bool sandwichitemsspawn;
     public static int sandwichcount = 0;
 
-
     public static bool pizzaitemspawn;
     public static int pizzacount = 0;
-
-
-
-
+    
     public Transform playerspawnPoint;
-
     public GameObject player;
 
-
-
-
     [Header("Score Value")]
-    public  static int amount;
+    public static int amount;
     public int price
     {
         get { return amount; }
@@ -79,16 +55,8 @@ public class GameManager : MonoBehaviour
             amount = value;
         }
     }
-
-
-    
-
-
-
-
-    private void Awake()
+    void Awake()
     {
-
         if (instance == null)
         {
             instance = this;
@@ -97,9 +65,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
-
-
-      
     }
     // Start is called before the first frame update
     void Start()
@@ -107,31 +72,22 @@ public class GameManager : MonoBehaviour
         player = GameObject.Find("JMRMixedReality");
         player.transform.position = playerspawnPoint.position;
 
-
         vadaitemspawn = false;
         sandwichitemsspawn = false;
         playgame = false;
-
-        
-        
     }
-
-   
 
     // Update is called once per frame
     void Update()
     {
-
         //TO Check on The Laptop or Unity Editor;
         if (Input.GetMouseButtonDown(0))
         {
             GetInfo();
-           // playgame = true;
+            // playgame = true;
             // JMRPointerManager.Instance.GetCurrentRay();
         }
     }
-
-
 
     public void GetInfo()
     {
@@ -152,7 +108,7 @@ public class GameManager : MonoBehaviour
                 {
                     whatToSpawn = hit.collider.GetComponent<ItemCount>().Foodvalue;
                     MakeSandwich();
-                  //  Debug.Log("Shubham---Sand");
+                    //  Debug.Log("Shubham---Sand");
                 }
 
                 if (hit.collider.tag == "Pizza")
@@ -173,7 +129,7 @@ public class GameManager : MonoBehaviour
         {
             switch (whatToSpawn)
             {
-                
+
                 case 1:
                     if (vadapawcount == 0)
                     {
@@ -196,8 +152,8 @@ public class GameManager : MonoBehaviour
                 case 3:
                     if (vadapawcount == 2)
                     {
-                       Destroy(vadapaw);
-                       Instantiate(vadapaw_I.foodIngredient[2], vada_dropppoint.transform.position, Quaternion.identity);
+                        Destroy(vadapaw);
+                        Instantiate(vadapaw_I.foodIngredient[2], vada_dropppoint.transform.position, Quaternion.identity);
                         vadapawcount++;
                         SoundManager.instance.SoundPlay_FD();
                         Debug.Log(vadapawcount);
@@ -207,11 +163,7 @@ public class GameManager : MonoBehaviour
                 default:
                     Debug.Log("Please follow the food itme menu");
                     break;
-
-
-
             }
-
         }
     }
     #endregion
@@ -248,9 +200,9 @@ public class GameManager : MonoBehaviour
                     {
                         Destroy(sandwichclone);
                         GameObject veggeprefab = Instantiate(sandwich_I.foodIngredient[2], san_droppoint.transform.position, Quaternion.identity);
-                       
+
                         sandwichclone = veggeprefab;
-                      
+
 
                         sandwichcount++;
                     }
@@ -263,18 +215,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
- 
+
     public void DropToast()
     {
         //Destroy(sandwichclone,0f);
         Instantiate(sandwich_I.foodIngredient[3], toast_droppoint.transform.position, Quaternion.Euler(new Vector3(0, -70, 0)));
         SoundManager.instance.SoundPlay_FD();
     }
-   
+
 
     #endregion
-
-
 
     #region Make Pizza
     public void MakePizza()
