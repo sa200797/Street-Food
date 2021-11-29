@@ -53,7 +53,7 @@ public class TostSandwich : MonoBehaviour
 
     IEnumerator OpenLid()
     {
-        Invoke("SandWhichBake", 1.8f);
+        Invoke("SandWhichBake", 2.1f);
         //VeggieSandwhich.SetActive(false);
         yield return new WaitForSeconds(2f);
         toast_anim.SetBool("c_toaster", false);

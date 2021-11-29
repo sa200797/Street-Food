@@ -106,11 +106,20 @@ public class SavaData : MonoBehaviour
 
     public int Save_TotalMoney()
     {
+        if(money > GetInt(totalmoney_key))
+        {
+            totalmoney += money;
+            SetInt(totalmoney_key, totalmoney);
+            GetInt(totalmoney_key);
 
-        totalmoney = GetInt(totalmoney_key);
-        totalmoney = totalmoney + money;
-        SetInt(totalmoney_key, totalmoney);
-        GetInt(totalmoney_key);
+        }
+        else
+        {
+            GetInt(totalmoney_key);
+        }
+
+       
+       
 
         int s_tm = GetInt(totalmoney_key);
         return s_tm;
