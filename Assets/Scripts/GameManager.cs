@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
     #region Make Vada Pav
     public void MakeVadapaw()
     {
-
+        Debug.Log("Mack Vadapaw");
         if (!vadaitemspawn)
         {
             switch (whatToSpawn)

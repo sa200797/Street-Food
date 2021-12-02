@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DropCounter : MonoBehaviour
 {
@@ -23,13 +25,18 @@ public class DropCounter : MonoBehaviour
     GameObject foodParcel;
     [SerializeField]
     GameObject pizzaBox;
-    int itemtype = 0;
-
+    [SerializeField] int itemtype = 0;
 
     [Space(20)]
     [SerializeField] GameObject PointOne;
     [SerializeField] GameObject PointTwo;
     [SerializeField] GameObject PointThree;
+
+    [SerializeField] List<String> OrderName;
+
+    [Space(20)]
+    [SerializeField] internal UnityEvent OnOrderCompleted;
+    [SerializeField] internal UnityEvent OnOrderWrong;
 
 
     Timer GetTime;
@@ -134,18 +141,17 @@ public class DropCounter : MonoBehaviour
                 //Debug.Log(CheckFood(FoodType.foodtype.pizza) + "11225");
             }
         }
-
         //Rushabh
         if (numberOffOrder == LevelManager.NumberOffOrder.TwoOrder)
         {
             Debug.Log("Two Name");
             if (collision.gameObject.CompareTag("C_Vadapav"))
             {
-                GameManager.amount = 30;
-                Debug.Log("Sandwich Complete");
-                GameManager.sandwichitemsspawn = false;
-                GameManager.sandwichcount = 0;
-                
+                GameManager.amount = 10;
+                Debug.Log("VadaPawComplete2");
+                GameManager.vadaitemspawn = false;
+                GameManager.vadapawcount = 0;
+
                 Destroy(collision.gameObject);
 
                 //collision.gameObject.SetActive(false);                                
@@ -155,18 +161,13 @@ public class DropCounter : MonoBehaviour
                 // TostSandwich.active_sandcol = true;
                 //TostSandwich.sandwich_coll.enabled = true;
 
-                if (OrderIndex == 2)
-                {
-                    MakeFood(FoodType.foodtype.VadaPav);
-                    Debug.Log("One user Order Complelete ");
-                }
-                else
-                {
-                    OrderIndex++;
-                }
+                //Pizza
+                //Sandwich
+                //VadaPav
 
+                CheckOrdar("VadaPav");
             }
-            if (collision.gameObject.CompareTag("C_Sandwich")) 
+            if (collision.gameObject.CompareTag("C_Sandwich"))
             {
                 GameManager.amount = 30;
                 Debug.Log("Sandwich Complete");
@@ -175,51 +176,24 @@ public class DropCounter : MonoBehaviour
 
                 Destroy(collision.gameObject);
 
-                /*if (OrderIndex == 0)
-                {
-                    collision.gameObject.transform.SetParent(PointOne.transform);
-                }
-                else if (OrderIndex == 1)
-                {
-                    collision.gameObject.transform.SetParent(PointOne.transform);
-                }
-                */
-
                 //collision.gameObject.SetActive(false);                                
                 //CheckFood(FoodType.foodtype.sandwich);
                 //MakeFood();
                 //MakeFood(FoodType.foodtype.Sandwich);
                 //TostSandwich.active_sandcol = true;
-                //TostSandwich.sandwich_coll.enabled = true;
 
-                if (OrderIndex == 2)
-                {
-                    Debug.Log("One user Order Complelete ");
-                    MakeFood(FoodType.foodtype.Sandwich);
-                }
-                else
-                {
-                    OrderIndex++;
-                }
+                TostSandwich.sandwich_coll.enabled = true;
+                CheckOrdar("Sandwich");
+
             }
             if (collision.gameObject.CompareTag("C_Pizza"))
             {
-                GameManager.amount = 30;
-                Debug.Log("Sandwich Complete");
-                GameManager.sandwichitemsspawn = false;
-                GameManager.sandwichcount = 0;
+                GameManager.amount = 50;
+                Debug.Log("Pizza Complete");
+                GameManager.pizzaitemspawn = false;
+                GameManager.pizzacount = 0;
 
                 Destroy(collision.gameObject);
-
-                /*if (OrderIndex == 0)
-                {
-                    collision.gameObject.transform.SetParent(PointOne.transform);
-                }
-                else if (OrderIndex == 1)
-                {
-                    collision.gameObject.transform.SetParent(PointOne.transform);
-                }
-                */
 
                 //collision.gameObject.SetActive(false);                                
                 //CheckFood(FoodType.foodtype.sandwich);
@@ -228,18 +202,115 @@ public class DropCounter : MonoBehaviour
                 //TostSandwich.active_sandcol = true;
                 //TostSandwich.sandwich_coll.enabled = true;
 
-                if (OrderIndex == 2)
-                {
-                    Debug.Log("One user Order Complelete ");
-                    MakeFood(FoodType.foodtype.Pizza);
-                }
-                else
-                {
-                    OrderIndex++;
-                }
+                CheckOrdar("Pizza");
+
             }
         }
     }
+    void CheckOrdar(String OrderNames)
+    {
+        Debug.Log("Order");
+
+        if (OrderIndex != 2)
+        {
+            /*UIManager.instance.ordercomplete.text = "New Order";
+            ordervalidity = 0;
+            foodParcel.SetActive(false);
+            pizzaBox.SetActive(false);
+            itemtype = 0;*/
+
+
+            OrderName.Add(OrderNames);
+            OrderIndex++;
+        }
+        if (OrderIndex == 2)
+        {
+            OrderIsCompleted();
+            Debug.Log("One User Order Complelete");
+        }
+    }
+    void OrderIsCompleted()
+    {
+        SoundManager.instance.SoundPlay_OC();
+        //int indexCompleted = 0;
+
+        /* for (int i = 0; i < OrderName.Count; i++)
+         {
+             for (int j = 0; j < levelmanager.TwoNameOrder.Count; j++)
+             {
+                 Debug.Log("-- OrderName : " + OrderName[i] + " TwoNameOrder : " + levelmanager.TwoNameOrder[i]);
+                 if (levelmanager.TwoNameOrder[j] == OrderName[i]) 
+                 {
+                     indexCompleted++;
+                     Debug.Log(" OrderName : " + OrderName[i] + " TwoNameOrder : " + levelmanager.TwoNameOrder[i]);
+
+                 }
+             }
+             //levelmanager.TwoNameOrder = OrderName;
+         }*/
+
+        var isWin = Enumerable.SequenceEqual(OrderName.OrderBy(t => t), levelmanager.TwoNameOrder.OrderBy(t => t));
+        Debug.Log(" isWin : " + isWin);
+
+        if (isWin == true)
+        {
+            score += GameManager.amount;
+            SavaData.instance.money = score;
+            UIManager.instance.totalAmoumt.text = score.ToString();
+
+            levelmanager.LevelOrderCount++;
+            SavaData.instance.ordercount = levelmanager.LevelOrderCount - 1;
+
+            OrderIndex = 0;
+
+            ordervalidity = 1;
+            UIManager.instance.ordercomplete.text = "Order Complete!! Thankyou ";
+            UIManager.instance.ChangeMaterial();
+            StartCoroutine(FoodDropComplete());
+            // StartCoroutine(IncreaseLevel());
+            //Invoke("IncreaseLevel", 1.0f);
+            UIManager.instance.ChangeMaterial();
+
+            switch (itemtype)
+            {
+                case 1:
+                    foodParcel.SetActive(true);
+                    GetTime.AddTimer(5);
+                    break;
+                case 2:
+                    foodParcel.SetActive(true);
+                    GetTime.AddTimer(15);
+                    break;
+                case 3:
+                    pizzaBox.SetActive(true);
+                    GetTime.AddTimer(25);
+                    break;
+                default:
+                    //foodParcel.SetActive(false);
+                    // pizzaBox.SetActive(false);
+                    break;
+            }
+
+            OrderName.Clear();
+            OnOrderCompleted.Invoke();
+            return;
+        }
+        if (isWin == false)
+        {
+            Debug.Log("Wrong Food");
+            ordervalidity = 2;
+            UIManager.instance.ordercomplete.text = "Wrong Order Delivered";
+            UIManager.instance.ChangeMaterial();
+            StartCoroutine(FoodDropComplete());
+            OrderName.Clear();
+            OrderIndex = 0;
+            OnOrderWrong.Invoke();
+
+        }
+
+    }
+
+
     bool CheckFood(FoodType.foodtype checkfood)
     {
         return levelmanager.orderList.Contains(checkfood);
@@ -265,7 +336,6 @@ public class DropCounter : MonoBehaviour
             }
             else
             {
-
             }
             levelmanager.orderList.Remove(food);
             score += GameManager.amount;
@@ -273,8 +343,8 @@ public class DropCounter : MonoBehaviour
             // SavaData.instance.TotalAmount(score);
             UIManager.instance.totalAmoumt.text = score.ToString();
 
-            levelmanager.ordercount++;
-            SavaData.instance.ordercount = levelmanager.ordercount - 1;
+            levelmanager.LevelOrderCount++;
+            SavaData.instance.ordercount = levelmanager.LevelOrderCount - 1;
             //SavaData.instance.TotalOrderCompleted();
 
             ordervalidity = 1;
@@ -308,7 +378,6 @@ public class DropCounter : MonoBehaviour
         }
         else
         {
-
             Debug.Log("Wrong Food");
             ordervalidity = 2;
             UIManager.instance.ordercomplete.text = "Wrong Order Delivered";
@@ -355,8 +424,8 @@ public class DropCounter : MonoBehaviour
 
     IEnumerator FoodDropComplete()
     {
-        //yield return new WaitForSeconds(1.0f);
         yield return new WaitForSeconds(4.0f);
+        levelmanager.isOrdercompleted = true;
         levelmanager.GetOrder();
         UIManager.instance.ordercomplete.text = "New Order";
         ordervalidity = 0;
@@ -370,13 +439,10 @@ public class DropCounter : MonoBehaviour
         //  levelmanager.orderList.Contains(checkfood)
     }
 
-    
-}
-
-public class parcel 
-{
 
 }
+
+
 /*
 public abstract class Compnentss
 {

@@ -7,15 +7,8 @@ public class TostSandwich : MonoBehaviour
     [SerializeField]
     GameObject VeggieSandwhich;
 
-    
-
     Animator toast_anim;
-
     public static Collider sandwich_coll;
-
-   
-    
-
 
     // Start is called before the first frame update
     void Start()

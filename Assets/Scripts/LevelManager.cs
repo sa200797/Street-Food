@@ -13,15 +13,15 @@ public class LevelManager : MonoBehaviour
     [SerializeField] public List<FoodType.foodtype> orderList;
 
     [Space(5)]
-    [Space(20)]
     [Header("Two Order")]
+    [Space(5)]
     [SerializeField] internal bool isOrdercompleted;
     [SerializeField] List<FoodType.foodtype> TwoOrderList;
-    [SerializeField] List<FoodType.foodtype> TwoOrder;
-    [SerializeField] List<String> TwoNameOrder;
+    [SerializeField] List<LevelList> levelList;
+    [SerializeField] internal List<String> TwoNameOrder;
 
-    //    int numberoforders = 10;
-    public int ordercount = 1;
+    [Space(10)]
+    public int LevelOrderCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +56,7 @@ public class LevelManager : MonoBehaviour
     }
     public int GetOrderCount()
     {
-        return ordercount;
+        return LevelOrderCount;
     }
 
     public void GetOrder()
@@ -68,53 +68,55 @@ public class LevelManager : MonoBehaviour
 
         if (numberOffOrder == NumberOffOrder.TwoOrder)
         {
-            if (isOrdercompleted == true)             
-                UItwoOrderUpdate();
+            if (isOrdercompleted == true)
+            {
+                //UItwoOrderUpdate();
+                ApplyLevelIndex(LevelOrderCount);
+            }
         }
     }
-
+    [ContextMenu("OrderUpdate")]
     void UItwoOrderUpdate()
     {
-
         UpdateOrderNumber();
-
-
-        for (int i = 0; i < TwoOrder.Count; i++)
+        for (int j = 0; j < levelList.Count; j++)
         {
-            TwoOrder[i] = TwoOrderList[getIntOrder()];
+            for (int i = 0; i < levelList[j].TwoOrderList.Count; i++)
+            {
+                levelList[j].TwoOrderList[i] = TwoOrderList[getIntOrder()];
+            }
         }
 
+        //Level Order Count
+        ApplyLevelIndex(LevelOrderCount);
+    }
+
+    public void ApplyLevelIndex(int LevelIndex)
+    {
         String OrderString = String.Empty;
         TwoNameOrder = new List<String>();
 
-        for (int i = 0; i < TwoOrder.Count; i++)
+        for (int i = 0; i < levelList[LevelIndex].TwoOrderList.Count; i++)
         {
-            TwoNameOrder.Add(TwoOrder[i].ToString());
-        }
-        Debug.Log(OrderString);
-
-        for (int i = 0; i < TwoNameOrder.Count; i++)
-        {
-            if (TwoNameOrder[i] == "VadaPav")
+            if (levelList[LevelIndex].TwoOrderList[i] == FoodType.foodtype.VadaPav)
             {
-                OrderString += " " + TwoNameOrder[i] + " " + "X" + " " + "1" + "--Rs10".ToString() + "\n";
+                OrderString += levelList[LevelIndex].TwoOrderList[i] + " " + "X" + " " + "1" + "--Rs10".ToString() + "\n";
             }
-            else if (TwoNameOrder[i] == "Sandwich")
+            else if (levelList[LevelIndex].TwoOrderList[i] == FoodType.foodtype.Sandwich)
             {
-                OrderString += " " + TwoNameOrder[i] + " " + "X" + " " + "1" + "--Rs30".ToString() + "\n";
+                OrderString += levelList[LevelIndex].TwoOrderList[i] + " " + "X" + " " + "1" + "--Rs30".ToString() + "\n";
             }
-            else if (TwoNameOrder[i] == "Pizza") 
+            else if (levelList[LevelIndex].TwoOrderList[i] == FoodType.foodtype.Pizza)
             {
-                OrderString += " " + TwoNameOrder[i] + " " + "X" + " " + "1" + "--Rs50".ToString() + "\n";
+                OrderString += levelList[LevelIndex].TwoOrderList[i] + " " + "X" + " " + "1" + "--Rs50".ToString() + "\n";
             }
-            
+            TwoNameOrder.Add(levelList[LevelIndex].TwoOrderList[i].ToString());
         }
         Debug.Log(OrderString);
         UIManager.instance.orderDetails.text = OrderString;
-
         isOrdercompleted = false;
     }
-    
+    public void OnLevelCompleted() { }
     public void UIOneOrderUpdate()
     {
         UpdateOrderNumber();
@@ -165,6 +167,11 @@ public class LevelManager : MonoBehaviour
         ThreeOrder = 3
     }
 
+    [System.Serializable]
+    public class LevelList
+    {
+        public List<FoodType.foodtype> TwoOrderList;
+    }
 
 
 

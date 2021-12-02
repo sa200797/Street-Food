@@ -2,31 +2,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class InterfaceExample : MonoBehaviour, ISelectHandler,
-  ISelectClickHandler, IFocusable, ISwipeHandler, ITouchHandler,
-  IBackHandler, IMenuHandler, IVoiceHandler, IFn1Handler,
-  IFn2Handler, IManipulationHandler
+public class InterfaceExample : MonoBehaviour, ISelectHandler,  ISelectClickHandler, IFocusable, ISwipeHandler, ITouchHandler,  IBackHandler, IMenuHandler, IVoiceHandler, IFn1Handler,  IFn2Handler, IManipulationHandler
 {
-
-   
-
     void Start()
     {
-
-        JMRInputManager.Instance.AddGlobalListener(gameObject);
-
-      
+        JMRInputManager.Instance.AddGlobalListener(gameObject);     
     }
     public void OnBackAction()
     {
         UIManager.instance.JioBackButton();
- 
-
-       
     }
-
-
-
 
     public void OnFn1Action()
     {
@@ -60,7 +45,7 @@ public class InterfaceExample : MonoBehaviour, ISelectHandler,
 
     public void OnManipulationUpdated(ManipulationEventData eventData)
     {
-        Debug.Log("OnManipulationUpdated");
+        //Debug.Log("OnManipulationUpdated");
     }
 
     public void OnMenuAction()

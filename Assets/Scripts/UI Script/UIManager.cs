@@ -94,7 +94,6 @@ public class UIManager : MonoBehaviour
        
     private void Awake()
     {
-
         if (instance == null)
         {
             instance = this;
@@ -103,7 +102,6 @@ public class UIManager : MonoBehaviour
         {
             Destroy(this);
         }
-
         howtoplay_cc = false;
         gameplaycanvas_howtoplay = false;
     }
@@ -116,7 +114,6 @@ public class UIManager : MonoBehaviour
 
         current_mat = Display.GetComponent<Renderer>().material;
         sources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
-
 
         totalAmoumt.text = GameManager.amount.ToString();
         ordercomplete.text = " ";
@@ -139,8 +136,10 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(fooddrop)
-        ChangeMaterial();
+        if (fooddrop)
+        {
+            ChangeMaterial();
+        }
 
         // Dropfood_Timer(5.0f);
         if (Input.GetKeyDown(KeyCode.P))
@@ -179,8 +178,7 @@ public class UIManager : MonoBehaviour
             foreach (AudioSource music in sources)
             {
                 music.mute = true;
-                // Debug.Log("Sound On");
-                
+                // Debug.Log("Sound On");                
             }
         }
         else
@@ -204,8 +202,7 @@ public class UIManager : MonoBehaviour
         {
             if (howtoplay_cc == true)
             {
-                UIManager.instance.Deactivied_HowTOPlayPannel();
-               
+                UIManager.instance.Deactivied_HowTOPlayPannel();               
             }
             else
             {
@@ -216,12 +213,8 @@ public class UIManager : MonoBehaviour
                 else
                 {
                     UIManager.instance.BackButton();
-                }
-
-               
-            }
-
-           
+                }               
+            }          
         }
         else
         {

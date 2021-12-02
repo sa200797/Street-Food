@@ -5,11 +5,8 @@ using UnityEngine;
 public class ItemCount : MonoBehaviour
 {
     // public Transform dropppoint;
-
     // public GameObject prefab;
-
     // public GameObject[] items;
-
     public static ItemCount instance;
 
 
@@ -21,16 +18,12 @@ public class ItemCount : MonoBehaviour
     {
         get { return foodvalue ; }
         set { foodvalue = value; }
-    }
-  
+    }  
 
     private void Awake()
     {
        
     }
-
-
-
     //private void OnMouseDown()
     //{
 
