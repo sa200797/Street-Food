@@ -1,9 +1,11 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class DropCounter : MonoBehaviour
 {
@@ -19,7 +21,7 @@ public class DropCounter : MonoBehaviour
     public static int ordervalidity;
     public Transform transformPoint;
 
-    int score;
+    [SerializeField] int score;
     [Header("Drop Objects")]
     [SerializeField]
     GameObject foodParcel;
@@ -28,15 +30,16 @@ public class DropCounter : MonoBehaviour
     [SerializeField] int itemtype = 0;
 
     [Space(20)]
-    [SerializeField] GameObject PointOne;
-    [SerializeField] GameObject PointTwo;
-    [SerializeField] GameObject PointThree;
+    [SerializeField] List<GameObject> Point;
 
     [SerializeField] List<String> OrderName;
 
     [Space(20)]
     [SerializeField] internal UnityEvent OnOrderCompleted;
     [SerializeField] internal UnityEvent OnOrderWrong;
+
+    [SerializeField] Vector3 Position;
+    [SerializeField] List<GameObject> visualiz;
 
 
     Timer GetTime;
@@ -52,24 +55,18 @@ public class DropCounter : MonoBehaviour
 
         if (numberOffOrder == LevelManager.NumberOffOrder.OneOrder)
         {
-            PointOne.SetActive(true);
-
-            PointOne.SetActive(false);
-            PointThree.SetActive(false);
+            if (Point[0] != null)
+            {
+                Point[0].gameObject.SetActive(true);
+            }
         }
         else if (numberOffOrder == LevelManager.NumberOffOrder.TwoOrder)
         {
-            PointOne.SetActive(true);
-            PointTwo.SetActive(true);
-
-            PointThree.SetActive(false);
-        }
-        else if (numberOffOrder == LevelManager.NumberOffOrder.ThreeOrder)
-        {
-            PointOne.SetActive(true);
-            PointTwo.SetActive(true);
-            PointThree.SetActive(true);
-        }
+            for (int i = 0; i < Point.Count; i++)
+            {
+                Point[i].gameObject.SetActive(true);
+            }
+        }      
     }
 
     void Start()
@@ -79,6 +76,7 @@ public class DropCounter : MonoBehaviour
         move = true;
 
         GetTime = FindObjectOfType<Timer>();
+        visualiz = new List<GameObject>();
         //Move this to LevelManager 
         //levelmanager.UiUpdate();
     }
@@ -152,6 +150,8 @@ public class DropCounter : MonoBehaviour
                 GameManager.vadaitemspawn = false;
                 GameManager.vadapawcount = 0;
 
+                ContactPoint contact = collision.contacts[0];
+                visualization(collision.gameObject, "VadaPav" , contact);
                 Destroy(collision.gameObject);
 
                 //collision.gameObject.SetActive(false);                                
@@ -174,6 +174,8 @@ public class DropCounter : MonoBehaviour
                 GameManager.sandwichitemsspawn = false;
                 GameManager.sandwichcount = 0;
 
+                ContactPoint contact = collision.contacts[0];
+                visualization(collision.gameObject, "Sandwich", contact);
                 Destroy(collision.gameObject);
 
                 //collision.gameObject.SetActive(false);                                
@@ -193,6 +195,8 @@ public class DropCounter : MonoBehaviour
                 GameManager.pizzaitemspawn = false;
                 GameManager.pizzacount = 0;
 
+                ContactPoint contact = collision.contacts[0];
+                visualization(collision.gameObject, "Pizza", contact);
                 Destroy(collision.gameObject);
 
                 //collision.gameObject.SetActive(false);                                
@@ -207,62 +211,105 @@ public class DropCounter : MonoBehaviour
             }
         }
     }
+
+    void visualization(GameObject Hits , string ObjectName , ContactPoint contact) 
+    {
+        Debug.Log("is Work");
+        Position = Hits.transform.position;
+        
+        if (ObjectName == "VadaPav" || ObjectName == "Sandwich")
+        {
+            GameObject GenratedObject = Instantiate(foodParcel, contact.point, Quaternion.identity) as GameObject;
+            GenratedObject.transform.localPosition = contact.point;
+            GenratedObject.SetActive(true);
+
+            Transform parent = null;
+            for (int i = 0; i < Point.Count; i++)
+            {
+                if (Point[i].transform.childCount == 0)
+                {
+                    parent = Point[i].transform;
+                    break;
+                }
+            }
+            GenratedObject.transform.SetParent(parent);
+            GenratedObject.transform.DOScale(1.85f, 0);
+            GenratedObject.transform.DOLocalMove(Vector3.zero,0.8f);
+
+            visualiz.Add(GenratedObject);
+        }
+        else if (ObjectName == "Pizza") 
+        {
+            GameObject GenratedObject = Instantiate(pizzaBox, contact.point, Quaternion.identity) as GameObject;
+            GenratedObject.transform.localPosition = contact.point;
+            GenratedObject.SetActive(true);
+
+            Transform parent = null;
+            for (int i = 0; i < Point.Count; i++)
+            {
+                if (Point[i].transform.childCount == 0)
+                {
+                    parent = Point[i].transform;
+                    break;
+                }
+            }
+            GenratedObject.transform.SetParent(parent);
+            GenratedObject.transform.DOScale(10, 0);
+            GenratedObject.transform.DOLocalMove(new Vector3(0,0.25f,0), 0.8f);
+            visualiz.Add(GenratedObject);
+        }
+
+    }
     void CheckOrdar(String OrderNames)
     {
         Debug.Log("Order");
 
-        if (OrderIndex != 2)
+        if (OrderIndex != LevelManager.levelmanager.NumerofOrder)
         {
-            /*UIManager.instance.ordercomplete.text = "New Order";
-            ordervalidity = 0;
-            foodParcel.SetActive(false);
-            pizzaBox.SetActive(false);
-            itemtype = 0;*/
-
-
             OrderName.Add(OrderNames);
             OrderIndex++;
         }
-        if (OrderIndex == 2)
+        if (OrderIndex == LevelManager.levelmanager.NumerofOrder)
         {
             OrderIsCompleted();
             Debug.Log("One User Order Complelete");
         }
     }
+
+    IEnumerator visualizReset() 
+    {
+        for (int i = 0; i < visualiz.Count; i++)
+        {
+            yield return new WaitForSeconds(0.1f);
+            visualiz[i].transform.DOScale(0, 0.1f).onComplete += delegate { Destroy(visualiz[i].gameObject);  };
+        }
+    }
+
     void OrderIsCompleted()
     {
         SoundManager.instance.SoundPlay_OC();
-        //int indexCompleted = 0;
-
-        /* for (int i = 0; i < OrderName.Count; i++)
-         {
-             for (int j = 0; j < levelmanager.TwoNameOrder.Count; j++)
-             {
-                 Debug.Log("-- OrderName : " + OrderName[i] + " TwoNameOrder : " + levelmanager.TwoNameOrder[i]);
-                 if (levelmanager.TwoNameOrder[j] == OrderName[i]) 
-                 {
-                     indexCompleted++;
-                     Debug.Log(" OrderName : " + OrderName[i] + " TwoNameOrder : " + levelmanager.TwoNameOrder[i]);
-
-                 }
-             }
-             //levelmanager.TwoNameOrder = OrderName;
-         }*/
-
+                
         var isWin = Enumerable.SequenceEqual(OrderName.OrderBy(t => t), levelmanager.TwoNameOrder.OrderBy(t => t));
         Debug.Log(" isWin : " + isWin);
 
         if (isWin == true)
         {
-            score += GameManager.amount;
+            /*score += GameManager.amount;
             SavaData.instance.money = score;
-            UIManager.instance.totalAmoumt.text = score.ToString();
+            UIManager.instance.totalAmoumt.text = score.ToString();*/
+            var Amount =  GameObject.Find("LevelManager").GetComponent<LevelManager>().moneyOrder;
+            int sum = Amount.Take(Amount.Count).Sum();
+            GameManager.instance.CoinAddBalance(sum);
+
+            //time add up on Order Completed
+            GameManager.instance.AddTime(sum);
+
+            StartCoroutine(visualizReset());
 
             levelmanager.LevelOrderCount++;
             SavaData.instance.ordercount = levelmanager.LevelOrderCount - 1;
 
             OrderIndex = 0;
-
             ordervalidity = 1;
             UIManager.instance.ordercomplete.text = "Order Complete!! Thankyou ";
             UIManager.instance.ChangeMaterial();
@@ -295,6 +342,7 @@ public class DropCounter : MonoBehaviour
             OnOrderCompleted.Invoke();
             return;
         }
+
         if (isWin == false)
         {
             Debug.Log("Wrong Food");
@@ -302,8 +350,15 @@ public class DropCounter : MonoBehaviour
             UIManager.instance.ordercomplete.text = "Wrong Order Delivered";
             UIManager.instance.ChangeMaterial();
             StartCoroutine(FoodDropComplete());
+
+            StartCoroutine(visualizReset());
+
             OrderName.Clear();
             OrderIndex = 0;
+
+            //timerIsRunning = false;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
             OnOrderWrong.Invoke();
 
         }

@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-
     public GameObject LevelMan;
-    public LevelManager levelmanager;
+    public static LevelManager levelmanager;
 
     [SerializeField] internal NumberOffOrder numberOffOrder;
     [SerializeField] public List<FoodType.foodtype> orderList;
@@ -17,11 +16,22 @@ public class LevelManager : MonoBehaviour
     [Space(5)]
     [SerializeField] internal bool isOrdercompleted;
     [SerializeField] List<FoodType.foodtype> TwoOrderList;
+    [SerializeField]internal int NumerofOrder;
     [SerializeField] List<LevelList> levelList;
     [SerializeField] internal List<String> TwoNameOrder;
+    [SerializeField] internal List<int> moneyOrder;
 
     [Space(10)]
     public int LevelOrderCount = 0;
+
+    void Awake()
+    {
+        if (levelmanager == null) 
+        {
+            levelmanager = this;
+        }
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +61,7 @@ public class LevelManager : MonoBehaviour
         isOrdercompleted = true;
 
         //Move this to LevelManager 
-        GetOrder();
+        //GetOrder();
 
     }
     public int GetOrderCount()
@@ -81,10 +91,21 @@ public class LevelManager : MonoBehaviour
         UpdateOrderNumber();
         for (int j = 0; j < levelList.Count; j++)
         {
-            for (int i = 0; i < levelList[j].TwoOrderList.Count; i++)
+            levelList[j].TwoOrderList = new List<FoodType.foodtype>();
+
+            for (int k = 0; k < NumerofOrder; k++)
+            {
+                levelList[j].TwoOrderList.Add(TwoOrderList[getIntOrder()]);
+            }
+            //levelList[j].TwoOrderList = new List<FoodType.foodtype>();
+            /*for (int i = 0; i < NumerofOrder; i++)
+            {
+                levelList[j].TwoOrderList.Add(TwoOrderList[getIntOrder()]);
+            }*/
+            /*for (int i = 0; i < levelList[j].TwoOrderList.Count; i++)
             {
                 levelList[j].TwoOrderList[i] = TwoOrderList[getIntOrder()];
-            }
+            }*/
         }
 
         //Level Order Count
@@ -95,19 +116,23 @@ public class LevelManager : MonoBehaviour
     {
         String OrderString = String.Empty;
         TwoNameOrder = new List<String>();
+        moneyOrder = new List<int>();
 
         for (int i = 0; i < levelList[LevelIndex].TwoOrderList.Count; i++)
         {
             if (levelList[LevelIndex].TwoOrderList[i] == FoodType.foodtype.VadaPav)
             {
+                moneyOrder.Add(10);
                 OrderString += levelList[LevelIndex].TwoOrderList[i] + " " + "X" + " " + "1" + "--Rs10".ToString() + "\n";
             }
             else if (levelList[LevelIndex].TwoOrderList[i] == FoodType.foodtype.Sandwich)
             {
+                moneyOrder.Add(30);
                 OrderString += levelList[LevelIndex].TwoOrderList[i] + " " + "X" + " " + "1" + "--Rs30".ToString() + "\n";
             }
             else if (levelList[LevelIndex].TwoOrderList[i] == FoodType.foodtype.Pizza)
             {
+                moneyOrder.Add(50);
                 OrderString += levelList[LevelIndex].TwoOrderList[i] + " " + "X" + " " + "1" + "--Rs50".ToString() + "\n";
             }
             TwoNameOrder.Add(levelList[LevelIndex].TwoOrderList[i].ToString());
@@ -155,7 +180,6 @@ public class LevelManager : MonoBehaviour
                 break;
         }
     }
-
     int getIntOrder() { return UnityEngine.Random.Range(0, TwoOrderList.Count); }
     public string GetFoodName() { return orderList[0].ToString(); }
 
@@ -163,8 +187,7 @@ public class LevelManager : MonoBehaviour
     public enum NumberOffOrder
     {
         OneOrder = 1,
-        TwoOrder = 2,
-        ThreeOrder = 3
+        TwoOrder = 2
     }
 
     [System.Serializable]

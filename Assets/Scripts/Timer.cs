@@ -5,14 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-   
- 
     [Tooltip("Time To Enter in Seconds.")]
-    [SerializeField]
-    float timeRemaning = 10;
-   
-    public  static bool timerIsRunning = false;
-
+    [SerializeField] internal float timeRemaning = 10;
+    public static bool timerIsRunning = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,13 +29,9 @@ public class Timer : MonoBehaviour
                 timeRemaning = 0;
                 timerIsRunning = false;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
             }
-
             DisplayTimer(timeRemaning);
-        }
-
-       
+        }       
     }
 
 
@@ -54,8 +45,6 @@ public class Timer : MonoBehaviour
 
 
     }
-
-
     public float AddTimer(float time)
     {
         timeRemaning = timeRemaning + time;

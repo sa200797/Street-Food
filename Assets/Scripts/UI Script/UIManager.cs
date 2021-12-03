@@ -13,8 +13,6 @@ public class UIManager : MonoBehaviour
     public GameObject UI_canvas;
     public GameObject jioGlasses;
 
-
-
     [SerializeField]
     GameObject openShop_btn;
 
@@ -31,12 +29,6 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject howtoPlay_GamePlayCanvas;
 
-
-
-   // float fill_time;
-
-
-
     [Header("Order Details")]
     public TextMeshProUGUI orderid;
     public TextMeshProUGUI orderDetails;
@@ -49,28 +41,18 @@ public class UIManager : MonoBehaviour
     Sprite muteImage;
     [SerializeField]
     Sprite soundImage;
-
     bool sound;
     
-
     [Header("Sound Data")]
     public AudioSource[] sources;
-
-
-
-
     bool backscreen;
-
-   // [SerializeField]
     public GameObject pause_backpannel;
 
 
     [Header("Food Dekliver Option")]
     public GameObject Display;
-    [SerializeField]
-    Material current_mat;
-    [SerializeField]
-    Material[] mat;
+    [SerializeField]    Material current_mat;
+    [SerializeField]    Material[] mat;
 
 
 
@@ -83,6 +65,12 @@ public class UIManager : MonoBehaviour
 
     [Header("Order Complete")]
     public TextMeshProUGUI ordercomplete;
+
+    
+    [Header("Coins")]
+    [Space(10)]
+    public TextMeshProUGUI CurrountBalance;
+    public TextMeshProUGUI newAddBalance;
 
     bool fooddrop = false;
 
@@ -193,7 +181,6 @@ public class UIManager : MonoBehaviour
             }
         }
     }
-
     public void JioBackButton()
     {
         Scene scene = SceneManager.GetActiveScene();
@@ -220,9 +207,7 @@ public class UIManager : MonoBehaviour
         {
             Application.Quit();
         }
-    }
-   
-
+    }   
     public void BackButton()
     {
         ///pause_backpannel = GameObject.FindGameObjectWithTag("Pause");
@@ -244,7 +229,6 @@ public class UIManager : MonoBehaviour
             pause_backpannel.SetActive(false);
         }
     }
-
     public void RestartGame()
     {
         Time.timeScale = 1;
@@ -256,7 +240,6 @@ public class UIManager : MonoBehaviour
         SavaData.instance.money = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
 
     #region How To Pannel Mech 
     public void Deactivied_HowTOPlayPannel()
@@ -294,7 +277,6 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
-
     #region Dislay Material
     public void ChangeMaterial()
     {
@@ -328,4 +310,49 @@ public class UIManager : MonoBehaviour
        // Debug.Log("Thankyou" + ">>>>>>>>>>>>>>>><<<<<<<<<<<");
     }
     #endregion
+
+
+    public void OneOrderPlay() 
+    {
+        Debug.Log("is work  fasfasdasfdasd");
+        openShop_btn.SetActive(false);      
+        GameManager.instance.playgame = true;        
+        timertext.transform.parent.transform.gameObject.SetActive(false);
+
+        LevelManager.levelmanager.numberOffOrder = LevelManager.NumberOffOrder.OneOrder;
+        LevelManager.levelmanager.GetOrder();
+
+    }
+    public void OneOrderWithTime()
+    {
+        openShop_btn.SetActive(false);
+        GameManager.instance.playgame = true;
+        Timer.timerIsRunning = true;
+        timertext.transform.parent.transform.gameObject.SetActive(true);
+
+        LevelManager.levelmanager.numberOffOrder = LevelManager.NumberOffOrder.OneOrder;
+        LevelManager.levelmanager.GetOrder();
+    }
+    public void multipleOrder() 
+    {
+        openShop_btn.SetActive(false);
+        GameManager.instance.playgame = true;
+        //Timer.timerIsRunning = true;
+        timertext.transform.parent.transform.gameObject.SetActive(false);
+
+        LevelManager.levelmanager.numberOffOrder = LevelManager.NumberOffOrder.TwoOrder;
+        LevelManager.levelmanager.GetOrder();
+
+    }
+    public void multipleOrderWithtime() 
+    {
+        openShop_btn.SetActive(false);
+        GameManager.instance.playgame = true;
+        Timer.timerIsRunning = true;
+        timertext.transform.parent.transform.gameObject.SetActive(true);
+
+        LevelManager.levelmanager.numberOffOrder = LevelManager.NumberOffOrder.TwoOrder;
+        LevelManager.levelmanager.GetOrder();
+    }
+
 }

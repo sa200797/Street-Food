@@ -75,6 +75,8 @@ public class GameManager : MonoBehaviour
         vadaitemspawn = false;
         sandwichitemsspawn = false;
         playgame = false;
+
+        CoinBalanceUpdata();
     }
 
     // Update is called once per frame
@@ -307,5 +309,39 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
+
+    #region CoinBalance
+
+    internal void CoinAddBalance(int CoinMoney) 
+    {
+        StartCoroutine(CoinBalance(CoinMoney));        
+        //CoinBalanceUpdata();
+    }
+    IEnumerator CoinBalance(int CoinMoney)
+    {
+        UIManager.instance.newAddBalance.gameObject.SetActive(true);
+        UIManager.instance.newAddBalance.text = CoinMoney.ToString();
+        yield return new WaitForSeconds(1f);
+        UIManager.instance.newAddBalance.gameObject.SetActive(false);
+        CoinBalanceUpdata();
+        SavaData.instance.AddMoney(CoinMoney);
+        GameManager.instance.gameObject.GetComponent<Timer>().timeRemaning += 20;
+
+
+        yield return new WaitForSeconds(8f);
+        UIManager.instance.ordercomplete.text = "";
+    }
+    void CoinBalanceUpdata() 
+    {
+        UIManager.instance.CurrountBalance.text = SavaData.instance.GetInt("toalmoney_key").ToString();
+    }
+
+    #endregion
+
+
+    public void AddTime(float AddTime)
+    {
+        if (Timer.timerIsRunning == true) { UIManager.instance.gameObject.GetComponent<Timer>().timeRemaning += AddTime; }
+    }
 }
 
