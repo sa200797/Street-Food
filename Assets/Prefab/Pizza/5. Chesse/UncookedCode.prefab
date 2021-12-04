@@ -247,12 +247,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7773852380674316709}
   - component: {fileID: 3008902062195832136}
-  - component: {fileID: 1479595207746511155}
   - component: {fileID: 7111312181410061769}
-  - component: {fileID: -7904628310035031335}
   m_Layer: 0
-  m_Name: Uncooked
-  m_TagString: Untagged
+  m_Name: UncookedCode
+  m_TagString: UncookedPizza
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -288,40 +286,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.0762234, y: 0.3876955, z: 3.739313}
   m_Center: {x: -0.3434636, y: 0.10685085, z: -0.013645374}
---- !u!114 &1479595207746511155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6965262271645385503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1644185434, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HostTransform: {fileID: 0}
-  manipulationType: 1
-  AllowMovingInZ: 1
-  AllowScaling: 0
-  LookAtCamera: 0
-  DetachFromParent: 0
-  minScaleFactor: 0.4
-  maxScaleFactor: 2
-  minObjectDistance: 0.5
-  maxObjectDistance: 8
-  moveLerpTime: 0.001
-  rotateLerpTime: 0.001
-  scaleLerpTime: 0.001
-  OnManipulationStart:
-    m_PersistentCalls:
-      m_Calls: []
-  OnManipulationUpdate:
-    m_PersistentCalls:
-      m_Calls: []
-  OnManipulationComplete:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!54 &7111312181410061769
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -335,21 +299,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_Constraints: 126
-  m_CollisionDetection: 0
---- !u!114 &-7904628310035031335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6965262271645385503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5b04ff4b30d43a498e513d2f14fa382, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_CollisionDetection: 3
 --- !u!1 &7944015200422180077
 GameObject:
   m_ObjectHideFlags: 0

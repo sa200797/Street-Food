@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public IngredientData sandwich_I;
     public IngredientData pizza_I;
 
+    
+
     // [Header("Object For Vada Pav")]
     // public GameObject breadprefab, masalaprefab, vadapawprefab;
     // [Header("Object For SandWich")]
@@ -121,7 +123,6 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
 
     #region Make Vada Pav
     public void MakeVadapaw()
@@ -337,7 +338,6 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
-
 
     public void AddTime(float AddTime)
     {

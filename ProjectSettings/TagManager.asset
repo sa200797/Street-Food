@@ -30,6 +30,7 @@ TagManager:
   - C_Pizza
   - Bake
   - Pause
+  - UncookedPizza
   layers:
   - Default
   - TransparentFX
