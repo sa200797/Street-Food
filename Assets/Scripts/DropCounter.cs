@@ -40,8 +40,6 @@ public class DropCounter : MonoBehaviour
 
     [SerializeField] Vector3 Position;
     [SerializeField] List<GameObject> visualiz;
-
-
     Timer GetTime;
 
     void Awake()
@@ -52,7 +50,6 @@ public class DropCounter : MonoBehaviour
     private void SetupPoint()
     {
         numberOffOrder = GameObject.Find("LevelManager").GetComponent<LevelManager>().numberOffOrder;
-
         if (numberOffOrder == LevelManager.NumberOffOrder.OneOrder)
         {
             if (Point[0] != null)

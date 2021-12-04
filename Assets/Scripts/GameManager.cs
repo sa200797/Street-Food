@@ -1,5 +1,6 @@
 ﻿using JMRSDK.InputModule;
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,9 +14,7 @@ public class GameManager : MonoBehaviour
     public IngredientData vadapaw_I;
     public IngredientData sandwich_I;
     public IngredientData pizza_I;
-
     
-
     // [Header("Object For Vada Pav")]
     // public GameObject breadprefab, masalaprefab, vadapawprefab;
     // [Header("Object For SandWich")]
@@ -33,7 +32,6 @@ public class GameManager : MonoBehaviour
     GameObject sandwichclone;
     GameObject pizzaclone;
 
-
     public static bool vadaitemspawn; //only to spawn vadapaw;
     public static int vadapawcount = 0; //to check the foodcount for vadapav;
 
@@ -45,6 +43,11 @@ public class GameManager : MonoBehaviour
     
     public Transform playerspawnPoint;
     public GameObject player;
+
+    //call back
+    public bool isTutorialOn;
+    public delegate void PlayerTookDamageEvent(string tags,int index);
+    public static event PlayerTookDamageEvent tagsFoodClickIndex;
 
     [Header("Score Value")]
     public static int amount;
@@ -67,8 +70,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
+        
     }
-    // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("JMRMixedReality");
@@ -127,12 +130,17 @@ public class GameManager : MonoBehaviour
     #region Make Vada Pav
     public void MakeVadapaw()
     {
-        Debug.Log("Mack Vadapaw");
+        //Debug.Log("Mack Vadapav");
         if (!vadaitemspawn)
         {
+            if (isTutorialOn)
+            {
+                tagsFoodClickIndex?.Invoke("VadaPav", vadapawcount);
+            }
+
             switch (whatToSpawn)
             {
-
+                
                 case 1:
                     if (vadapawcount == 0)
                     {
@@ -176,6 +184,12 @@ public class GameManager : MonoBehaviour
     {
         if (!sandwichitemsspawn)
         {
+            //tagsFoodClickIndex("sandwich", sandwichcount);
+            if (isTutorialOn)
+            {
+                tagsFoodClickIndex?.Invoke("sandwich", sandwichcount); 
+            }
+
             switch (whatToSpawn)
             {
 
@@ -218,7 +232,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     public void DropToast()
     {
         //Destroy(sandwichclone,0f);
@@ -234,16 +247,19 @@ public class GameManager : MonoBehaviour
     {
         if (!pizzaitemspawn)
         {
-            switch (whatToSpawn)
+            if (isTutorialOn)
             {
-
+                tagsFoodClickIndex?.Invoke("pizza", pizzacount);
+            }
+            switch (whatToSpawn)
+            {                
                 case 1:
                     if (pizzacount == 0)
                     {
                         GameObject dough = Instantiate(pizza_I.foodIngredient[0], pizza_droppoint.transform.position, Quaternion.identity);
                         pizzaclone = dough;
                         pizzacount++;
-
+                        
                     }
                     break;
                 case 2:

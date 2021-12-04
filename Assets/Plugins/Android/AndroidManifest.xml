@@ -15,8 +15,8 @@
     </activity>
   </application>
 
-  <!--<uses-permission android:name="android.permission.CAMERA"/>--> <!--uncomment permission  to use camera example -->
-  <!--<uses-permission android:name="android.permission.RECORD_AUDIO"/>--> <!-- permission is required to use Voice example -->
+  <uses-permission android:name="android.permission.CAMERA"/> uncomment permission  to use camera example 
+  <uses-permission android:name="android.permission.RECORD_AUDIO"/>  permission is required to use Voice example 
  
   <!--HARD STOPPED PERMISSIONS-->
   <uses-permission android:name="android.permission.RECORD_AUDIO" tools:node="remove" />
