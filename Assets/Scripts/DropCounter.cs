@@ -231,7 +231,7 @@ public class DropCounter : MonoBehaviour
             }
             GenratedObject.transform.SetParent(parent);
             GenratedObject.transform.DOScale(1.85f, 0);
-            GenratedObject.transform.DOLocalMove(Vector3.zero,0.8f);
+            GenratedObject.transform.DOLocalMove(Vector3.zero,0.8f).onComplete += delegate { OnOrderDropOnMainPlatform(ObjectName); };
 
             visualiz.Add(GenratedObject);
         }
@@ -252,14 +252,53 @@ public class DropCounter : MonoBehaviour
             }
             GenratedObject.transform.SetParent(parent);
             GenratedObject.transform.DOScale(10, 0);
-            GenratedObject.transform.DOLocalMove(new Vector3(0,0.25f,0), 0.8f);
+            GenratedObject.transform.DOLocalMove(new Vector3(0, 0.25f, 0), 0.8f).onComplete += delegate { OnOrderDropOnMainPlatform(ObjectName); };
             visualiz.Add(GenratedObject);
         }
 
     }
+
+    void OnOrderDropOnMainPlatform(string ObjectName) 
+    {
+        Debug.Log("ObjectName :  " + ObjectName +  " is good");
+
+        if (ObjectName == "VadaPav") 
+        {
+            LevelManager.levelmanager.numberOffOrder = LevelManager.NumberOffOrder.TwoOrder;
+            LevelManager.levelmanager.GetOrder();
+            Tutorial.tutorial.SetupSaggatation(1);
+            Tutorial.tutorial.OrderIndex = 0;
+            Tutorial.tutorial.SetupOrderIndexSaggatation();
+
+            Debug.Log("is work in");
+        }
+
+        if (ObjectName == "Sandwich") 
+        {
+            Debug.Log("ObjectName : " + ObjectName + "is work in");
+            LevelManager.levelmanager.numberOffOrder = LevelManager.NumberOffOrder.TwoOrder;
+            LevelManager.levelmanager.GetOrder();
+            Tutorial.tutorial.SetupSaggatation(2);
+            Tutorial.tutorial.OrderIndex = 0;
+            Tutorial.tutorial.SetupOrderIndexSaggatation();
+        }
+        if (ObjectName == "Pizza")
+        {
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+    }
+
+
     void CheckOrdar(String OrderNames)
     {
         Debug.Log("Order");
+
+        if (GameManager.instance.isTutorialOn == true)
+        {
+            
+        }
 
         if (OrderIndex != LevelManager.levelmanager.NumerofOrder)
         {
@@ -271,6 +310,9 @@ public class DropCounter : MonoBehaviour
             OrderIsCompleted();
             Debug.Log("One User Order Complelete");
         }
+
+
+
     }
 
     IEnumerator visualizReset() 

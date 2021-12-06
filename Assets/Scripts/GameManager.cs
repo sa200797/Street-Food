@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     //call back
     public bool isTutorialOn;
-    public delegate void PlayerTookDamageEvent(string tags,int index);
+    public delegate void PlayerTookDamageEvent(string tags,int index,GameObject hit);
     public static event PlayerTookDamageEvent tagsFoodClickIndex;
 
     [Header("Score Value")]
@@ -107,35 +107,35 @@ public class GameManager : MonoBehaviour
                 if (hit.collider.tag == "VadaPav")
                 {
                     whatToSpawn = hit.collider.GetComponent<ItemCount>().Foodvalue;
-                    MakeVadapaw();
+                    MakeVadapaw(hit.transform.gameObject);
                     //Debug.Log("Shubham---Vaada");
                 }
 
                 if (hit.collider.tag == "Sandwich")
                 {
                     whatToSpawn = hit.collider.GetComponent<ItemCount>().Foodvalue;
-                    MakeSandwich();
+                    MakeSandwich(hit.transform.gameObject);
                     //  Debug.Log("Shubham---Sand");
                 }
 
                 if (hit.collider.tag == "Pizza")
                 {
                     whatToSpawn = hit.collider.GetComponent<ItemCount>().Foodvalue;
-                    MakePizza();
+                    MakePizza(hit.transform.gameObject);
                 }
             }
         }
     }
 
     #region Make Vada Pav
-    public void MakeVadapaw()
+    public void MakeVadapaw(GameObject hit)
     {
         //Debug.Log("Mack Vadapav");
         if (!vadaitemspawn)
         {
             if (isTutorialOn)
             {
-                tagsFoodClickIndex?.Invoke("VadaPav", vadapawcount);
+                tagsFoodClickIndex?.Invoke("VadaPav", vadapawcount , hit);
             }
 
             switch (whatToSpawn)
@@ -180,14 +180,14 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region MakeSandwhich
-    public void MakeSandwich()
+    public void MakeSandwich(GameObject hit)
     {
         if (!sandwichitemsspawn)
         {
             //tagsFoodClickIndex("sandwich", sandwichcount);
             if (isTutorialOn)
             {
-                tagsFoodClickIndex?.Invoke("sandwich", sandwichcount); 
+                tagsFoodClickIndex?.Invoke("sandwich", sandwichcount ,hit); 
             }
 
             switch (whatToSpawn)
@@ -243,13 +243,13 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Make Pizza
-    public void MakePizza()
+    public void MakePizza(GameObject hit)
     {
         if (!pizzaitemspawn)
         {
             if (isTutorialOn)
             {
-                tagsFoodClickIndex?.Invoke("pizza", pizzacount);
+                tagsFoodClickIndex?.Invoke("pizza", pizzacount,hit);
             }
             switch (whatToSpawn)
             {                

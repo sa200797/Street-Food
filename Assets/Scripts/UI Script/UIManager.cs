@@ -35,14 +35,11 @@ public class UIManager : MonoBehaviour
 
 
     [Header("Sound ON/OFF Data")]
-    [SerializeField]
-    Image counterSound;
-    [SerializeField]
-    Sprite muteImage;
-    [SerializeField]
-    Sprite soundImage;
+    [SerializeField] Image counterSound;
+    [SerializeField] Sprite muteImage;
+    [SerializeField] Sprite soundImage;
     bool sound;
-    
+
     [Header("Sound Data")]
     public AudioSource[] sources;
     bool backscreen;
@@ -51,8 +48,8 @@ public class UIManager : MonoBehaviour
 
     [Header("Food Dekliver Option")]
     public GameObject Display;
-    [SerializeField]    Material current_mat;
-    [SerializeField]    Material[] mat;
+    [SerializeField] Material current_mat;
+    [SerializeField] Material[] mat;
 
 
 
@@ -66,7 +63,7 @@ public class UIManager : MonoBehaviour
     [Header("Order Complete")]
     public TextMeshProUGUI ordercomplete;
 
-    
+
     [Header("Coins")]
     [Space(10)]
     public TextMeshProUGUI CurrountBalance;
@@ -79,7 +76,7 @@ public class UIManager : MonoBehaviour
 
     bool howtoplay_cc;
     bool gameplaycanvas_howtoplay;
-       
+
     private void Awake()
     {
         if (instance == null)
@@ -106,12 +103,12 @@ public class UIManager : MonoBehaviour
         totalAmoumt.text = GameManager.amount.ToString();
         ordercomplete.text = " ";
 
-       // UI_canvas = GameObject.Find("GamePlay Canvas");
-              
+        // UI_canvas = GameObject.Find("GamePlay Canvas");
+
         jioGlasses = GameObject.Find("JMRRenderer");
-       // UI_canvas.transform.parent = jioGlasses.transform;
-        
-      
+        // UI_canvas.transform.parent = jioGlasses.transform;
+
+
         //if (jioGlasses != null)
         //{
         //    UI_canvas.transform.parent = jioGlasses.transform;
@@ -141,9 +138,9 @@ public class UIManager : MonoBehaviour
     {
         Debug.Log("Call ho Raha hai baba");
         openShop_btn.SetActive(false);
-       //
-       //
-       //Time.timeScale = 1;
+        //
+        //
+        //Time.timeScale = 1;
         GameManager.instance.playgame = true;
         Timer.timerIsRunning = true;
 
@@ -151,7 +148,7 @@ public class UIManager : MonoBehaviour
 
     public void Dropfood_Timer(float fill_time)
     {
-      // Debug.Log("Timer>>>>>>>>>>???????/??");
+        // Debug.Log("Timer>>>>>>>>>>???????/??");
         //image.fillAmount = Math.Abs(fill_time - 3.0f) / 3.0f;
     }
     public void CounterOnOFFSound()
@@ -189,32 +186,32 @@ public class UIManager : MonoBehaviour
         {
             if (howtoplay_cc == true)
             {
-                UIManager.instance.Deactivied_HowTOPlayPannel();               
+                UIManager.instance.Deactivied_HowTOPlayPannel();
             }
             else
             {
-                if(gameplaycanvas_howtoplay ==true)
+                if (gameplaycanvas_howtoplay == true)
                 {
                     deactive_GamePlayCanvasHTP();
                 }
                 else
                 {
                     UIManager.instance.BackButton();
-                }               
-            }          
+                }
+            }
         }
         else
         {
             Application.Quit();
         }
-    }   
+    }
     public void BackButton()
     {
         ///pause_backpannel = GameObject.FindGameObjectWithTag("Pause");
 
         backscreen = !backscreen;
 
-        if(backscreen)
+        if (backscreen)
         {
             Time.timeScale = 0;
 
@@ -249,7 +246,7 @@ public class UIManager : MonoBehaviour
         howtoplay1.SetActive(false);
         howtoplay2.SetActive(false);
         MainUIPannel.SetActive(true);
-        
+
     }
 
     public void Active_HowToPlay()
@@ -262,7 +259,7 @@ public class UIManager : MonoBehaviour
 
     }
 
-   public void deactive_GamePlayCanvasHTP()
+    public void deactive_GamePlayCanvasHTP()
     {
         gameplaycanvas_howtoplay = false;
         howtoPlay_GamePlayCanvas.SetActive(false);
@@ -307,16 +304,16 @@ public class UIManager : MonoBehaviour
         current_mat = mat[num];
         Display.GetComponent<Renderer>().material = current_mat;
         current_mat.SetTextureOffset("_MainTex", new Vector2(offset, 0));
-       // Debug.Log("Thankyou" + ">>>>>>>>>>>>>>>><<<<<<<<<<<");
+        // Debug.Log("Thankyou" + ">>>>>>>>>>>>>>>><<<<<<<<<<<");
     }
     #endregion
 
 
-    public void OneOrderPlay() 
+    public void OneOrderPlay()
     {
         Debug.Log("is work  fasfasdasfdasd");
-        openShop_btn.SetActive(false);      
-        GameManager.instance.playgame = true;        
+        openShop_btn.SetActive(false);
+        GameManager.instance.playgame = true;
         timertext.transform.parent.transform.gameObject.SetActive(false);
 
         LevelManager.levelmanager.numberOffOrder = LevelManager.NumberOffOrder.OneOrder;
@@ -333,7 +330,7 @@ public class UIManager : MonoBehaviour
         LevelManager.levelmanager.numberOffOrder = LevelManager.NumberOffOrder.OneOrder;
         LevelManager.levelmanager.GetOrder();
     }
-    public void multipleOrder() 
+    public void multipleOrder()
     {
         openShop_btn.SetActive(false);
         GameManager.instance.playgame = true;
@@ -344,7 +341,7 @@ public class UIManager : MonoBehaviour
         LevelManager.levelmanager.GetOrder();
 
     }
-    public void multipleOrderWithtime() 
+    public void multipleOrderWithtime()
     {
         openShop_btn.SetActive(false);
         GameManager.instance.playgame = true;
@@ -353,6 +350,19 @@ public class UIManager : MonoBehaviour
 
         LevelManager.levelmanager.numberOffOrder = LevelManager.NumberOffOrder.TwoOrder;
         LevelManager.levelmanager.GetOrder();
+    }
+
+    public void OnTutorial()
+    {
+        openShop_btn.SetActive(false);
+        GameManager.instance.playgame = true;
+        //Timer.timerIsRunning = true;
+        timertext.transform.parent.transform.gameObject.SetActive(true);
+
+        LevelManager.levelmanager.numberOffOrder = LevelManager.NumberOffOrder.TwoOrder;
+        LevelManager.levelmanager.GetOrder();
+        Tutorial.tutorial.SetupSaggatation(0);
+        Tutorial.tutorial.SetupOrderIndexSaggatation();
     }
 
 }
