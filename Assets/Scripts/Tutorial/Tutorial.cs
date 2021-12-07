@@ -11,7 +11,7 @@ public class Tutorial : MonoBehaviour
 
     [SerializeField] UnityEvent OnTutorialClick;
     [SerializeField] int CurrountOrderIndex;
-    [SerializeField]internal int OrderIndex;
+    [SerializeField] internal int OrderIndex;
     [SerializeField] GameObject[] OrderList;
 
     [SerializeField] bool restart;
@@ -38,6 +38,13 @@ public class Tutorial : MonoBehaviour
         {
             GameManager.tagsFoodClickIndex += FindAndExecute;
         }
+
+        if (GameManager.instance.isTutorialOn == false)
+        {
+            for (int i = 0; i < vadapov.gameObjects.Count; i++) { vadapov.gameObjects[i].gameObject.SetActive(false); }
+            for (int i = 0; i < sandwich.gameObjects.Count; i++) { sandwich.gameObjects[i].gameObject.SetActive(false); }
+            for (int i = 0; i < pizza.gameObjects.Count; i++) { pizza.gameObjects[i].gameObject.SetActive(false); }
+        }
     }
     void OnDisable()
     {
@@ -46,6 +53,8 @@ public class Tutorial : MonoBehaviour
 
     internal void SetupSaggatation(int orderIndex)
     {
+        if (GameManager.instance.isTutorialOn == false) { return; }
+
         if (CurrountOrderIndex != orderIndex)
         {
             CurrountOrderIndex = orderIndex;
@@ -55,14 +64,20 @@ public class Tutorial : MonoBehaviour
             }
             OrderList[orderIndex].SetActive(true);
         }
-        
+
     }
     internal void SetupOrderIndexSaggatation()
     {
-        Debug.Log("CurrountOrderIndex : " + CurrountOrderIndex); 
+        if (GameManager.instance.isTutorialOn == false)
+        {
+            return;
+        }
+
+        Debug.Log("CurrountOrderIndex : " + CurrountOrderIndex);
 
         if (CurrountOrderIndex == 0)
         {
+            for (int i = 0; i < vadapov.gameObjects.Count; i++) { vadapov.gameObjects[i].gameObject.SetActive(false); }
             for (int i = 0; i < vadapov.gameObjects.Count; i++)
             {
                 vadapov.gameObjects[i].GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
@@ -71,8 +86,9 @@ public class Tutorial : MonoBehaviour
             vadapov.gameObjects[OrderIndex].GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
             animationSuggestion(vadapov.gameObjects[OrderIndex]);
         }
-        if (CurrountOrderIndex == 1) 
+        if (CurrountOrderIndex == 1)
         {
+            for (int i = 0; i < sandwich.gameObjects.Count; i++) { sandwich.gameObjects[i].gameObject.SetActive(false); }
             for (int i = 0; i < sandwich.gameObjects.Count; i++)
             {
                 sandwich.gameObjects[i].GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
@@ -84,6 +100,7 @@ public class Tutorial : MonoBehaviour
 
         if (CurrountOrderIndex == 2)
         {
+            for (int i = 0; i < pizza.gameObjects.Count; i++) { pizza.gameObjects[i].gameObject.SetActive(false); }
             for (int i = 0; i < pizza.gameObjects.Count; i++)
             {
                 pizza.gameObjects[i].GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
@@ -96,20 +113,19 @@ public class Tutorial : MonoBehaviour
     }
     void animationSuggestion(GameObject MoveGameObject)
     {
-        Debug.Log("Move");
-
+        MoveGameObject.SetActive(true);
         moveUpDown = DOTween.Sequence();
         moveUpDown
-            .Append(DOTween.Sequence().Append(MoveGameObject.transform.DOMoveY(5f, 0.5f))
-            .Append(MoveGameObject.transform.DOMoveY(4f, 0.5f))
+            .Append(DOTween.Sequence().Append(MoveGameObject.transform.DOMoveY(5f, 1f))
+            .Append(MoveGameObject.transform.DOMoveY(4f, 1f))
             .Play());
         moveUpDown.SetLoops(-1, LoopType.Restart);
     }
-    void FindAndExecute(string tags, int index ,GameObject hit)
+    void FindAndExecute(string tags, int index, GameObject hit)
     {
-        Debug.Log("tag : " + tags + " is work" + "OrderIndex : " +  OrderIndex + "   foodvalue  : " + hit.GetComponent<ItemCount>().foodvalue);
-        
-        if (tags == "VadaPav" && OrderIndex == hit.GetComponent<ItemCount>().foodvalue-1)
+        Debug.Log("tag : " + tags + " is work" + "OrderIndex : " + OrderIndex + "   foodvalue  : " + hit.GetComponent<ItemCount>().foodvalue);
+
+        if (tags == "VadaPav" && OrderIndex == hit.GetComponent<ItemCount>().foodvalue - 1)
         {
             moveUpDown.Kill();
             restart = true;
@@ -120,7 +136,7 @@ public class Tutorial : MonoBehaviour
                 SetupOrderIndexSaggatation();
             }
         }
-        if (tags == "sandwich" && OrderIndex == hit.GetComponent<ItemCount>().foodvalue - 1 )
+        if (tags == "sandwich" && OrderIndex == hit.GetComponent<ItemCount>().foodvalue - 1)
         {
             moveUpDown.Kill();
             restart = true;
@@ -131,7 +147,7 @@ public class Tutorial : MonoBehaviour
                 SetupOrderIndexSaggatation();
             }
         }
-        
+
         if (tags == "pizza" && OrderIndex == hit.GetComponent<ItemCount>().foodvalue - 1)
         {
             moveUpDown.Kill();

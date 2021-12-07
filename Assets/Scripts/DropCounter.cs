@@ -40,6 +40,9 @@ public class DropCounter : MonoBehaviour
 
     [SerializeField] Vector3 Position;
     [SerializeField] List<GameObject> visualiz;
+    [SerializeField] [Range(0, 10)] float pathObject;
+    [SerializeField] GameObject dustbin;
+    [SerializeField] List<GameObject> pathHoder;
     Timer GetTime;
 
     void Awake()
@@ -63,7 +66,7 @@ public class DropCounter : MonoBehaviour
             {
                 Point[i].gameObject.SetActive(true);
             }
-        }      
+        }
     }
 
     void Start()
@@ -148,7 +151,7 @@ public class DropCounter : MonoBehaviour
                 GameManager.vadapawcount = 0;
 
                 ContactPoint contact = collision.contacts[0];
-                visualization(collision.gameObject, "VadaPav" , contact);
+                visualization(collision.gameObject, "VadaPav", contact);
                 Destroy(collision.gameObject);
 
                 //collision.gameObject.SetActive(false);                                
@@ -209,11 +212,11 @@ public class DropCounter : MonoBehaviour
         }
     }
 
-    void visualization(GameObject Hits , string ObjectName , ContactPoint contact) 
+    void visualization(GameObject Hits, string ObjectName, ContactPoint contact)
     {
         Debug.Log("is Work");
         Position = Hits.transform.position;
-        
+
         if (ObjectName == "VadaPav" || ObjectName == "Sandwich")
         {
             GameObject GenratedObject = Instantiate(foodParcel, contact.point, Quaternion.identity) as GameObject;
@@ -231,11 +234,11 @@ public class DropCounter : MonoBehaviour
             }
             GenratedObject.transform.SetParent(parent);
             GenratedObject.transform.DOScale(1.85f, 0);
-            GenratedObject.transform.DOLocalMove(Vector3.zero,0.8f).onComplete += delegate { OnOrderDropOnMainPlatform(ObjectName); };
+            GenratedObject.transform.DOLocalMove(Vector3.zero, 0.8f).onComplete += delegate { OnOrderDropOnMainPlatform(ObjectName); };
 
             visualiz.Add(GenratedObject);
         }
-        else if (ObjectName == "Pizza") 
+        else if (ObjectName == "Pizza")
         {
             GameObject GenratedObject = Instantiate(pizzaBox, contact.point, Quaternion.identity) as GameObject;
             GenratedObject.transform.localPosition = contact.point;
@@ -258,11 +261,16 @@ public class DropCounter : MonoBehaviour
 
     }
 
-    void OnOrderDropOnMainPlatform(string ObjectName) 
+    void OnOrderDropOnMainPlatform(string ObjectName)
     {
-        Debug.Log("ObjectName :  " + ObjectName +  " is good");
+        Debug.Log("ObjectName :  " + ObjectName + " is good");
 
-        if (ObjectName == "VadaPav") 
+        if (GameManager.instance.isTutorialOn == false)
+        {
+            return;
+        }
+
+        if (ObjectName == "VadaPav")
         {
             LevelManager.levelmanager.numberOffOrder = LevelManager.NumberOffOrder.TwoOrder;
             LevelManager.levelmanager.GetOrder();
@@ -273,7 +281,7 @@ public class DropCounter : MonoBehaviour
             Debug.Log("is work in");
         }
 
-        if (ObjectName == "Sandwich") 
+        if (ObjectName == "Sandwich")
         {
             Debug.Log("ObjectName : " + ObjectName + "is work in");
             LevelManager.levelmanager.numberOffOrder = LevelManager.NumberOffOrder.TwoOrder;
@@ -284,7 +292,10 @@ public class DropCounter : MonoBehaviour
         }
         if (ObjectName == "Pizza")
         {
-
+            if (PlayerPrefs.HasKey("TutorialOneTime") == true)
+            {
+                PlayerPrefs.SetInt("TutorialOneTime", 1);
+            }
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
@@ -293,13 +304,6 @@ public class DropCounter : MonoBehaviour
 
     void CheckOrdar(String OrderNames)
     {
-        Debug.Log("Order");
-
-        if (GameManager.instance.isTutorialOn == true)
-        {
-            
-        }
-
         if (OrderIndex != LevelManager.levelmanager.NumerofOrder)
         {
             OrderName.Add(OrderNames);
@@ -315,19 +319,19 @@ public class DropCounter : MonoBehaviour
 
     }
 
-    IEnumerator visualizReset() 
+    IEnumerator visualizReset()
     {
         for (int i = 0; i < visualiz.Count; i++)
         {
             yield return new WaitForSeconds(0.1f);
-            visualiz[i].transform.DOScale(0, 0.1f).onComplete += delegate { Destroy(visualiz[i].gameObject);  };
+            visualiz[i].transform.DOScale(0, 0.1f).onComplete += delegate { Destroy(visualiz[i].gameObject); };
         }
     }
 
     void OrderIsCompleted()
     {
         SoundManager.instance.SoundPlay_OC();
-                
+
         var isWin = Enumerable.SequenceEqual(OrderName.OrderBy(t => t), levelmanager.TwoNameOrder.OrderBy(t => t));
         Debug.Log(" isWin : " + isWin);
 
@@ -336,7 +340,7 @@ public class DropCounter : MonoBehaviour
             /*score += GameManager.amount;
             SavaData.instance.money = score;
             UIManager.instance.totalAmoumt.text = score.ToString();*/
-            var Amount =  GameObject.Find("LevelManager").GetComponent<LevelManager>().moneyOrder;
+            var Amount = GameObject.Find("LevelManager").GetComponent<LevelManager>().moneyOrder;
             int sum = Amount.Take(Amount.Count).Sum();
             GameManager.instance.CoinAddBalance(sum);
 
@@ -388,20 +392,51 @@ public class DropCounter : MonoBehaviour
             ordervalidity = 2;
             UIManager.instance.ordercomplete.text = "Wrong Order Delivered";
             UIManager.instance.ChangeMaterial();
-            StartCoroutine(FoodDropComplete());
 
-            StartCoroutine(visualizReset());
+            StartCoroutine(FoodDropComplete());
+            //StartCoroutine(visualizReset());
 
             OrderName.Clear();
             OrderIndex = 0;
 
-            //timerIsRunning = false;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            //pathHoders();
+            StartCoroutine(pathHoders());
 
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             OnOrderWrong.Invoke();
 
         }
 
+    }
+    IEnumerator pathHoders()
+    {
+        for (int i = 0; i < visualiz.Count; i++)
+        {
+            for (int j = 0; j < pathHoder.Count; j++)
+            {
+                if (i == visualiz.Count - 1 && j == pathHoder.Count - 1)
+                {
+                    visualiz[i].transform.DOMove(pathHoder[j].transform.position, 0.2f).onComplete += delegate { Destroy(visualiz[i].gameObject); };
+                }
+                else
+                {
+                    visualiz[i].transform.DOMove(pathHoder[j].transform.position, 0.2f);
+                }
+
+                yield return new WaitForSeconds(0.2f);
+            }
+        }
+    }
+
+    void OnValidate()
+    {
+        if (pathHoder.Count != 0)
+        {
+            for (int i = 0; i < pathHoder.Count; i++)
+            {
+                pathHoder[i].transform.localScale = new Vector3(pathObject, pathObject, pathObject);
+            }
+        }
     }
 
 
@@ -526,6 +561,8 @@ public class DropCounter : MonoBehaviour
         foodParcel.SetActive(false);
         pizzaBox.SetActive(false);
         itemtype = 0;
+        yield return new WaitForSeconds(4.0f);
+        UIManager.instance.ordercomplete.text = "";
         // UIManager.instance.ChangeMaterial();
     }
     public void MakeStartingFood()

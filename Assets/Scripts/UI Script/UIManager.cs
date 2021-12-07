@@ -32,6 +32,8 @@ public class UIManager : MonoBehaviour
     [Header("Order Details")]
     public TextMeshProUGUI orderid;
     public TextMeshProUGUI orderDetails;
+    public TextMeshProUGUI orderAmountDetails;
+    public TextMeshProUGUI TotalorderAmount;
 
 
     [Header("Sound ON/OFF Data")]
@@ -125,21 +127,17 @@ public class UIManager : MonoBehaviour
         {
             ChangeMaterial();
         }
-
         // Dropfood_Timer(5.0f);
         if (Input.GetKeyDown(KeyCode.P))
         {
             JioBackButton();
         }
-
-
     }
     public void PlayGame()
     {
-        Debug.Log("Call ho Raha hai baba");
+        //Debug.Log("Call ho Raha hai baba");
         openShop_btn.SetActive(false);
-        //
-        //
+     
         //Time.timeScale = 1;
         GameManager.instance.playgame = true;
         Timer.timerIsRunning = true;
@@ -339,7 +337,6 @@ public class UIManager : MonoBehaviour
 
         LevelManager.levelmanager.numberOffOrder = LevelManager.NumberOffOrder.TwoOrder;
         LevelManager.levelmanager.GetOrder();
-
     }
     public void multipleOrderWithtime()
     {

@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public GameObject LevelMan;
     public static LevelManager levelmanager;
-
     [SerializeField] internal NumberOffOrder numberOffOrder;
     [SerializeField] public List<FoodType.foodtype> orderList;
 
@@ -80,7 +79,16 @@ public class LevelManager : MonoBehaviour
             if (isOrdercompleted == true)
             {
                 //UItwoOrderUpdate();
-                ApplyLevelIndex(LevelOrderCount);
+                if (GameManager.instance.isTutorialOn == true)
+                {
+                    //UItwoOrderUpdate();
+                    ApplyLevelIndex(LevelOrderCount);
+                }
+                else
+                {
+                    //UItwoOrderUpdate();
+                    ApplyLevelIndex(LevelOrderCount);
+                }
             }
         }
     }
@@ -97,13 +105,13 @@ public class LevelManager : MonoBehaviour
             }
         }
         
-
         //Level Order Count
         ApplyLevelIndex(LevelOrderCount);
     }
     public void ApplyLevelIndex(int LevelIndex)
     {
         String OrderString = String.Empty;
+        String OrderAmountString = String.Empty;
         TwoNameOrder = new List<String>();
         moneyOrder = new List<int>();
 
@@ -121,23 +129,27 @@ public class LevelManager : MonoBehaviour
                     if (TutorialList[j].TwoOrderList[k] == FoodType.foodtype.VadaPav)
                     {
                         moneyOrder.Add(10);
-                        OrderString += TutorialList[j].TwoOrderList[k] + " " + "X" + " " + "1" + "--Rs10".ToString() + "\n";
+                        //OrderString += TutorialList[j].TwoOrderList[k] + " " + "X" + " " + "1" + "--Rs10".ToString() + "\n";
+                        OrderString += TutorialList[j].TwoOrderList[k].ToString() + "\n";
                     }
                     else if (TutorialList[j].TwoOrderList[k] == FoodType.foodtype.Sandwich)
                     {
                         moneyOrder.Add(30);
-                        OrderString += TutorialList[j].TwoOrderList[k] + " " + "X" + " " + "1" + "--Rs30".ToString() + "\n";
+                        //OrderString += TutorialList[j].TwoOrderList[k] + " " + "X" + " " + "1" + "--Rs30".ToString() + "\n";
+                        OrderString += TutorialList[j].TwoOrderList[k].ToString() + "\n";
                     }
                     else if (TutorialList[j].TwoOrderList[k] == FoodType.foodtype.Pizza)
                     {
                         moneyOrder.Add(50);
-                        OrderString += TutorialList[j].TwoOrderList[k] + " " + "X" + " " + "1" + "--Rs50".ToString() + "\n";
+                        //OrderString += TutorialList[j].TwoOrderList[k] + " " + "X" + " " + "1" + "--Rs50".ToString() + "\n";
+                        OrderString += TutorialList[j].TwoOrderList[k].ToString() + "\n";
                     }
                     TwoNameOrder.Add(TutorialList[j].TwoOrderList[k].ToString());
                 }
             }
             Debug.Log(OrderString);
             UIManager.instance.orderDetails.text = OrderString;
+            UIManager.instance.orderAmountDetails.text = OrderAmountString;
             isOrdercompleted = false;
             return;
         }
@@ -149,22 +161,36 @@ public class LevelManager : MonoBehaviour
             if (levelList[LevelIndex].TwoOrderList[i] == FoodType.foodtype.VadaPav)
             {
                 moneyOrder.Add(10);
-                OrderString += levelList[LevelIndex].TwoOrderList[i] + " " + "X" + " " + "1" + "--Rs10".ToString() + "\n";
+                //OrderString += levelList[LevelIndex].TwoOrderList[i] + " " + "X" + " " + "1" + "--Rs10".ToString() + "\n";
+                OrderString += levelList[LevelIndex].TwoOrderList[i] + "\n";
+                OrderAmountString += 10 + "\n";
             }
             else if (levelList[LevelIndex].TwoOrderList[i] == FoodType.foodtype.Sandwich)
             {
                 moneyOrder.Add(30);
-                OrderString += levelList[LevelIndex].TwoOrderList[i] + " " + "X" + " " + "1" + "--Rs30".ToString() + "\n";
+                //OrderString += levelList[LevelIndex].TwoOrderList[i] + " " + "X" + " " + "1" + "--Rs30".ToString() + "\n";
+                OrderString += levelList[LevelIndex].TwoOrderList[i].ToString() + "\n";
+                OrderAmountString += 30+ "\n";
             }
             else if (levelList[LevelIndex].TwoOrderList[i] == FoodType.foodtype.Pizza)
             {
                 moneyOrder.Add(50);
-                OrderString += levelList[LevelIndex].TwoOrderList[i] + " " + "X" + " " + "1" + "--Rs50".ToString() + "\n";
+                //OrderString += levelList[LevelIndex].TwoOrderList[i] + " " + "X" + " " + "1" + "--Rs50".ToString() + "\n";
+                OrderString += levelList[LevelIndex].TwoOrderList[i].ToString() + "\n";
+                OrderAmountString += 50 + "\n";
             }
             TwoNameOrder.Add(levelList[LevelIndex].TwoOrderList[i].ToString());
         }
         Debug.Log(OrderString);
         UIManager.instance.orderDetails.text = OrderString;
+        UIManager.instance.orderAmountDetails.text = OrderAmountString;
+
+        int AllSum = moneyOrder.Take(moneyOrder.Count).Sum();
+        UIManager.instance.TotalorderAmount.text = AllSum.ToString();
+
+
+
+
         isOrdercompleted = false;
         #endregion
 

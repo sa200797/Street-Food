@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
+using JMRSDK.Toolkit.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class GameManager : MonoBehaviour
     public IngredientData vadapaw_I;
     public IngredientData sandwich_I;
     public IngredientData pizza_I;
-    
+
     // [Header("Object For Vada Pav")]
     // public GameObject breadprefab, masalaprefab, vadapawprefab;
     // [Header("Object For SandWich")]
@@ -40,13 +41,16 @@ public class GameManager : MonoBehaviour
 
     public static bool pizzaitemspawn;
     public static int pizzacount = 0;
-    
+
     public Transform playerspawnPoint;
     public GameObject player;
 
+
+    [Space(10)]
     //call back
     public bool isTutorialOn;
-    public delegate void PlayerTookDamageEvent(string tags,int index,GameObject hit);
+    [SerializeField] GameObject tutoreialButton;
+    public delegate void PlayerTookDamageEvent(string tags, int index, GameObject hit);
     public static event PlayerTookDamageEvent tagsFoodClickIndex;
 
     [Header("Score Value")]
@@ -60,6 +64,7 @@ public class GameManager : MonoBehaviour
             amount = value;
         }
     }
+
     void Awake()
     {
         if (instance == null)
@@ -70,10 +75,40 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
-        
+        tutorialSetup();
+    }
+    void tutorialSetup()
+    {
+        if (PlayerPrefs.HasKey("TutorialOneTime") == false) 
+        {
+            PlayerPrefs.SetInt("TutorialOneTime",0);
+        }
+
+        if (PlayerPrefs.HasKey("TutorialOneTime") == true)
+        {
+            if (PlayerPrefs.GetInt("TutorialOneTime") == 0)
+            {
+                isTutorialOn = true;
+            }
+            else if (PlayerPrefs.GetInt("TutorialOneTime") == 1)
+            {
+                isTutorialOn = false;
+            }
+        }
+        StartCoroutine(StartTutorial());
+    }
+    IEnumerator StartTutorial() 
+    {
+        yield return new WaitForSeconds(1f);
+        if (isTutorialOn == true)
+        {
+            tutoreialButton.GetComponent<JMRUIButton>().onButtonClick.Invoke();
+        }
     }
     void Start()
     {
+        
+
         player = GameObject.Find("JMRMixedReality");
         player.transform.position = playerspawnPoint.position;
 
@@ -135,12 +170,12 @@ public class GameManager : MonoBehaviour
         {
             if (isTutorialOn)
             {
-                tagsFoodClickIndex?.Invoke("VadaPav", vadapawcount , hit);
+                tagsFoodClickIndex?.Invoke("VadaPav", vadapawcount, hit);
             }
 
             switch (whatToSpawn)
             {
-                
+
                 case 1:
                     if (vadapawcount == 0)
                     {
@@ -187,7 +222,7 @@ public class GameManager : MonoBehaviour
             //tagsFoodClickIndex("sandwich", sandwichcount);
             if (isTutorialOn)
             {
-                tagsFoodClickIndex?.Invoke("sandwich", sandwichcount ,hit); 
+                tagsFoodClickIndex?.Invoke("sandwich", sandwichcount, hit);
             }
 
             switch (whatToSpawn)
@@ -219,8 +254,6 @@ public class GameManager : MonoBehaviour
                         GameObject veggeprefab = Instantiate(sandwich_I.foodIngredient[2], san_droppoint.transform.position, Quaternion.identity);
 
                         sandwichclone = veggeprefab;
-
-
                         sandwichcount++;
                     }
                     break;
@@ -249,17 +282,17 @@ public class GameManager : MonoBehaviour
         {
             if (isTutorialOn)
             {
-                tagsFoodClickIndex?.Invoke("pizza", pizzacount,hit);
+                tagsFoodClickIndex?.Invoke("pizza", pizzacount, hit);
             }
             switch (whatToSpawn)
-            {                
+            {
                 case 1:
                     if (pizzacount == 0)
                     {
                         GameObject dough = Instantiate(pizza_I.foodIngredient[0], pizza_droppoint.transform.position, Quaternion.identity);
                         pizzaclone = dough;
                         pizzacount++;
-                        
+
                     }
                     break;
                 case 2:
@@ -329,9 +362,9 @@ public class GameManager : MonoBehaviour
 
     #region CoinBalance
 
-    internal void CoinAddBalance(int CoinMoney) 
+    internal void CoinAddBalance(int CoinMoney)
     {
-        StartCoroutine(CoinBalance(CoinMoney));        
+        StartCoroutine(CoinBalance(CoinMoney));
         //CoinBalanceUpdata();
     }
     IEnumerator CoinBalance(int CoinMoney)
@@ -344,11 +377,12 @@ public class GameManager : MonoBehaviour
         SavaData.instance.AddMoney(CoinMoney);
         GameManager.instance.gameObject.GetComponent<Timer>().timeRemaning += 20;
 
+        
 
         yield return new WaitForSeconds(8f);
         UIManager.instance.ordercomplete.text = "";
     }
-    void CoinBalanceUpdata() 
+    void CoinBalanceUpdata()
     {
         UIManager.instance.CurrountBalance.text = SavaData.instance.GetInt("toalmoney_key").ToString();
     }
