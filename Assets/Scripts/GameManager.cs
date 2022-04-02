@@ -108,7 +108,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         
-
         player = GameObject.Find("JMRMixedReality");
         player.transform.position = playerspawnPoint.position;
 
@@ -118,7 +117,6 @@ public class GameManager : MonoBehaviour
 
         CoinBalanceUpdata();
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -260,7 +258,6 @@ public class GameManager : MonoBehaviour
                 default:
                     Debug.Log("Please follow the food item menu");
                     break;
-
             }
         }
     }

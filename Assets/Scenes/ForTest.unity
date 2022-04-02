@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17527954, g: 0.21929628, b: 0.30160972, a: 1}
+  m_IndirectSpecularColor: {r: 0.43998012, g: 0.48846078, b: 0.5686598, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1843,6 +1843,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c1c3fa9187d270b4d97ac303f6b13a27, type: 2}
+    - target: {fileID: -746946545533306484, guid: ff0794b1475b7c042846ff736e0ce54c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: -746946545533306484, guid: ff0794b1475b7c042846ff736e0ce54c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -746946545533306484, guid: ff0794b1475b7c042846ff736e0ce54c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.45
+      objectReference: {fileID: 0}
     - target: {fileID: -264430861247414160, guid: ff0794b1475b7c042846ff736e0ce54c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1877,6 +1892,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518980002003577502, guid: ff0794b1475b7c042846ff736e0ce54c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518980002003577502, guid: ff0794b1475b7c042846ff736e0ce54c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518980002003577502, guid: ff0794b1475b7c042846ff736e0ce54c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff0794b1475b7c042846ff736e0ce54c, type: 3}
@@ -2726,6 +2756,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b04ff4b30d43a498e513d2f14fa382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BakePlatfrom: {fileID: 0}
+  finishBakePlatfrom: {fileID: 0}
+  prefabUncooked: {fileID: 0}
+  prefabcooked: {fileID: 0}
+  PizzaDrag: {fileID: 0}
 --- !u!65 &392904543
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2842,8 +2877,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22e718a1cefb924e92e9bce2abba0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOffOrder: 0
   orderList: 020000000200000003000000020000000300000001000000010000000200000001000000020000000300000002000000010000000100000002000000
-  ordercount: 1
+  isOrdercompleted: 0
+  TwoOrderList: 
+  NumerofOrder: 0
+  levelList: []
+  TutorialList: []
+  TwoNameOrder: []
+  moneyOrder: 
+  LevelOrderCount: 0
 --- !u!4 &469049410
 Transform:
   m_ObjectHideFlags: 0
@@ -5723,20 +5766,30 @@ MonoBehaviour:
   UI_canvas: {fileID: 5262168929749808705}
   jioGlasses: {fileID: 0}
   openShop_btn: {fileID: 1256632976}
-  timer_Img: {fileID: 500644062}
+  MainUIPannel: {fileID: 0}
+  howtoplay1: {fileID: 0}
+  howtoplay2: {fileID: 0}
+  howtoPlay_GamePlayCanvas: {fileID: 0}
   orderid: {fileID: 207481099}
   orderDetails: {fileID: 141576429}
-  image: {fileID: 693130965}
+  orderAmountDetails: {fileID: 0}
+  TotalorderAmount: {fileID: 0}
+  counterSound: {fileID: 0}
   muteImage: {fileID: 21300000, guid: df34c807c5645a540a624fc84be62a01, type: 3}
   soundImage: {fileID: 21300000, guid: e5dd73c23f4af364e9112a12df969ed5, type: 3}
   sources: []
-  backpannel: {fileID: 182430574}
+  pause_backpannel: {fileID: 0}
   Display: {fileID: 341755791}
   current_mat: {fileID: 0}
   mat:
-  - {fileID: 2100000, guid: 550fec9d5e639d249935e20529b51b5d, type: 2}
+  - {fileID: 2100000, guid: 4b7e74fda85a5c443a6ce36e4441636d, type: 2}
   - {fileID: 2100000, guid: d908f6684680cb247bc18aa2e12072ca, type: 2}
   - {fileID: 2100000, guid: 03558d6c946b442429bb151a9be73038, type: 2}
+  timertext: {fileID: 0}
+  totalAmoumt: {fileID: 0}
+  ordercomplete: {fileID: 0}
+  CurrountBalance: {fileID: 0}
+  newAddBalance: {fileID: 0}
 --- !u!4 &933188281
 Transform:
   m_ObjectHideFlags: 0
@@ -6178,6 +6231,8 @@ MonoBehaviour:
   pizza_droppoint: {fileID: 732148989}
   playerspawnPoint: {fileID: 1645423988}
   player: {fileID: 0}
+  isTutorialOn: 0
+  tutoreialButton: {fileID: 0}
 --- !u!114 &1008482686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7915,6 +7970,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelMan: {fileID: 0}
   levelmanager: {fileID: 469049409}
+  OrderIndex: 0
+  numberOffOrder: 0
+  transformPoint: {fileID: 0}
+  score: 0
+  foodParcel: {fileID: 0}
+  pizzaBox: {fileID: 0}
+  itemtype: 0
+  Point: []
+  OrderName: []
+  OnOrderCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnOrderWrong:
+    m_PersistentCalls:
+      m_Calls: []
+  Position: {x: 0, y: 0, z: 0}
+  visualiz: []
+  pathObject: 0
+  dustbin: {fileID: 0}
+  pathHoder: []
 --- !u!1001 &1397032985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8154,6 +8229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d7a1a901af77a45b2a78a60d87ea2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  VeggieSandwhich: {fileID: 0}
 --- !u!65 &1413812115
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8367,7 +8443,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 550fec9d5e639d249935e20529b51b5d, type: 2}
+      objectReference: {fileID: 2100000, guid: 4b7e74fda85a5c443a6ce36e4441636d, type: 2}
     - target: {fileID: 6050160538597918202, guid: 8615bb7f6ffd5414890f3d81f964a209,
         type: 3}
       propertyPath: m_IsActive
