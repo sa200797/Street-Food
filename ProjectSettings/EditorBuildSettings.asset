@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/NEW SIZE/Splash Screen.unity
     guid: 689cb0c97de27a84eadb0e17191b1484
   - enabled: 1
+    path: Assets/Scenes/NEW SIZE/Gamemods.unity
+    guid: 0f0179966151e7a4eb7c3cf6abe2d0cd
+  - enabled: 1
     path: Assets/Scenes/NEW SIZE/Environment full.unity
     guid: 690cf21ffa2e1c54786c115c75b4c383
   - enabled: 1

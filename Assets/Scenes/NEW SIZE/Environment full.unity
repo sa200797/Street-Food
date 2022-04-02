@@ -4741,7 +4741,7 @@ MonoBehaviour:
   pizza_droppoint: {fileID: 723186089}
   playerspawnPoint: {fileID: 626585417}
   player: {fileID: 0}
-  isTutorialOn: 1
+  isTutorialOn: 0
   tutoreialButton: {fileID: 277707230}
 --- !u!4 &581101924
 Transform:

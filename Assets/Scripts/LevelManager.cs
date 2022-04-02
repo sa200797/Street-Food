@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class LevelManager : MonoBehaviour
     [Space(5)]
     [SerializeField] internal bool isOrdercompleted;
     [SerializeField] List<FoodType.foodtype> TwoOrderList;
-    [SerializeField]internal int NumerofOrder;
+    [SerializeField] internal int NumerofOrder;
     [SerializeField] List<LevelList> levelList;
     [SerializeField] List<LevelList> TutorialList;
     [SerializeField] internal List<String> TwoNameOrder;
@@ -26,7 +27,7 @@ public class LevelManager : MonoBehaviour
 
     void Awake()
     {
-        if (levelmanager == null) 
+        if (levelmanager == null)
         {
             levelmanager = this;
         }
@@ -57,6 +58,7 @@ public class LevelManager : MonoBehaviour
         //levelmanager = LevelMan.GetComponent<LevelManager>();
 
         isOrdercompleted = true;
+        //isOrdercompleted = false;
 
         //Move this to LevelManager 
         //GetOrder();
@@ -66,7 +68,59 @@ public class LevelManager : MonoBehaviour
     {
         return LevelOrderCount;
     }
+    /*public void tutorial()
+    {
+        String OrderString = String.Empty;
+        String OrderAmountString = String.Empty;
+        TwoNameOrder = new List<String>();
+        moneyOrder = new List<int>();
+        Debug.Log("called 2");
+        Debug.Log("isTutorialOn : " + GameManager.instance.isTutorialOn);
+        // Tutorial 
+        if (GameManager.instance.isTutorialOn == true)
+        {
+            Debug.Log("called 3");
 
+            for (int j = 0; j < TutorialList.Count; j++)
+            {
+                Debug.Log("called 4");
+                Debug.Log("Tutorial");
+                for (int k = 0; k < TutorialList[j].TwoOrderList.Count; k++)
+                {
+                    Debug.Log("called 5");
+
+                    Debug.Log("Tutorial" + TutorialList[j].TwoOrderList[k]);
+
+                    if (TutorialList[j].TwoOrderList[k] == FoodType.foodtype.VadaPav)
+                    {
+                        Debug.Log("called 6");
+
+                        moneyOrder.Add(10);
+                        //OrderString += TutorialList[j].TwoOrderList[k] + " " + "X" + " " + "1" + "--Rs10".ToString() + "\n";
+                        OrderString += TutorialList[j].TwoOrderList[k].ToString() + "\n";
+                    }
+                    else if (TutorialList[j].TwoOrderList[k] == FoodType.foodtype.Sandwich)
+                    {
+                        moneyOrder.Add(30);
+                        //OrderString += TutorialList[j].TwoOrderList[k] + " " + "X" + " " + "1" + "--Rs30".ToString() + "\n";
+                        OrderString += TutorialList[j].TwoOrderList[k].ToString() + "\n";
+                    }
+                    else if (TutorialList[j].TwoOrderList[k] == FoodType.foodtype.Pizza)
+                    {
+                        moneyOrder.Add(50);
+                        //OrderString += TutorialList[j].TwoOrderList[k] + " " + "X" + " " + "1" + "--Rs50".ToString() + "\n";
+                        OrderString += TutorialList[j].TwoOrderList[k].ToString() + "\n";
+                    }
+                    TwoNameOrder.Add(TutorialList[j].TwoOrderList[k].ToString());
+                }
+            }
+            Debug.Log(OrderString);
+            UIManager.instance.orderDetails.text = OrderString;
+            UIManager.instance.orderAmountDetails.text = OrderAmountString;
+            isOrdercompleted = false;
+            return;
+        }
+    }*/
     public void GetOrder()
     {
         if (numberOffOrder == NumberOffOrder.OneOrder)
@@ -95,6 +149,7 @@ public class LevelManager : MonoBehaviour
     [ContextMenu("OrderUpdate")]
     void UItwoOrderUpdate()
     {
+        Debug.Log("UItwoOrderUpdate");
         UpdateOrderNumber();
         for (int j = 0; j < levelList.Count; j++)
         {
@@ -104,30 +159,40 @@ public class LevelManager : MonoBehaviour
                 levelList[j].TwoOrderList.Add(TwoOrderList[getIntOrder()]);
             }
         }
-        
+
         //Level Order Count
         ApplyLevelIndex(LevelOrderCount);
     }
     public void ApplyLevelIndex(int LevelIndex)
     {
+        Debug.Log("called 1");
+
         String OrderString = String.Empty;
         String OrderAmountString = String.Empty;
         TwoNameOrder = new List<String>();
         moneyOrder = new List<int>();
+        //Debug.Log("called 2");
 
         #region Tutorial
         // Tutorial 
-        if (GameManager.instance.isTutorialOn == true) 
+        if (GameManager.instance.isTutorialOn == true)
         {
+            Debug.Log("called 3");
+
             for (int j = 0; j < TutorialList.Count; j++)
             {
+                Debug.Log("called 4");
                 Debug.Log("Tutorial");
                 for (int k = 0; k < TutorialList[j].TwoOrderList.Count; k++)
                 {
+                    Debug.Log("called 5");
+
                     Debug.Log("Tutorial" + TutorialList[j].TwoOrderList[k]);
 
                     if (TutorialList[j].TwoOrderList[k] == FoodType.foodtype.VadaPav)
                     {
+                        Debug.Log("called 6");
+
                         moneyOrder.Add(10);
                         //OrderString += TutorialList[j].TwoOrderList[k] + " " + "X" + " " + "1" + "--Rs10".ToString() + "\n";
                         OrderString += TutorialList[j].TwoOrderList[k].ToString() + "\n";
@@ -170,7 +235,7 @@ public class LevelManager : MonoBehaviour
                 moneyOrder.Add(30);
                 //OrderString += levelList[LevelIndex].TwoOrderList[i] + " " + "X" + " " + "1" + "--Rs30".ToString() + "\n";
                 OrderString += levelList[LevelIndex].TwoOrderList[i].ToString() + "\n";
-                OrderAmountString += 30+ "\n";
+                OrderAmountString += 30 + "\n";
             }
             else if (levelList[LevelIndex].TwoOrderList[i] == FoodType.foodtype.Pizza)
             {
@@ -188,14 +253,23 @@ public class LevelManager : MonoBehaviour
         int AllSum = moneyOrder.Take(moneyOrder.Count).Sum();
         UIManager.instance.TotalorderAmount.text = AllSum.ToString();
 
-
-
-
         isOrdercompleted = false;
         #endregion
 
     }
     public void OnLevelCompleted() { }
+    public void OnTutorialBtn()
+    {
+        Debug.Log("Tutorial Btn Click");
+        // isOrdercompleted = true;
+        // Debug.Log("isOrdercompleted : "+ isOrdercompleted);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //GameManager.instance.tutorialSetup();
+        // tutorial();
+        // GameManager.instance.tutorialSetup();
+        //GameManager.instance.isTutorialOn = true;
+        // ApplyLevelIndex(LevelOrderCount);
+    }
     public void UIOneOrderUpdate()
     {
         UpdateOrderNumber();
@@ -249,7 +323,4 @@ public class LevelManager : MonoBehaviour
     {
         public List<FoodType.foodtype> TwoOrderList;
     }
-
-
-
 }

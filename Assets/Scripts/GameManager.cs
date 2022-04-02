@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
 
     [Space(10)]
     //call back
-    public bool isTutorialOn;
+    public bool isTutorialOn =false;
     [SerializeField] GameObject tutoreialButton;
     public delegate void PlayerTookDamageEvent(string tags, int index, GameObject hit);
     public static event PlayerTookDamageEvent tagsFoodClickIndex;
@@ -77,22 +77,28 @@ public class GameManager : MonoBehaviour
         }
         tutorialSetup();
     }
-    void tutorialSetup()
+    public void tutorialSetup()
     {
-        if (PlayerPrefs.HasKey("TutorialOneTime") == false) 
+        Debug.Log("tutorialSetup");
+        if (PlayerPrefs.HasKey("TutorialOneTime") == false)
         {
-            PlayerPrefs.SetInt("TutorialOneTime",0);
+            Debug.Log("TutorialOneTime False ");
+            PlayerPrefs.SetInt("TutorialOneTime", 0);
         }
 
         if (PlayerPrefs.HasKey("TutorialOneTime") == true)
         {
             if (PlayerPrefs.GetInt("TutorialOneTime") == 0)
             {
+                Debug.Log("TutorialOneTime 0 ");
                 isTutorialOn = true;
             }
             else if (PlayerPrefs.GetInt("TutorialOneTime") == 1)
             {
+                Debug.Log("TutorialOneTime 1 ");
+
                 isTutorialOn = false;
+               // isTutorialOn = true;
             }
         }
         StartCoroutine(StartTutorial());
