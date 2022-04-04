@@ -292,7 +292,8 @@ public class DropCounter : MonoBehaviour
         }
         if (ObjectName == "Pizza")
         {
-            if (PlayerPrefs.HasKey("TutorialOneTime") == true)
+
+            if (PlayerPrefs.HasKey("TutorialOneTime") == true)          
             {
                 PlayerPrefs.SetInt("TutorialOneTime", 1);
             }

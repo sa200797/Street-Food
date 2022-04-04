@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     public Transform playerspawnPoint;
     public GameObject player;
 
+    public bool isMods;
 
     [Space(10)]
     //call back
@@ -79,6 +80,7 @@ public class GameManager : MonoBehaviour
     }
     public void tutorialSetup()
     {
+        
         Debug.Log("tutorialSetup");
         if (PlayerPrefs.HasKey("TutorialOneTime") == false)
         {
@@ -95,17 +97,30 @@ public class GameManager : MonoBehaviour
             }
             else if (PlayerPrefs.GetInt("TutorialOneTime") == 1)
             {
-                Debug.Log("TutorialOneTime 1 ");
 
-                isTutorialOn = false;
-               // isTutorialOn = true;
+               Debug.Log("TutorialOneTime 1 ");
+
+               isTutorialOn = true;
+              //isTutorialOn = true;
             }
         }
+       if( PlayerPrefs.GetInt("isMods") == 1)
+        {
+            isTutorialOn = true;
+            PlayerPrefs.SetInt("TutorialOneTime", 0);
+        }
+       else
+        {
+            PlayerPrefs.SetInt("TutorialOneTime", 1);
+            isTutorialOn = false;
+        }
+
         StartCoroutine(StartTutorial());
     }
     IEnumerator StartTutorial() 
     {
         yield return new WaitForSeconds(1f);
+
         if (isTutorialOn == true)
         {
             tutoreialButton.GetComponent<JMRUIButton>().onButtonClick.Invoke();
@@ -113,7 +128,6 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        
         player = GameObject.Find("JMRMixedReality");
         player.transform.position = playerspawnPoint.position;
 
@@ -139,6 +153,7 @@ public class GameManager : MonoBehaviour
     {
         if (playgame == true)
         {
+            Debug.Log("Abhay");
             var ray = JMRPointerManager.Instance.GetCurrentRay();
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, maxDistance: 100))
@@ -147,7 +162,7 @@ public class GameManager : MonoBehaviour
                 {
                     whatToSpawn = hit.collider.GetComponent<ItemCount>().Foodvalue;
                     MakeVadapaw(hit.transform.gameObject);
-                    //Debug.Log("Shubham---Vaada");
+                    Debug.Log("Shubham---Vaada");
                 }
 
                 if (hit.collider.tag == "Sandwich")
