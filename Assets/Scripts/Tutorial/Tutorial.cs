@@ -29,7 +29,7 @@ public class Tutorial : MonoBehaviour
         }
         else
         {
-            Destroy(tutorial);
+           // Destroy(tutorial);
         }
     }
     void Start()

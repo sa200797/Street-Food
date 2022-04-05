@@ -295,13 +295,13 @@ public class DropCounter : MonoBehaviour
 
             if (PlayerPrefs.HasKey("TutorialOneTime") == true)          
             {
+                Debug.Log("Pizza Pizza");
                 PlayerPrefs.SetInt("TutorialOneTime", 1);
             }
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
     }
-
 
     void CheckOrdar(String OrderNames)
     {
@@ -315,9 +315,6 @@ public class DropCounter : MonoBehaviour
             OrderIsCompleted();
             Debug.Log("One User Order Complelete");
         }
-
-
-
     }
 
     IEnumerator visualizReset()

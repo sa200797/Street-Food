@@ -83,6 +83,7 @@ public class SavaData : MonoBehaviour
 
     public int GetInt(string keyname)
     {
+        Debug.Log("KEYNAME : " + keyname);
         return PlayerPrefs.GetInt(keyname);
     }
     

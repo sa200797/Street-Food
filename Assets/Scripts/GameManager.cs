@@ -80,37 +80,40 @@ public class GameManager : MonoBehaviour
     }
     public void tutorialSetup()
     {
-        
-        Debug.Log("tutorialSetup");
-        if (PlayerPrefs.HasKey("TutorialOneTime") == false)
-        {
-            Debug.Log("TutorialOneTime False ");
-            PlayerPrefs.SetInt("TutorialOneTime", 0);
-        }
 
-        if (PlayerPrefs.HasKey("TutorialOneTime") == true)
-        {
-            if (PlayerPrefs.GetInt("TutorialOneTime") == 0)
-            {
-                Debug.Log("TutorialOneTime 0 ");
-                isTutorialOn = true;
-            }
-            else if (PlayerPrefs.GetInt("TutorialOneTime") == 1)
-            {
+        //Debug.Log("tutorialSetup");
+        //if (PlayerPrefs.HasKey("TutorialOneTime") == false)
+        //{
+        //    Debug.Log("TutorialOneTime False ");
+        //    PlayerPrefs.SetInt("TutorialOneTime", 0);
+        //}
 
-               Debug.Log("TutorialOneTime 1 ");
+        //if (PlayerPrefs.HasKey("TutorialOneTime") == true)
+        //{
+        //    if (PlayerPrefs.GetInt("TutorialOneTime") == 0)
+        //    {
+        //        Debug.Log("TutorialOneTime 0 ");
+        //        isTutorialOn = true;
+        //    }
+        //    else if (PlayerPrefs.GetInt("TutorialOneTime") == 1)
+        //    {
+        //        Debug.Log("TutorialOneTime 1 ");
 
-               isTutorialOn = true;
-              //isTutorialOn = true;
-            }
-        }
-       if( PlayerPrefs.GetInt("isMods") == 1)
+        //        isTutorialOn = true;
+        //        //isTutorialOn = true;
+        //    }
+        //}
+        if (PlayerPrefs.GetInt("isMods") == 1)
         {
+            Debug.Log("TutorialOneTime 2 ");
+
             isTutorialOn = true;
             PlayerPrefs.SetInt("TutorialOneTime", 0);
         }
-       else
+        else
         {
+            Debug.Log("TutorialOneTime 3 ");
+
             PlayerPrefs.SetInt("TutorialOneTime", 1);
             isTutorialOn = false;
         }
@@ -153,7 +156,7 @@ public class GameManager : MonoBehaviour
     {
         if (playgame == true)
         {
-            Debug.Log("Abhay");
+            Debug.Log("GetInfo Called");
             var ray = JMRPointerManager.Instance.GetCurrentRay();
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, maxDistance: 100))
@@ -180,7 +183,6 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
     #region Make Vada Pav
     public void MakeVadapaw(GameObject hit)
     {
@@ -222,7 +224,6 @@ public class GameManager : MonoBehaviour
                         vadapawcount++;
                         SoundManager.instance.SoundPlay_FD();
                         Debug.Log(vadapawcount);
-
                     }
                     break;
                 default:
@@ -241,6 +242,7 @@ public class GameManager : MonoBehaviour
             //tagsFoodClickIndex("sandwich", sandwichcount);
             if (isTutorialOn)
             {
+                Debug.Log("tagsFoodClickIndex");
                 tagsFoodClickIndex?.Invoke("sandwich", sandwichcount, hit);
             }
 

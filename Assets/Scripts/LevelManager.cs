@@ -136,7 +136,7 @@ public class LevelManager : MonoBehaviour
             if (isOrdercompleted == true)
             {
                 Debug.Log("get oder 3");
-                //UItwoOrderUpdate();
+                //UItwoOrderUpdate();   
                 if (GameManager.instance.isTutorialOn == true)
                 {
                     Debug.Log("get oder 4");
@@ -185,7 +185,11 @@ public class LevelManager : MonoBehaviour
         // Tutorial 
         if (PlayerPrefs.GetInt("isMods")==1)
         {
-            PlayerPrefs.SetInt("isMods", 0);
+
+
+            //PlayerPrefs.SetInt("isMods", 0);
+
+
 
             Debug.Log("Tutorial");
             if (GameManager.instance.isTutorialOn == true)
