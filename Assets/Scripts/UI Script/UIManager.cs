@@ -261,7 +261,6 @@ public class UIManager : MonoBehaviour
     {
         gameplaycanvas_howtoplay = false;
         howtoPlay_GamePlayCanvas.SetActive(false);
-
     }
 
     public void active_GamePlayCanvasHTP()
@@ -290,7 +289,6 @@ public class UIManager : MonoBehaviour
                 fooddrop = false;
                 MoveMaterial(0);
                 break;
-
         }
 
     }

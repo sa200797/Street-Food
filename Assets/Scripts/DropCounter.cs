@@ -142,7 +142,7 @@ public class DropCounter : MonoBehaviour
         //Rushabh
         if (numberOffOrder == LevelManager.NumberOffOrder.TwoOrder)
         {
-            Debug.Log("Two Name");
+            Debug.Log("Two Name"); 
             if (collision.gameObject.CompareTag("C_Vadapav"))
             {
                 GameManager.amount = 10;
@@ -191,7 +191,7 @@ public class DropCounter : MonoBehaviour
             if (collision.gameObject.CompareTag("C_Pizza"))
             {
                 GameManager.amount = 50;
-                Debug.Log("Pizza Complete");
+                Debug.Log("Pizza Complete");    
                 GameManager.pizzaitemspawn = false;
                 GameManager.pizzacount = 0;
 
@@ -297,8 +297,11 @@ public class DropCounter : MonoBehaviour
             {
                 Debug.Log("Pizza Pizza");
                 PlayerPrefs.SetInt("TutorialOneTime", 1);
+
             }
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Debug.Log("GetActiveSceneName :"+ SceneManager.GetActiveScene().name);
+            Debug.Log("123");
         }
 
     }
@@ -378,7 +381,6 @@ public class DropCounter : MonoBehaviour
                     // pizzaBox.SetActive(false);
                     break;
             }
-
             OrderName.Clear();
             OnOrderCompleted.Invoke();
             return;
@@ -436,13 +438,10 @@ public class DropCounter : MonoBehaviour
             }
         }
     }
-
-
     bool CheckFood(FoodType.foodtype checkfood)
     {
         return levelmanager.orderList.Contains(checkfood);
     }
-
     void MakeFood(FoodType.foodtype food)
     {
         SoundManager.instance.SoundPlay_OC();
@@ -476,7 +475,6 @@ public class DropCounter : MonoBehaviour
 
             ordervalidity = 1;
             UIManager.instance.ordercomplete.text = "Order Complete!! Thankyou ";
-
 
             UIManager.instance.ChangeMaterial();
             StartCoroutine(FoodDropComplete());
@@ -567,8 +565,6 @@ public class DropCounter : MonoBehaviour
     {
         //  levelmanager.orderList.Contains(checkfood)
     }
-
-
 }
 
 

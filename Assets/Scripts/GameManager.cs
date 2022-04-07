@@ -77,10 +77,18 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         }
         tutorialSetup();
+
+        if(GameSetting.Instance.CheckTutorial())
+        {
+            isTutorialOn = false;
+        }
+        else
+        {
+            return;
+        }
     }
     public void tutorialSetup()
     {
-
         //Debug.Log("tutorialSetup");
         //if (PlayerPrefs.HasKey("TutorialOneTime") == false)
         //{
@@ -105,7 +113,7 @@ public class GameManager : MonoBehaviour
         //}
         if (PlayerPrefs.GetInt("isMods") == 1)
         {
-            Debug.Log("TutorialOneTime 2 ");
+            Debug.Log("TutorialOneTime 2 "); 
 
             isTutorialOn = true;
             PlayerPrefs.SetInt("TutorialOneTime", 0);
@@ -172,7 +180,7 @@ public class GameManager : MonoBehaviour
                 {
                     whatToSpawn = hit.collider.GetComponent<ItemCount>().Foodvalue;
                     MakeSandwich(hit.transform.gameObject);
-                    //  Debug.Log("Shubham---Sand");
+                    //Debug.Log("Shubham---Sand");
                 }
 
                 if (hit.collider.tag == "Pizza")
@@ -284,7 +292,6 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
     public void DropToast()
     {
         //Destroy(sandwichclone,0f);
@@ -360,15 +367,14 @@ public class GameManager : MonoBehaviour
                         pizzaclone = chezse;
                         pizzacount++;
                     }
+                    GameSetting.Instance.doneTutorial = true;
                     break;
                 default:
                     Debug.Log("Please follow the food itme menu");
                     break;
-
             }
         }
     }
-
 
     public void BakePizza()
     {
