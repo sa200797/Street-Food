@@ -117,7 +117,10 @@ public class UIManager : MonoBehaviour
         //    //UI_canvas.transform.localPosition = new Vector3(transform.position.x, -0.025f, transform.position.z);
         //}
 
-
+        if(GameSetting.Instance.timeMods)
+        {
+            StartTimerMode();
+        }
     }
 
     // Update is called once per frame
@@ -133,11 +136,10 @@ public class UIManager : MonoBehaviour
             JioBackButton();
         }
     }
-    public void PlayGame()
+    public void StartTimerMode()
     {
-        //Debug.Log("Call ho Raha hai baba");
+        Debug.Log("PLAYGAME");
         openShop_btn.SetActive(false);
-     
         //Time.timeScale = 1;
         GameManager.instance.playgame = true;
         Timer.timerIsRunning = true;
@@ -303,7 +305,6 @@ public class UIManager : MonoBehaviour
         // Debug.Log("Thankyou" + ">>>>>>>>>>>>>>>><<<<<<<<<<<");
     }
     #endregion
-
 
     public void OneOrderPlay()
     {

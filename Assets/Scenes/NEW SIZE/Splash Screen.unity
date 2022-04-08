@@ -151,7 +151,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroy: 1
-  doneTutorial: 0
+  doneTutorial: 1
+  checkFreeTimeMods: 0
+  timeMods: 0
 --- !u!4 &84946391
 Transform:
   m_ObjectHideFlags: 0

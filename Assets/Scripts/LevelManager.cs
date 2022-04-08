@@ -245,13 +245,19 @@ public class LevelManager : MonoBehaviour
         Debug.Log("OnFreeTimeMods Btn Click");
         GameSetting.Instance.doneTutorial = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        MainPannel.Instance.takeMultipleOrder.SetActive(true);
+        MainPannel.Instance.takeMultipleOrderTime.SetActive(false);
     }
     public void OnTimeModsBtn()
     {
         Debug.Log("OnFreeTimeMods Btn Click");
         GameSetting.Instance.doneTutorial = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        GameManager.instance.AddTime(addTime);
+        GameSetting.Instance.timeMods = true;
+
+        MainPannel.Instance.takeMultipleOrder.SetActive(false);
+        MainPannel.Instance.takeMultipleOrderTime.SetActive(true);
     }
     public void UIOneOrderUpdate()
     {
