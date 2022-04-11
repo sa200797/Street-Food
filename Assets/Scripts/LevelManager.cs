@@ -136,50 +136,49 @@ public class LevelManager : MonoBehaviour
         #region Tutorial
         // Tutorial 
             Debug.Log("Tutorial");
-            if (GameManager.instance.isTutorialOn == true)
+        if (GameManager.instance.isTutorialOn == true)
+        {
+            Debug.Log("Tutorial");
+            Debug.Log("called 3");
+
+            for (int j = 0; j < TutorialList.Count; j++)
             {
+                Debug.Log("called 4");
                 Debug.Log("Tutorial");
-                Debug.Log("called 3");
-
-                for (int j = 0; j < TutorialList.Count; j++)
+                for (int k = 0; k < TutorialList[j].TwoOrderList.Count; k++)
                 {
-                    Debug.Log("called 4");
-                    Debug.Log("Tutorial");
-                    for (int k = 0; k < TutorialList[j].TwoOrderList.Count; k++)
+                    Debug.Log("called 5");
+
+                    Debug.Log("Tutorial" + TutorialList[j].TwoOrderList[k]);
+
+                    if (TutorialList[j].TwoOrderList[k] == FoodType.foodtype.VadaPav)
                     {
-                        Debug.Log("called 5");
+                        Debug.Log("called 6");
 
-                        Debug.Log("Tutorial" + TutorialList[j].TwoOrderList[k]);
-
-                        if (TutorialList[j].TwoOrderList[k] == FoodType.foodtype.VadaPav)
-                        {
-                            Debug.Log("called 6");
-
-                            moneyOrder.Add(10);
-                            //OrderString += TutorialList[j].TwoOrderList[k] + " " + "X" + " " + "1" + "--Rs10".ToString() + "\n";
-                            OrderString += TutorialList[j].TwoOrderList[k].ToString() + "\n";
-                        }
-                        else if (TutorialList[j].TwoOrderList[k] == FoodType.foodtype.Sandwich)
-                        {
-                            moneyOrder.Add(30);
-                            //OrderString += TutorialList[j].TwoOrderList[k] + " " + "X" + " " + "1" + "--Rs30".ToString() + "\n";
-                            OrderString += TutorialList[j].TwoOrderList[k].ToString() + "\n";
-                        }
-                        else if (TutorialList[j].TwoOrderList[k] == FoodType.foodtype.Pizza)
-                        {
-                            moneyOrder.Add(50);
-                            //OrderString += TutorialList[j].TwoOrderList[k] + " " + "X" + " " + "1" + "--Rs50".ToString() + "\n";
-                            OrderString += TutorialList[j].TwoOrderList[k].ToString() + "\n";
-                        }
-                        TwoNameOrder.Add(TutorialList[j].TwoOrderList[k].ToString());
+                        moneyOrder.Add(10);
+                        //OrderString += TutorialList[j].TwoOrderList[k] + " " + "X" + " " + "1" + "--Rs10".ToString() + "\n";
+                        OrderString += TutorialList[j].TwoOrderList[k].ToString() + "\n";
                     }
+                    else if (TutorialList[j].TwoOrderList[k] == FoodType.foodtype.Sandwich)
+                    {
+                        moneyOrder.Add(30);
+                        //OrderString += TutorialList[j].TwoOrderList[k] + " " + "X" + " " + "1" + "--Rs30".ToString() + "\n";
+                        OrderString += TutorialList[j].TwoOrderList[k].ToString() + "\n";
+                    }
+                    else if (TutorialList[j].TwoOrderList[k] == FoodType.foodtype.Pizza)
+                    {
+                        moneyOrder.Add(50);
+                        //OrderString += TutorialList[j].TwoOrderList[k] + " " + "X" + " " + "1" + "--Rs50".ToString() + "\n";
+                        OrderString += TutorialList[j].TwoOrderList[k].ToString() + "\n";
+                    }
+                    TwoNameOrder.Add(TutorialList[j].TwoOrderList[k].ToString());
                 }
-                Debug.Log(OrderString);
-                UIManager.instance.orderDetails.text = OrderString;
-                UIManager.instance.orderAmountDetails.text = OrderAmountString;
-                isOrdercompleted = false;
-                return;
-            
+            }
+            Debug.Log(OrderString);
+            UIManager.instance.orderDetails.text = OrderString;
+            UIManager.instance.orderAmountDetails.text = OrderAmountString;
+            isOrdercompleted = false;
+            return;
         }
         #endregion
         
