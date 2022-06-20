@@ -19,13 +19,18 @@ MonoBehaviour:
   - INA004
   - INA000
   - INA005
+  - INA006
+  - INA007
+  - INA008
+  - INA009
+  - INA010
   prefabType: 1
-  behaviourType: 3
+  behaviourType: 0
   priority: 3
-  headertext: Jio Glass Controller Disconnected
+  headertext: Controller Disconnected\n <size=65%>Switching to gaze
   headerIconPath: Art/ControllerRed
-  bodyText: ' Please check your batteries and try re-connecting the JioGlass controller
-    by pressing Home <sprite name="SelectButton"> button for 3 sec.'
+  bodyText: 
+  bodyInfoGraphicPath: 
   interactions: []
   isAutoClose: 0
   followBehaviours: 1

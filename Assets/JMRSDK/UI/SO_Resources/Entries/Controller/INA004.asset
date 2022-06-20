@@ -16,6 +16,10 @@ MonoBehaviour:
   dismiss_popUpIds:
   - INA002
   - INA003
+  - INA007
+  - INA008
+  - INA009
+  - INA010
   prefabType: 1
   behaviourType: 3
   priority: 5
@@ -23,6 +27,7 @@ MonoBehaviour:
   headerIconPath: Art/ControllerRed
   bodyText: Please replace batteries to avoid your JioGlass \n Controller from getting
     disconnected.
+  bodyInfoGraphicPath: 
   interactions: []
   isAutoClose: 0
   followBehaviours: 1

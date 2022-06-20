@@ -18,12 +18,19 @@ MonoBehaviour:
   - INA002
   - INA003
   - INA004
-  prefabType: 0
+  - INA006
+  - INA007
+  - INA008
+  - INA009
+  - INA010
+  - INA011
+  prefabType: 1
   behaviourType: 0
   priority: 3
-  headertext: JioGlass Controller Connected Successfully.
+  headertext: Controller Connected\n <size=65%>Switching to controller
   headerIconPath: Art/ControllerGreen
   bodyText: 
+  bodyInfoGraphicPath: 
   interactions: []
   isAutoClose: 0
   followBehaviours: 1

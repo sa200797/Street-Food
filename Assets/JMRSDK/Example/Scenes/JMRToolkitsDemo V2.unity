@@ -488,6 +488,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579449897}
   m_CullTransparentMesh: 0
+--- !u!1 &597787512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 597787514}
+  - component: {fileID: 597787513}
+  m_Layer: 0
+  m_Name: JMRAnalyticsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &597787513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597787512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1294730780, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &597787514
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597787512}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.099199995, y: 0.014600144, z: 2.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &802050768
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,6 +612,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1289862959122647405, guid: 633a1e3825e2f6e4c81ef8bf448d11cd,
+        type: 3}
+      propertyPath: SelectPointerSource
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3738879141627463824, guid: 633a1e3825e2f6e4c81ef8bf448d11cd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -624,6 +672,74 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6593757117851186173, guid: 633a1e3825e2f6e4c81ef8bf448d11cd,
+        type: 3}
+      propertyPath: popUpConfigContainer_Json
+      value: '{"popupConfigData":[{"popUpId":"DES001","dismiss_popUpIds":["INA002","INA003","INA004"],"prefabType":1,"behaviourType":3,"priority":0,"headertext":"Service
+        Bind Failed","headerIconPath":"Art/JioGlassNotify","bodyText":"Please replug
+        your JioGlass and try again.","bodyInfoGraphicPath":"","interactions":[{"type":0,"interactionString":"Okay","interactionKey":"","dismiss":true,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"DES002","dismiss_popUpIds":["INA002","INA003","INA004"],"prefabType":1,"behaviourType":3,"priority":0,"headertext":"Service
+        Killed","headerIconPath":"Art/JioGlassNotify","bodyText":"Please replug your
+        JioGlass and try again.","bodyInfoGraphicPath":"","interactions":[{"type":0,"interactionString":"Okay","interactionKey":"","dismiss":true,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"DES004","dismiss_popUpIds":["INA002","INA003","INA004"],"prefabType":1,"behaviourType":3,"priority":0,"headertext":"No
+        Companion App","headerIconPath":"Art/JioGlassNotify","bodyText":"Please replug
+        your JioGlass and try again.","bodyInfoGraphicPath":"","interactions":[{"type":0,"interactionString":"Okay","interactionKey":"","dismiss":true,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"INA000","dismiss_popUpIds":["INA001","INA002","INA003","INA004","INA006","INA007","INA008","INA009","INA010","INA011"],"prefabType":1,"behaviourType":0,"priority":3,"headertext":"Controller
+        Connected\\n <size=65%>Switching to controller","headerIconPath":"Art/ControllerGreen","bodyText":"","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.4000000953674318},"targetPosition":{"x":0.0,"y":0.0,"z":2.4000000953674318},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"INA001","dismiss_popUpIds":["INA002","INA003","INA004","INA000","INA005","INA006","INA007","INA008","INA009","INA010"],"prefabType":1,"behaviourType":0,"priority":3,"headertext":"Controller
+        Disconnected\\n <size=65%>Switching to gaze","headerIconPath":"Art/ControllerRed","bodyText":"","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.4000000953674318},"targetPosition":{"x":0.0,"y":0.0,"z":2.4000000953674318},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"INA002","dismiss_popUpIds":["INA003","INA004","INA007","INA008","INA009","INA010"],"prefabType":1,"behaviourType":0,"priority":5,"headertext":"JioGlass
+        Controller Battery Low","headerIconPath":"Art/Controller20%","bodyText":"Please
+        replace batteries to avoid your JioGlass \\n Controller from getting disconnected.","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.4000000953674318},"targetPosition":{"x":0.0,"y":0.0,"z":2.4000000953674318},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"INA003","dismiss_popUpIds":["INA002","INA004","INA007","INA008","INA009","INA010"],"prefabType":1,"behaviourType":2,"priority":5,"headertext":"JioGlass
+        Controller Battery Too Low","headerIconPath":"Art/Controller10%","bodyText":"Please
+        replace batteries to avoid your JioGlass \\n Controller from getting disconnected.","bodyInfoGraphicPath":"","interactions":[{"type":0,"interactionString":"Okay","interactionKey":"","dismiss":true,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":2,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"INA004","dismiss_popUpIds":["INA002","INA003","INA007","INA008","INA009","INA010"],"prefabType":1,"behaviourType":3,"priority":5,"headertext":"JioGlass
+        Controller Battery Critically Low","headerIconPath":"Art/ControllerRed","bodyText":"Please
+        replace batteries to avoid your JioGlass \\n Controller from getting disconnected.","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"DEA016","dismiss_popUpIds":[],"prefabType":1,"behaviourType":3,"priority":1,"headertext":"JioGlass
+        Non-Genuine","headerIconPath":"Art/JioGlassNotify","bodyText":"Unable to
+        verify that this JioGlass is genuine.\\n Please buy genuine JioGlass device
+        only.","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"DEA032","dismiss_popUpIds":[],"prefabType":1,"behaviourType":3,"priority":1,"headertext":"Authentication
+        Failed","headerIconPath":"Art/WarningRed","bodyText":"Please make sure you
+        are logged in and\\n have completed device setup.","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"DEA064","dismiss_popUpIds":[],"prefabType":1,"behaviourType":3,"priority":1,"headertext":"Firmware
+        Update Required","headerIconPath":"Art/WarningRed","bodyText":"Please update
+        your firmware.","bodyInfoGraphicPath":"","interactions":[{"type":0,"interactionString":"Okay","interactionKey":"","dismiss":true,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"DEA128","dismiss_popUpIds":[],"prefabType":1,"behaviourType":3,"priority":1,"headertext":"Internet
+        Connection Required","headerIconPath":"Art/JioGlassNotify","bodyText":"Please
+        ensure that you are connected to an active\\nInternet connection to complete
+        setting up your\\nJioGlass.","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"DEA002","dismiss_popUpIds":[],"prefabType":1,"behaviourType":3,"priority":1,"headertext":"Could
+        Not Connect JioGlass","headerIconPath":"Art/JioGlassNotify","bodyText":"Please
+        try replugging your JioGlass.","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"PLA000","dismiss_popUpIds":["PLA001","PLA002"],"prefabType":1,"behaviourType":0,"priority":4,"headertext":"Phone
+        Battery Low","headerIconPath":"Art/Battery","bodyText":"Please charge your
+        phone to continue using\\n JioGlass uninterrupted.","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":0,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.5},"targetPosition":{"x":0.0,"y":0.0,"z":2.5},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"PLA001","dismiss_popUpIds":["PLA000","PLA002"],"prefabType":1,"behaviourType":2,"priority":4,"headertext":"Phone
+        Battery \\n Too Low","headerIconPath":"Art/BatteryLow","bodyText":"Please
+        charge your phone to continue using\\n JioGlass uninterrupted.","bodyInfoGraphicPath":"","interactions":[{"type":0,"interactionString":"Okay","interactionKey":"","dismiss":true,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":2,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.5},"targetPosition":{"x":0.0,"y":0.0,"z":2.5},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"PLA002","dismiss_popUpIds":["PLA000","PLA001"],"prefabType":1,"behaviourType":3,"priority":4,"headertext":"Phone
+        Battery \\n Critically Low","headerIconPath":"Art/BatteryVeryLow","bodyText":"Please
+        charge your phone to continue using\\n JioGlass uninterrupted.","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.5},"targetPosition":{"x":0.0,"y":0.0,"z":2.5},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"PLA003","dismiss_popUpIds":["PLA004","PLA005"],"prefabType":1,"behaviourType":0,"priority":4,"headertext":"Compute
+        Unit Battery \\n Low","headerIconPath":"Art/Battery","bodyText":"Please charge
+        your Compute Unit to continue using\\n JioGlass uninterrupted.","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.5},"targetPosition":{"x":0.0,"y":0.0,"z":2.5},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"PLA004","dismiss_popUpIds":["PLA003","PLA005"],"prefabType":1,"behaviourType":2,"priority":4,"headertext":"Compute
+        Unit Battery \\n Too Low","headerIconPath":"Art/BatteryLow","bodyText":"Please
+        charge your Compute Unit to continue using\\n JioGlass uninterrupted.","bodyInfoGraphicPath":"","interactions":[{"type":0,"interactionString":"Okay","interactionKey":"","dismiss":true,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":2,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.5},"targetPosition":{"x":0.0,"y":0.0,"z":2.5},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"PLA005","dismiss_popUpIds":["PLA003","PLA004"],"prefabType":1,"behaviourType":3,"priority":4,"headertext":"Compute
+        Unit Battery \\n Critically Low","headerIconPath":"Art/BatteryVeryLow","bodyText":"We
+        have paused your JioGlass experience so that you can charge your \\ndevice
+        and start using device again.","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.5},"targetPosition":{"x":0.0,"y":0.0,"z":2.5},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"TRA004","dismiss_popUpIds":[],"prefabType":1,"behaviourType":3,"priority":1,"headertext":"Tracking
+        Lost","headerIconPath":"Art/JioGlassNotify","bodyText":"Please replug your
+        JioGlass and try again.","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"INA005","dismiss_popUpIds":["INA006","INA007","INA008","INA009","INA010"],"prefabType":5,"behaviourType":1,"priority":6,"headertext":"Reset
+        Pointer","headerIconPath":"","bodyText":"Point your controller forward and
+        \\n hold <sprite name=\"SelectButton\"> button to recenter.\\n\\nPress Okay
+        once calibrated.","bodyInfoGraphicPath":"","interactions":[{"type":0,"interactionString":"Okay","interactionKey":"","dismiss":true,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":2,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"INA006","dismiss_popUpIds":["INA005","INA007","INA008","INA009","INA010"],"prefabType":5,"behaviourType":2,"priority":6,"headertext":"Reset
+        Pointer","headerIconPath":"","bodyText":"Your ray pointer is away from viewing
+        area.\\n\\n Point your JioGlass controller forward and hold the highlighted
+        button for one second to recenter.","bodyInfoGraphicPath":"Art/JG_Controller","interactions":[{"type":0,"interactionString":"Okay","interactionKey":"","dismiss":true,"showButtonAppearAnimation":false},{"type":3,"interactionString":"","interactionKey":"Don''t
+        show this again ","dismiss":false,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":2,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"INA007","dismiss_popUpIds":["INA000","INA001","INA005","INA006","INA009","INA002","INA003","INA004"],"prefabType":2,"behaviourType":2,"priority":6,"headertext":"Reset
+        Pointer","headerIconPath":"","bodyText":"Your ray pointer is away from viewing
+        area.\\n\\nHold your phone facing up and pointing forwards. Please press
+        highlighted button for one second to recenter.","bodyInfoGraphicPath":"Art/MobileImage","interactions":[{"type":0,"interactionString":"Okay","interactionKey":"","dismiss":true,"showButtonAppearAnimation":false},{"type":3,"interactionString":"","interactionKey":"Don''t
+        show this again ","dismiss":false,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":2,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"INA008","dismiss_popUpIds":["INA000","INA001","INA005","INA002","INA006","INA003","INA004","INA007","INA009","INA010","INA011"],"prefabType":0,"behaviourType":0,"priority":3,"headertext":"Controlpad
+        successfully connected.","headerIconPath":"Art/GreenDots","bodyText":"","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.4000000953674318},"targetPosition":{"x":0.0,"y":0.0,"z":2.4000000953674318},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"INA009","dismiss_popUpIds":["INA000","INA001","INA005","INA006","INA007","INA002","INA003","INA004"],"prefabType":2,"behaviourType":2,"priority":3,"headertext":"Reset
+        Pointer","headerIconPath":"","bodyText":"\\n\\nYour ray pointer is away from
+        viewing area.\\n\\nHold your phone facing up and pointing forwards. Please
+        press \\n highlighted button for one second to reset the pointer.\\n\\n","bodyInfoGraphicPath":"Art/RecenterMobile","interactions":[{"type":0,"interactionString":"Okay","interactionKey":"","dismiss":true,"showButtonAppearAnimation":false},{"type":3,"interactionString":"","interactionKey":"Don''t
+        show this again ","dismiss":false,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":2,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.4000000953674318},"targetPosition":{"x":0.0,"y":0.0,"z":2.4000000953674318},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"INA010","dismiss_popUpIds":["INA000","INA001","INA005","INA006","INA002","INA003","INA004","INA007","INA008","INA009"],"prefabType":3,"behaviourType":0,"priority":3,"headertext":"Virtual
+        Controller Unavailable","headerIconPath":"","bodyText":"Please run the Virtual
+        Controller on your phone\\n as shown below to continue.","bodyInfoGraphicPath":"Art/VC_Disconnected_Image","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.4000000953674318},"targetPosition":{"x":0.0,"y":0.0,"z":2.4000000953674318},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"INA011","dismiss_popUpIds":["INA002","INA003","INA004","INA005","INA006","INA007","INA009","INA010"],"prefabType":4,"behaviourType":1,"priority":6,"headertext":"Switched
+        to Gaze Control","headerIconPath":"","bodyText":"Look around to move the
+        pointer and hold to select","bodyInfoGraphicPath":"Art/pointer_head_small","interactions":[],"isAutoClose":true,"followBehaviours":1,"popUpVisibleDuration":3.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.4000000953674318},"targetPosition":{"x":0.0,"y":0.0,"z":2.4000000953674318},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"INA012","dismiss_popUpIds":["INA002","INA003","INA004","INA005","INA006","INA007","INA009","INA013"],"prefabType":0,"behaviourType":0,"priority":3,"headertext":"Switched
+        to Gaze pointer","headerIconPath":"Art/Head_Icon","bodyText":"","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":true,"followBehaviours":1,"popUpVisibleDuration":3.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.4000000953674318},"targetPosition":{"x":0.0,"y":0.0,"z":2.4000000953674318},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"INA013","dismiss_popUpIds":["INA002","INA003","INA004","INA005","INA006","INA007","INA009","INA010","INA011","INA012"],"prefabType":0,"behaviourType":0,"priority":3,"headertext":"Switched
+        to Controller Pointer","headerIconPath":"Art/Controller_Icon","bodyText":"","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":true,"followBehaviours":1,"popUpVisibleDuration":3.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.4000000953674318},"targetPosition":{"x":0.0,"y":0.0,"z":2.4000000953674318},"transitionDuration":1.0,"waitDuration":3.0}}]}'
+      objectReference: {fileID: 0}
     - target: {fileID: 6627717571862611149, guid: 633a1e3825e2f6e4c81ef8bf448d11cd,
         type: 3}
       propertyPath: m_Camera
@@ -634,6 +750,21 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1686647872}
+    - target: {fileID: 6627717571967178866, guid: 633a1e3825e2f6e4c81ef8bf448d11cd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627717571967178866, guid: 633a1e3825e2f6e4c81ef8bf448d11cd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627717572029514933, guid: 633a1e3825e2f6e4c81ef8bf448d11cd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9184605373608753297, guid: 633a1e3825e2f6e4c81ef8bf448d11cd,
         type: 3}
       propertyPath: m_Name
@@ -719,6 +850,229 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 977134869}
   m_CullTransparentMesh: 0
+--- !u!1 &1000769493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1000769494}
+  - component: {fileID: 1000769496}
+  - component: {fileID: 1000769495}
+  m_Layer: 5
+  m_Name: VirtualSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1000769494
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000769493}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7323971686248710880}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 84.6, y: -29.48}
+  m_SizeDelta: {x: 688, y: 478}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1000769495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000769493}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 0.5686275}
+  m_RaycastTarget: 0
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1000769496
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000769493}
+  m_CullTransparentMesh: 0
+--- !u!1 &1105288854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1105288855}
+  - component: {fileID: 1105288857}
+  - component: {fileID: 1105288856}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1105288855
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105288854}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1616861171}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 18, y: 15.6}
+  m_SizeDelta: {x: 27.8, y: 30.6}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1105288856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105288854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: cfccf7bbe345f4f4da6acdec35acd1c1, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1105288857
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105288854}
+  m_CullTransparentMesh: 0
+--- !u!1 &1358538778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1358538779}
+  - component: {fileID: 1358538782}
+  - component: {fileID: 1358538781}
+  m_Layer: 5
+  m_Name: SetExterText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1358538779
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358538778}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1469000062}
+  m_Father: {fileID: 7323971686248710880}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 22.393997, y: -16.200008}
+  m_SizeDelta: {x: 151.212, y: 32.4}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1358538781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358538778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 130956face6a54d4bb48c3a6c3f96d0b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1358538782
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358538778}
+  m_CullTransparentMesh: 0
 --- !u!1 &1371820392
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,12 +1151,235 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1371820392}
   m_CullTransparentMesh: 0
+--- !u!1 &1469000061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1469000062}
+  - component: {fileID: 1469000064}
+  - component: {fileID: 1469000063}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1469000062
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469000061}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1358538779}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 18, y: 15.6}
+  m_SizeDelta: {x: 27.8, y: 30.6}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1469000063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469000061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: cfccf7bbe345f4f4da6acdec35acd1c1, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1469000064
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469000061}
+  m_CullTransparentMesh: 0
+--- !u!1 &1616861170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1616861171}
+  - component: {fileID: 1616861173}
+  - component: {fileID: 1616861172}
+  m_Layer: 5
+  m_Name: SetExterText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1616861171
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616861170}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2.5000572}
+  m_LocalScale: {x: 1, y: 1, z: 0.001}
+  m_Children:
+  - {fileID: 1105288855}
+  m_Father: {fileID: 3413205710448801865}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 21.394043, y: -16.7}
+  m_SizeDelta: {x: 151.212, y: 32.4}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1616861172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616861170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 130956face6a54d4bb48c3a6c3f96d0b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1616861173
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616861170}
+  m_CullTransparentMesh: 0
 --- !u!20 &1686647872 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 2113064042153063675, guid: 633a1e3825e2f6e4c81ef8bf448d11cd,
     type: 3}
   m_PrefabInstance: {fileID: 804802905}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1896939468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1896939469}
+  - component: {fileID: 1896939471}
+  - component: {fileID: 1896939470}
+  m_Layer: 5
+  m_Name: VirtualSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1896939469
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896939468}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3413205710448801865}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 84.6, y: -29.48}
+  m_SizeDelta: {x: 688, y: 478}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1896939470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896939468}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 0.5686275}
+  m_RaycastTarget: 0
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1896939471
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896939468}
+  m_CullTransparentMesh: 0
 --- !u!224 &15825893282144981
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1207,7 +1784,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1259,7 +1836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1761,6 +2338,7 @@ GameObject:
   - component: {fileID: 7316276186702967611}
   - component: {fileID: 2018581218573712765}
   - component: {fileID: 7892188497849539119}
+  - component: {fileID: 307479769710692984}
   m_Layer: 5
   m_Name: JMRUIPrimarySlider
   m_TagString: Untagged
@@ -1768,6 +2346,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &307479769710692984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307479769710692983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &307479770047170632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3391,7 +3981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.14117648, g: 0.14117648, b: 0.18431373, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3747,7 +4337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3796,7 +4386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4155,7 +4745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4257,7 +4847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4790,6 +5380,7 @@ GameObject:
   - component: {fileID: 972315133789472943}
   - component: {fileID: 5846512494252470738}
   - component: {fileID: 8916674579370343748}
+  - component: {fileID: 972315133789472944}
   m_Layer: 5
   m_Name: JMRUIToggleButton
   m_TagString: Untagged
@@ -4852,6 +5443,18 @@ MonoBehaviour:
     colorValueHex: 
     layerObjectsPool:
     - {fileID: 972315133396543879}
+--- !u!114 &972315133789472944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972315133789472941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &972315133939825043
 GameObject:
   m_ObjectHideFlags: 0
@@ -5765,6 +6368,7 @@ GameObject:
   - component: {fileID: 1223767618929000859}
   - component: {fileID: 1223767618929000860}
   - component: {fileID: 1223767618929000861}
+  - component: {fileID: 1223767618929000864}
   m_Layer: 5
   m_Name: Move Backward
   m_TagString: Untagged
@@ -5772,6 +6376,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1223767618929000864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223767618929000863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1223767619015617128
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6088,7 +6704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6118,6 +6734,7 @@ GameObject:
   - component: {fileID: 1309958820539419601}
   - component: {fileID: 1720331765285386264}
   - component: {fileID: 613266458343947664}
+  - component: {fileID: 1309958820985949711}
   m_Layer: 5
   m_Name: JMRUIPrimaryRadioButton
   m_TagString: Untagged
@@ -6125,6 +6742,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1309958820985949711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309958820985949710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1315027851559001505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6256,6 +6885,7 @@ GameObject:
   - component: {fileID: 6965117795624082171}
   - component: {fileID: 1516092041937226963}
   - component: {fileID: 3541703226969858778}
+  - component: {fileID: 1364187762840255281}
   m_Layer: 5
   m_Name: JMRUITertiaryButton (2)
   m_TagString: Untagged
@@ -6263,6 +6893,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1364187762840255281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364187762840255280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &1368209886085624037
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6614,7 +7256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6644,6 +7286,7 @@ GameObject:
   - component: {fileID: 1509457630772258605}
   - component: {fileID: 1509457630772258594}
   - component: {fileID: 4566524189225101414}
+  - component: {fileID: 1509457630772258600}
   m_Layer: 5
   m_Name: Close
   m_TagString: Untagged
@@ -6651,6 +7294,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1509457630772258600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509457630772258599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &1509457630772258605
 Animator:
   serializedVersion: 3
@@ -7363,6 +8018,7 @@ GameObject:
   - component: {fileID: 4305625142255871928}
   - component: {fileID: 8179372945852693413}
   - component: {fileID: 5040488162797185342}
+  - component: {fileID: 1544529634707901867}
   m_Layer: 5
   m_Name: JMRUITertiaryButton
   m_TagString: Untagged
@@ -7370,6 +8026,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1544529634707901867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544529634707901866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1544529634707901869
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7695,6 +8363,7 @@ GameObject:
   - component: {fileID: 1569080070225233703}
   - component: {fileID: 1569080070225233704}
   - component: {fileID: 4997397725573669817}
+  - component: {fileID: 1569080070225233710}
   m_Layer: 5
   m_Name: JMRUITertiaryButton
   m_TagString: Untagged
@@ -7702,6 +8371,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1569080070225233710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569080070225233709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &1569080070879007930
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8273,7 +8954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -8450,7 +9131,7 @@ GameObject:
   - component: {fileID: 135333996271896578}
   m_Layer: 5
   m_Name: Raycast
-  m_TagString: PrimaryLayer
+  m_TagString: Clear
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8541,7 +9222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -8626,6 +9307,7 @@ GameObject:
   - component: {fileID: 2046770604261115030}
   - component: {fileID: 2046770604261115029}
   - component: {fileID: 7805458746314655927}
+  - component: {fileID: 2046770604261115040}
   m_Layer: 5
   m_Name: JMRUICheckBoxItem
   m_TagString: Untagged
@@ -8633,6 +9315,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2046770604261115040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046770604261115039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &2049920733949217003
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9175,7 +9869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.14117648, g: 0.14117648, b: 0.18431373, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -9840,7 +10534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -10347,7 +11041,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -10483,6 +11177,7 @@ GameObject:
   - component: {fileID: 2764928144516515943}
   - component: {fileID: 2764928144516515940}
   - component: {fileID: 2764928144516515938}
+  - component: {fileID: 2764928144516515951}
   m_Layer: 5
   m_Name: JMRUICheckBoxButton (4)
   m_TagString: Untagged
@@ -10490,6 +11185,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2764928144516515951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2764928144516515950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &2764928144709881192
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10938,6 +11645,7 @@ GameObject:
   - component: {fileID: 2848087778603505704}
   - component: {fileID: 2482680237813967841}
   - component: {fileID: 4407153481613307497}
+  - component: {fileID: 2848087777972493816}
   m_Layer: 5
   m_Name: JMRUIPrimaryRadioButton
   m_TagString: Untagged
@@ -10945,6 +11653,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2848087777972493816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2848087777972493815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2848087778603505704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10959,7 +11679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -11176,9 +11896,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4198231806587632614}
   - component: {fileID: 6502090748370733467}
+  - component: {fileID: 2906735589102638911}
   - component: {fileID: 7422660532300829068}
   - component: {fileID: 3289031415141032235}
   - component: {fileID: 6283116371054978116}
+  - component: {fileID: 2906735589102638910}
   m_Layer: 5
   m_Name: JMRUIRadioButtonItem (3)
   m_TagString: Untagged
@@ -11186,6 +11908,48 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2906735589102638910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2906735589102638909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2906735589102638911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2906735589102638909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 3869578090764969590, guid: 50d59ea3038026046b1e1d16dba4c75a,
+    type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1.1
 --- !u!1 &2919695636968014195
 GameObject:
   m_ObjectHideFlags: 0
@@ -11364,7 +12128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.2, g: 0.2, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -11424,6 +12188,7 @@ GameObject:
   - component: {fileID: 3004737937951423064}
   - component: {fileID: 3004737937951423063}
   - component: {fileID: 153086127537435923}
+  - component: {fileID: 3004737937951423059}
   m_Layer: 5
   m_Name: No
   m_TagString: Untagged
@@ -11431,6 +12196,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3004737937951423059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3004737937951423058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &3004737937951423061
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12675,6 +13452,7 @@ GameObject:
   - component: {fileID: 3220312938226217287}
   - component: {fileID: 160884241924696401}
   - component: {fileID: 3281700732607171549}
+  - component: {fileID: 3318204365471970727}
   m_Layer: 5
   m_Name: JMRUIDropdown
   m_TagString: PrimaryTextLayer
@@ -12682,6 +13460,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3318204365471970727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3318204365471970726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &3328141978515723534
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13265,6 +14055,7 @@ GameObject:
   - component: {fileID: 3413205710448801870}
   - component: {fileID: 7921318143841638592}
   - component: {fileID: 5369752702657132356}
+  - component: {fileID: 3413205710448801866}
   m_Layer: 5
   m_Name: JMRUIPrimarySearchField
   m_TagString: Untagged
@@ -13291,6 +14082,8 @@ RectTransform:
   - {fileID: 8551285276410757473}
   - {fileID: 3413205709774776028}
   - {fileID: 1181300501693532790}
+  - {fileID: 1896939469}
+  - {fileID: 1616861171}
   m_Father: {fileID: 4034709103990716526}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13299,6 +14092,18 @@ RectTransform:
   m_AnchoredPosition: {x: 102, y: 152}
   m_SizeDelta: {x: 230, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3413205710448801866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3413205710448801864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3413205710448801868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13953,7 +14758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -14712,7 +15517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -14869,7 +15674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -14918,7 +15723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -15191,7 +15996,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5480911519662705714}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -15903,6 +16708,7 @@ GameObject:
   - component: {fileID: 4190105127926426854}
   - component: {fileID: 4190105127926426857}
   - component: {fileID: 1264130854042182573}
+  - component: {fileID: 4190105127926426861}
   m_Layer: 5
   m_Name: JMRUISecondaryButton
   m_TagString: Untagged
@@ -15910,6 +16716,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4190105127926426861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4190105127926426860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4190105127926426862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15924,7 +16742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -16200,7 +17018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -16637,7 +17455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.2, g: 0.2, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -16782,6 +17600,7 @@ GameObject:
   - component: {fileID: 4488370509316724142}
   - component: {fileID: 4488370509316724141}
   - component: {fileID: 4488370509316724139}
+  - component: {fileID: 4488370509316724138}
   m_Layer: 5
   m_Name: JMRUICheckBoxButton
   m_TagString: Untagged
@@ -16829,7 +17648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -16845,6 +17664,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4488370509316724138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4488370509316724135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4488370509316724139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17573,6 +18404,7 @@ GameObject:
   - component: {fileID: 790208383842039863}
   - component: {fileID: 7890372184104395956}
   - component: {fileID: 1559104651013626814}
+  - component: {fileID: 4515920307804642006}
   m_Layer: 5
   m_Name: JMRUITertiaryButton (3)
   m_TagString: Untagged
@@ -17580,6 +18412,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4515920307804642006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4515920307804642005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4519803128746179786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18090,7 +18934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -20005,6 +20849,7 @@ GameObject:
   - component: {fileID: 4713735167092412039}
   - component: {fileID: 4713735167092412040}
   - component: {fileID: 7694306579878511052}
+  - component: {fileID: 4713735167092412046}
   m_Layer: 5
   m_Name: Yes
   m_TagString: Untagged
@@ -20012,6 +20857,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4713735167092412046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4713735167092412045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4713735167092412047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20026,7 +20883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -20078,9 +20935,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6030016301664837051}
   - component: {fileID: 3734019980452638662}
+  - component: {fileID: 4736444215621857634}
   - component: {fileID: 1076184492746520529}
   - component: {fileID: 4920475956826474358}
   - component: {fileID: 4530598657997046297}
+  - component: {fileID: 4736444215621857633}
   m_Layer: 5
   m_Name: JMRUIRadioButtonItem (2)
   m_TagString: Untagged
@@ -20088,6 +20947,48 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4736444215621857633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4736444215621857632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4736444215621857634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4736444215621857632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 3869578090764969590, guid: 50d59ea3038026046b1e1d16dba4c75a,
+    type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1.1
 --- !u!114 &4752578098427544447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20152,6 +21053,7 @@ GameObject:
   - component: {fileID: 770679662108439314}
   - component: {fileID: 3577964973026336978}
   - component: {fileID: 5907333980544156524}
+  - component: {fileID: 4782136350744268916}
   m_Layer: 5
   m_Name: JMRUITertiaryButton (1)
   m_TagString: Untagged
@@ -20159,6 +21061,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4782136350744268916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4782136350744268915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4784147359938746286
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20287,6 +21201,7 @@ GameObject:
   - component: {fileID: 4846180869932162569}
   - component: {fileID: 4846180869932162570}
   - component: {fileID: 3707605478296425000}
+  - component: {fileID: 4846180869932162561}
   m_Layer: 5
   m_Name: JMRUICheckBoxItem (1)
   m_TagString: Untagged
@@ -20294,6 +21209,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4846180869932162561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4846180869932162560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &4846180869932162568
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20363,7 +21290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -20445,7 +21372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -20530,6 +21457,7 @@ GameObject:
   - component: {fileID: 4846180870651921110}
   - component: {fileID: 4846180870651921109}
   - component: {fileID: 3707605477408853751}
+  - component: {fileID: 4846180870651921120}
   m_Layer: 5
   m_Name: JMRUICheckBoxItem (2)
   m_TagString: Untagged
@@ -20537,6 +21465,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4846180870651921120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4846180870651921119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4846180871130376960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20551,7 +21491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -20662,6 +21602,7 @@ GameObject:
   - component: {fileID: 4846180871130376967}
   - component: {fileID: 4846180871130376964}
   - component: {fileID: 3707605477098252070}
+  - component: {fileID: 4846180871130376975}
   m_Layer: 5
   m_Name: JMRUICheckBoxItem (3)
   m_TagString: Untagged
@@ -20669,6 +21610,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4846180871130376975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4846180871130376974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &4847559947195951882
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20735,9 +21688,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5881601393047672660}
   - component: {fileID: 3594059203705546025}
+  - component: {fileID: 4866830189563788177}
   - component: {fileID: 927229936520936766}
   - component: {fileID: 5077883891339922841}
   - component: {fileID: 4390629031184566518}
+  - component: {fileID: 4866830189563788176}
   m_Layer: 5
   m_Name: JMRUIRadioButtonItem
   m_TagString: Untagged
@@ -20745,6 +21700,48 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4866830189563788176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4866830189563788175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4866830189563788177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4866830189563788175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 3869578090764969590, guid: 50d59ea3038026046b1e1d16dba4c75a,
+    type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 0
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1.1
 --- !u!95 &4880800680212882468
 Animator:
   serializedVersion: 3
@@ -20952,7 +21949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -21006,7 +22003,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -21036,6 +22033,7 @@ GameObject:
   - component: {fileID: 5007846259284011402}
   - component: {fileID: 4651446114244352579}
   - component: {fileID: 6904118974674411467}
+  - component: {fileID: 5007846259671821398}
   m_Layer: 5
   m_Name: JMRUIRadioButton
   m_TagString: Untagged
@@ -21043,6 +22041,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5007846259671821398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5007846259671821397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &5021023876248736446
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21105,7 +22115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -21699,7 +22709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -21835,6 +22845,7 @@ GameObject:
   - component: {fileID: 5125121432061713799}
   - component: {fileID: 5125121432061713796}
   - component: {fileID: 5125121432061713794}
+  - component: {fileID: 5125121432061713807}
   m_Layer: 5
   m_Name: JMRUICheckBoxButton (1)
   m_TagString: Untagged
@@ -21842,6 +22853,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5125121432061713807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5125121432061713806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5125121432082232332
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22006,6 +23029,7 @@ GameObject:
   - component: {fileID: 5125121432437473209}
   - component: {fileID: 5125121432437473210}
   - component: {fileID: 5125121432437473212}
+  - component: {fileID: 5125121432437473201}
   m_Layer: 5
   m_Name: JMRUICheckBoxButton (2)
   m_TagString: Untagged
@@ -22013,6 +23037,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5125121432437473201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5125121432437473200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &5125121432437473208
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22107,7 +23143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -22709,12 +23745,14 @@ MonoBehaviour:
   global: 0
   showAppearAnimation: 1
   KeyboardSpawnPoint: {fileID: 1181300501693532790}
+  VirtualKeyboardSpawnPoint: {fileID: 1896939469}
   KeyBoardPositionOffset: 0.045
   IsError: 0
   textViewport: {fileID: 3413205709774776028}
   textComponent: {fileID: 3413205709743023909}
   placeholder: {fileID: 3413205709014002252}
   supportMultiLine: 0
+  VirtualKeyboardNote: {fileID: 1616861170}
   submit:
     m_PersistentCalls:
       m_Calls: []
@@ -22983,7 +24021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &5488544093964851742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23259,7 +24297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -23314,6 +24352,7 @@ GameObject:
   - component: {fileID: 5490674800486836834}
   - component: {fileID: 5490674800486836833}
   - component: {fileID: 5490674800486836839}
+  - component: {fileID: 5490674800486836844}
   m_Layer: 5
   m_Name: JMRUICheckBoxButton
   m_TagString: Untagged
@@ -23321,6 +24360,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5490674800486836844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5490674800486836843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5490674800532898792
 GameObject:
   m_ObjectHideFlags: 0
@@ -24525,7 +25576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -26357,7 +27408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -27465,7 +28516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -27959,7 +29010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -27997,7 +29048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -28278,7 +29329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -28308,7 +29359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -28437,7 +29488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -28753,6 +29804,8 @@ RectTransform:
   - {fileID: 6403255199035140153}
   - {fileID: 1067788462843726270}
   - {fileID: 8651187208986111547}
+  - {fileID: 1000769494}
+  - {fileID: 1358538779}
   m_Father: {fileID: 4034709103990716526}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -28775,6 +29828,7 @@ GameObject:
   - component: {fileID: 7323971686248710887}
   - component: {fileID: 2815859250439692905}
   - component: {fileID: 7865985089949500488}
+  - component: {fileID: 7323971686248710882}
   m_Layer: 5
   m_Name: JMRUIPrimaryInputField
   m_TagString: Untagged
@@ -28782,6 +29836,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7323971686248710882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7323971686248710881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &7323971686248710884
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28804,7 +29870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -29450,6 +30516,7 @@ GameObject:
   - component: {fileID: 7395512805574283975}
   - component: {fileID: 7395512805574283974}
   - component: {fileID: 7395512805574283969}
+  - component: {fileID: 7395512805574283976}
   m_Layer: 5
   m_Name: Move Front
   m_TagString: Untagged
@@ -29542,6 +30609,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7395512805574283976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7395512805574283971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7395512805758344768
 GameObject:
   m_ObjectHideFlags: 0
@@ -30283,7 +31362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -31112,6 +32191,7 @@ MonoBehaviour:
   global: 0
   showAppearAnimation: 1
   KeyboardSpawnPoint: {fileID: 8651187208986111547}
+  VirtualKeyboardSpawnPoint: {fileID: 1000769494}
   KeyBoardPositionOffset: 0.045
   IsError: 0
   textViewport: {fileID: 7323971686637296757}
@@ -31953,6 +33033,8 @@ GameObject:
   - component: {fileID: 5537595299899097944}
   - component: {fileID: 2653838193432236598}
   - component: {fileID: 6950074704308268942}
+  - component: {fileID: 8395480846393686277}
+  - component: {fileID: 8395480846393686276}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -31960,6 +33042,43 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8395480846393686276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8395480846393686275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &8395480846393686277
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8395480846393686275}
+  m_CullTransparentMesh: 0
 --- !u!222 &8400083998502496103
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -32128,7 +33247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.2, g: 0.2, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -32188,7 +33307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -32435,6 +33554,7 @@ GameObject:
   - component: {fileID: 8583835930255568541}
   - component: {fileID: 8281514398218820948}
   - component: {fileID: 7904032093527267548}
+  - component: {fileID: 8583835929615772483}
   m_Layer: 5
   m_Name: JMRUIPrimaryRadioButton
   m_TagString: Untagged
@@ -32442,6 +33562,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8583835929615772483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8583835929615772482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8583835930255568541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32456,7 +33588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -32609,9 +33741,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7665243074126053551}
   - component: {fileID: 729413217907225298}
+  - component: {fileID: 8680047254370430070}
   - component: {fileID: 3972704897521035973}
   - component: {fileID: 9045348762339023458}
   - component: {fileID: 509304161972789005}
+  - component: {fileID: 8680047254370430069}
   m_Layer: 5
   m_Name: JMRUIRadioButtonItem (1)
   m_TagString: Untagged
@@ -32619,6 +33753,48 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8680047254370430069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8680047254370430068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8680047254370430070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8680047254370430068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 3869578090764969590, guid: 50d59ea3038026046b1e1d16dba4c75a,
+    type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1.1
 --- !u!224 &8681682115545408753
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33097,6 +34273,7 @@ GameObject:
   - component: {fileID: 8721366592471434112}
   - component: {fileID: 8721366592471434127}
   - component: {fileID: 7539905283367040345}
+  - component: {fileID: 8721366592471434123}
   m_Layer: 5
   m_Name: JMRUIPrimaryButton
   m_TagString: Untagged
@@ -33104,6 +34281,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8721366592471434123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8721366592471434122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8721366592471434125
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33545,7 +34734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -33575,6 +34764,7 @@ GameObject:
   - component: {fileID: 8900558524327407377}
   - component: {fileID: 9112773164892396760}
   - component: {fileID: 7001418266521950544}
+  - component: {fileID: 8900558524761352911}
   m_Layer: 5
   m_Name: JMRUIPrimaryRadioButton
   m_TagString: Untagged
@@ -33582,6 +34772,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8900558524761352911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8900558524761352910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 384036464, guid: 39673d13616f37540b9d9521295b12b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8905622609657543009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33678,7 +34880,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -33885,7 +35087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -33915,7 +35117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -33945,7 +35147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

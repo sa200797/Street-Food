@@ -51,8 +51,11 @@ MonoBehaviour:
   trackedCanvas: {fileID: 34860213385115496}
   untrackedCanvas: {fileID: 34860211970108372}
   popupPrefab: {fileID: 6135924421942568352}
+  popup_WithfullImagePrefab: {fileID: 8348610302717498719}
+  popup_WithTopImagePreab: {fileID: 1661909523080141247}
+  popup_noButtons: {fileID: 5771500867137242782}
   toastPrefab: {fileID: 789031022729618613}
-  headTransform: {fileID: 0}
+  custom_RecenterPopup: {fileID: 4489665360813568705}
 --- !u!114 &261348508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,79 +70,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popUpConfigContainer_Json: '{"popupConfigData":[{"popUpId":"DES001","dismiss_popUpIds":["INA002","INA003","INA004"],"prefabType":1,"behaviourType":3,"priority":0,"headertext":"Service
     Bind Failed","headerIconPath":"Art/JioGlassNotify","bodyText":"Please replug
-    your JioGlass and try again.","parameterizedPopupData":{"hasParameterizedHeaderText":false,"headerText":"","defaultHeaderTextParameters":[],"hasParameterizedBodyText":false,"bodyText":"","defaultBodyTextParameters":[]},"interactions":[{"type":0,"interactionString":"Okay","dismiss":true,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"DES002","dismiss_popUpIds":["INA002","INA003","INA004"],"prefabType":1,"behaviourType":3,"priority":0,"headertext":"Service
+    your JioGlass and try again.","bodyInfoGraphicPath":"","interactions":[{"type":0,"interactionString":"Okay","interactionKey":"","dismiss":true,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"DES002","dismiss_popUpIds":["INA002","INA003","INA004"],"prefabType":1,"behaviourType":3,"priority":0,"headertext":"Service
     Killed","headerIconPath":"Art/JioGlassNotify","bodyText":"Please replug your
-    JioGlass and try again.","parameterizedPopupData":{"hasParameterizedHeaderText":false,"headerText":"","defaultHeaderTextParameters":[],"hasParameterizedBodyText":false,"bodyText":"","defaultBodyTextParameters":[]},"interactions":[{"type":0,"interactionString":"Okay","dismiss":true,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"DES004","dismiss_popUpIds":["INA002","INA003","INA004"],"prefabType":1,"behaviourType":3,"priority":0,"headertext":"No
+    JioGlass and try again.","bodyInfoGraphicPath":"","interactions":[{"type":0,"interactionString":"Okay","interactionKey":"","dismiss":true,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"DES004","dismiss_popUpIds":["INA002","INA003","INA004"],"prefabType":1,"behaviourType":3,"priority":0,"headertext":"No
     Companion App","headerIconPath":"Art/JioGlassNotify","bodyText":"Please replug
-    your JioGlass and try again.","parameterizedPopupData":{"hasParameterizedHeaderText":false,"headerText":"","defaultHeaderTextParameters":[],"hasParameterizedBodyText":false,"bodyText":"","defaultBodyTextParameters":[]},"interactions":[{"type":0,"interactionString":"Okay","dismiss":true,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"INA000","dismiss_popUpIds":["INA001","INA002","INA003","INA004"],"prefabType":0,"behaviourType":0,"priority":3,"headertext":"JioGlass
-    Controller Connected Successfully.","headerIconPath":"Art/ControllerGreen","bodyText":"","parameterizedPopupData":{"hasParameterizedHeaderText":false,"headerText":"","defaultHeaderTextParameters":[],"hasParameterizedBodyText":false,"bodyText":"","defaultBodyTextParameters":[]},"interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.4000000953674318},"targetPosition":{"x":0.0,"y":0.0,"z":2.4000000953674318},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"INA001","dismiss_popUpIds":["INA002","INA003","INA004","INA000","INA005"],"prefabType":1,"behaviourType":3,"priority":3,"headertext":"Jio
-    Glass Controller Disconnected","headerIconPath":"Art/ControllerRed","bodyText":"
-    Please check your batteries and try re-connecting the JioGlass controller by
-    pressing Home <sprite name=\"SelectButton\"> button for 3 sec.","parameterizedPopupData":{"hasParameterizedHeaderText":false,"headerText":"","defaultHeaderTextParameters":[],"hasParameterizedBodyText":false,"bodyText":"","defaultBodyTextParameters":[]},"interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.4000000953674318},"targetPosition":{"x":0.0,"y":0.0,"z":2.4000000953674318},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"INA002","dismiss_popUpIds":["INA003","INA004"],"prefabType":1,"behaviourType":0,"priority":5,"headertext":"JioGlass
+    your JioGlass and try again.","bodyInfoGraphicPath":"","interactions":[{"type":0,"interactionString":"Okay","interactionKey":"","dismiss":true,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"INA000","dismiss_popUpIds":["INA001","INA002","INA003","INA004","INA006","INA007","INA008","INA009","INA010","INA011"],"prefabType":1,"behaviourType":0,"priority":3,"headertext":"Controller
+    Connected\\n <size=65%>Switching to controller","headerIconPath":"Art/ControllerGreen","bodyText":"","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.4000000953674318},"targetPosition":{"x":0.0,"y":0.0,"z":2.4000000953674318},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"INA001","dismiss_popUpIds":["INA002","INA003","INA004","INA000","INA005","INA006","INA007","INA008","INA009","INA010"],"prefabType":1,"behaviourType":0,"priority":3,"headertext":"Controller
+    Disconnected\\n <size=65%>Switching to gaze","headerIconPath":"Art/ControllerRed","bodyText":"","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.4000000953674318},"targetPosition":{"x":0.0,"y":0.0,"z":2.4000000953674318},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"INA002","dismiss_popUpIds":["INA003","INA004","INA007","INA008","INA009","INA010"],"prefabType":1,"behaviourType":0,"priority":5,"headertext":"JioGlass
     Controller Battery Low","headerIconPath":"Art/Controller20%","bodyText":"Please
-    replace batteries to avoid your JioGlass \\n Controller from getting disconnected.","parameterizedPopupData":{"hasParameterizedHeaderText":true,"headerText":"{0}%
-    JioGlass Controller Battery","defaultHeaderTextParameters":["20"],"hasParameterizedBodyText":true,"bodyText":"Your
-    JioGlass Controller only has {0} % of charge\\n left. Please replace batteries
-    to avoid your JioGlass\\n Controller from getting disconnected.","defaultBodyTextParameters":["20"]},"interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.4000000953674318},"targetPosition":{"x":0.0,"y":0.0,"z":2.4000000953674318},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"INA003","dismiss_popUpIds":["INA002","INA004"],"prefabType":1,"behaviourType":2,"priority":5,"headertext":"JioGlass
+    replace batteries to avoid your JioGlass \\n Controller from getting disconnected.","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.4000000953674318},"targetPosition":{"x":0.0,"y":0.0,"z":2.4000000953674318},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"INA003","dismiss_popUpIds":["INA002","INA004","INA007","INA008","INA009","INA010"],"prefabType":1,"behaviourType":2,"priority":5,"headertext":"JioGlass
     Controller Battery Too Low","headerIconPath":"Art/Controller10%","bodyText":"Please
-    replace batteries to avoid your JioGlass \\n Controller from getting disconnected.","parameterizedPopupData":{"hasParameterizedHeaderText":true,"headerText":"{0}%
-    JioGlass Controller Battery,\\n Too Low","defaultHeaderTextParameters":["15"],"hasParameterizedBodyText":true,"bodyText":"Your
-    JioGlass Controller only has\\n {0} % of charge left. Please replace batteries\\n
-    to avoid your JioGlass Controller from getting\\n disconnected.","defaultBodyTextParameters":["15"]},"interactions":[{"type":0,"interactionString":"Okay","dismiss":true,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":2,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"INA004","dismiss_popUpIds":["INA002","INA003"],"prefabType":1,"behaviourType":3,"priority":5,"headertext":"JioGlass
+    replace batteries to avoid your JioGlass \\n Controller from getting disconnected.","bodyInfoGraphicPath":"","interactions":[{"type":0,"interactionString":"Okay","interactionKey":"","dismiss":true,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":2,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"INA004","dismiss_popUpIds":["INA002","INA003","INA007","INA008","INA009","INA010"],"prefabType":1,"behaviourType":3,"priority":5,"headertext":"JioGlass
     Controller Battery Critically Low","headerIconPath":"Art/ControllerRed","bodyText":"Please
-    replace batteries to avoid your JioGlass \\n Controller from getting disconnected.","parameterizedPopupData":{"hasParameterizedHeaderText":true,"headerText":"{0}%
-    JioGlass Controller Battery\\n Critically Low","defaultHeaderTextParameters":["10"],"hasParameterizedBodyText":true,"bodyText":"Your
-    JioGlass Controller only has {0} % of charge\\n left. Please replace batteries
-    to avoid your JioGlass\\n Controller from getting disconnected.","defaultBodyTextParameters":["10"]},"interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"DEA016","dismiss_popUpIds":[],"prefabType":1,"behaviourType":3,"priority":1,"headertext":"JioGlass
+    replace batteries to avoid your JioGlass \\n Controller from getting disconnected.","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"DEA016","dismiss_popUpIds":[],"prefabType":1,"behaviourType":3,"priority":1,"headertext":"JioGlass
     Non-Genuine","headerIconPath":"Art/JioGlassNotify","bodyText":"Unable to verify
-    that this JioGlass is genuine.\\n Please buy genuine JioGlass device only.","parameterizedPopupData":{"hasParameterizedHeaderText":false,"headerText":"","defaultHeaderTextParameters":[],"hasParameterizedBodyText":false,"bodyText":"","defaultBodyTextParameters":[]},"interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"DEA032","dismiss_popUpIds":[],"prefabType":1,"behaviourType":3,"priority":1,"headertext":"Authentication
+    that this JioGlass is genuine.\\n Please buy genuine JioGlass device only.","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"DEA032","dismiss_popUpIds":[],"prefabType":1,"behaviourType":3,"priority":1,"headertext":"Authentication
     Failed","headerIconPath":"Art/WarningRed","bodyText":"Please make sure you are
-    logged in and\\n have completed device setup.","parameterizedPopupData":{"hasParameterizedHeaderText":false,"headerText":"","defaultHeaderTextParameters":[],"hasParameterizedBodyText":false,"bodyText":"","defaultBodyTextParameters":[]},"interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"DEA064","dismiss_popUpIds":[],"prefabType":1,"behaviourType":3,"priority":1,"headertext":"Firmware
+    logged in and\\n have completed device setup.","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"DEA064","dismiss_popUpIds":[],"prefabType":1,"behaviourType":3,"priority":1,"headertext":"Firmware
     Update Required","headerIconPath":"Art/WarningRed","bodyText":"Please update
-    your firmware.","parameterizedPopupData":{"hasParameterizedHeaderText":false,"headerText":"","defaultHeaderTextParameters":[],"hasParameterizedBodyText":false,"bodyText":"","defaultBodyTextParameters":[]},"interactions":[{"type":0,"interactionString":"Okay","dismiss":true,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"DEA128","dismiss_popUpIds":[],"prefabType":1,"behaviourType":3,"priority":1,"headertext":"Internet
+    your firmware.","bodyInfoGraphicPath":"","interactions":[{"type":0,"interactionString":"Okay","interactionKey":"","dismiss":true,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"DEA128","dismiss_popUpIds":[],"prefabType":1,"behaviourType":3,"priority":1,"headertext":"Internet
     Connection Required","headerIconPath":"Art/JioGlassNotify","bodyText":"Please
     ensure that you are connected to an active\\nInternet connection to complete
-    setting up your\\nJioGlass.","parameterizedPopupData":{"hasParameterizedHeaderText":false,"headerText":"","defaultHeaderTextParameters":[],"hasParameterizedBodyText":false,"bodyText":"","defaultBodyTextParameters":[]},"interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"DEA002","dismiss_popUpIds":[],"prefabType":1,"behaviourType":3,"priority":1,"headertext":"Could
+    setting up your\\nJioGlass.","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"DEA002","dismiss_popUpIds":[],"prefabType":1,"behaviourType":3,"priority":1,"headertext":"Could
     Not Connect JioGlass","headerIconPath":"Art/JioGlassNotify","bodyText":"Please
-    try replugging your JioGlass.","parameterizedPopupData":{"hasParameterizedHeaderText":false,"headerText":"","defaultHeaderTextParameters":[],"hasParameterizedBodyText":false,"bodyText":"","defaultBodyTextParameters":[]},"interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"PLA000","dismiss_popUpIds":["PLA001","PLA002"],"prefabType":1,"behaviourType":0,"priority":4,"headertext":"Phone
+    try replugging your JioGlass.","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"PLA000","dismiss_popUpIds":["PLA001","PLA002"],"prefabType":1,"behaviourType":0,"priority":4,"headertext":"Phone
     Battery Low","headerIconPath":"Art/Battery","bodyText":"Please charge your phone
-    to continue using\\n JioGlass uninterrupted.","parameterizedPopupData":{"hasParameterizedHeaderText":true,"headerText":"{0}%
-    Phone Battery","defaultHeaderTextParameters":["30"],"hasParameterizedBodyText":true,"bodyText":"Your
-    Smartphone only has {0} % of charge left.\\nPlease Charge your phone to continue
-    using\\n JioGlass uninterrupted.","defaultBodyTextParameters":["30"]},"interactions":[],"isAutoClose":false,"followBehaviours":0,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.5},"targetPosition":{"x":0.0,"y":0.0,"z":2.5},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"PLA001","dismiss_popUpIds":["PLA000","PLA002"],"prefabType":1,"behaviourType":2,"priority":4,"headertext":"Phone
+    to continue using\\n JioGlass uninterrupted.","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":0,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.5},"targetPosition":{"x":0.0,"y":0.0,"z":2.5},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"PLA001","dismiss_popUpIds":["PLA000","PLA002"],"prefabType":1,"behaviourType":2,"priority":4,"headertext":"Phone
     Battery \\n Too Low","headerIconPath":"Art/BatteryLow","bodyText":"Please charge
-    your phone to continue using\\n JioGlass uninterrupted.","parameterizedPopupData":{"hasParameterizedHeaderText":true,"headerText":"{0}%
-    Phone Battery","defaultHeaderTextParameters":["25"],"hasParameterizedBodyText":true,"bodyText":"Your
-    Smartphone only has {0} % of charge left.\\nPlease Charge your phone to continue
-    using\\n JioGlass uninterrupted.","defaultBodyTextParameters":["25"]},"interactions":[{"type":0,"interactionString":"Okay","dismiss":true,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":2,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.5},"targetPosition":{"x":0.0,"y":0.0,"z":2.5},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"PLA002","dismiss_popUpIds":["PLA000","PLA001"],"prefabType":1,"behaviourType":3,"priority":4,"headertext":"Phone
+    your phone to continue using\\n JioGlass uninterrupted.","bodyInfoGraphicPath":"","interactions":[{"type":0,"interactionString":"Okay","interactionKey":"","dismiss":true,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":2,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.5},"targetPosition":{"x":0.0,"y":0.0,"z":2.5},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"PLA002","dismiss_popUpIds":["PLA000","PLA001"],"prefabType":1,"behaviourType":3,"priority":4,"headertext":"Phone
     Battery \\n Critically Low","headerIconPath":"Art/BatteryVeryLow","bodyText":"Please
-    charge your phone to continue using\\n JioGlass uninterrupted.","parameterizedPopupData":{"hasParameterizedHeaderText":true,"headerText":"{0}%
-    Phone Battery","defaultHeaderTextParameters":["20"],"hasParameterizedBodyText":true,"bodyText":"Your
-    Smartphone only has {0} % of\\n charge left. We have paused your JioGlass\\n
-    experience to allow you to use your phone. Please\\n charge before connecting
-    JioGlass\\n again.","defaultBodyTextParameters":["20"]},"interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.5},"targetPosition":{"x":0.0,"y":0.0,"z":2.5},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"PLA003","dismiss_popUpIds":["PLA004","PLA005"],"prefabType":1,"behaviourType":0,"priority":4,"headertext":"Compute
+    charge your phone to continue using\\n JioGlass uninterrupted.","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.5},"targetPosition":{"x":0.0,"y":0.0,"z":2.5},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"PLA003","dismiss_popUpIds":["PLA004","PLA005"],"prefabType":1,"behaviourType":0,"priority":4,"headertext":"Compute
     Unit Battery \\n Low","headerIconPath":"Art/Battery","bodyText":"Please charge
-    your Compute Unit to continue using\\n JioGlass uninterrupted.","parameterizedPopupData":{"hasParameterizedHeaderText":true,"headerText":"{0}%
-    Compute Unit Battery","defaultHeaderTextParameters":["20"],"hasParameterizedBodyText":true,"bodyText":"Your
-    Compute Unit only has {0} % of charge left.\\nPlease Charge your Compute Unit
-    to continue\\n using JioGlass uninterrupted.","defaultBodyTextParameters":["20"]},"interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.5},"targetPosition":{"x":0.0,"y":0.0,"z":2.5},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"PLA004","dismiss_popUpIds":["PLA003","PLA005"],"prefabType":1,"behaviourType":2,"priority":4,"headertext":"Compute
+    your Compute Unit to continue using\\n JioGlass uninterrupted.","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.5},"targetPosition":{"x":0.0,"y":0.0,"z":2.5},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"PLA004","dismiss_popUpIds":["PLA003","PLA005"],"prefabType":1,"behaviourType":2,"priority":4,"headertext":"Compute
     Unit Battery \\n Too Low","headerIconPath":"Art/BatteryLow","bodyText":"Please
-    charge your Compute Unit to continue using\\n JioGlass uninterrupted.","parameterizedPopupData":{"hasParameterizedHeaderText":true,"headerText":"{0}%
-    Compute Unit Battery","defaultHeaderTextParameters":["10"],"hasParameterizedBodyText":true,"bodyText":"Your
-    Compute Unit only has {0} % of charge left.\\nPlease Charge your Compute Unit
-    to continue\\n using JioGlass uninterrupted.","defaultBodyTextParameters":["10"]},"interactions":[{"type":0,"interactionString":"Okay","dismiss":true,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":2,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.5},"targetPosition":{"x":0.0,"y":0.0,"z":2.5},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"PLA005","dismiss_popUpIds":["PLA003","PLA004"],"prefabType":1,"behaviourType":3,"priority":4,"headertext":"Compute
+    charge your Compute Unit to continue using\\n JioGlass uninterrupted.","bodyInfoGraphicPath":"","interactions":[{"type":0,"interactionString":"Okay","interactionKey":"","dismiss":true,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":2,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.5},"targetPosition":{"x":0.0,"y":0.0,"z":2.5},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"PLA005","dismiss_popUpIds":["PLA003","PLA004"],"prefabType":1,"behaviourType":3,"priority":4,"headertext":"Compute
     Unit Battery \\n Critically Low","headerIconPath":"Art/BatteryVeryLow","bodyText":"We
     have paused your JioGlass experience so that you can charge your \\ndevice and
-    start using device again.","parameterizedPopupData":{"hasParameterizedHeaderText":true,"headerText":"{0}%
-    Compute Unit Battery","defaultHeaderTextParameters":["5"],"hasParameterizedBodyText":true,"bodyText":"Your
-    Compute Unit only has {0} % of charge left.\\n We have paused your JioGlass experience
-    so that\\n you can charge your device and start using\\n device again.","defaultBodyTextParameters":["5"]},"interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.5},"targetPosition":{"x":0.0,"y":0.0,"z":2.5},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"TRA004","dismiss_popUpIds":[],"prefabType":1,"behaviourType":3,"priority":1,"headertext":"Tracking
+    start using device again.","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.5},"targetPosition":{"x":0.0,"y":0.0,"z":2.5},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"TRA004","dismiss_popUpIds":[],"prefabType":1,"behaviourType":3,"priority":1,"headertext":"Tracking
     Lost","headerIconPath":"Art/JioGlassNotify","bodyText":"Please replug your JioGlass
-    and try again.","parameterizedPopupData":{"hasParameterizedHeaderText":false,"headerText":"","defaultHeaderTextParameters":[],"hasParameterizedBodyText":false,"bodyText":"","defaultBodyTextParameters":[]},"interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"INA005","dismiss_popUpIds":[],"prefabType":1,"behaviourType":1,"priority":6,"headertext":"Calibrate
-    JioGlass Controller","headerIconPath":"","bodyText":"Point your controller forward
-    and \\n hold <sprite name=\"SelectButton\"> button to recenter.\\n\\nPress Okay
-    once calibrated.","parameterizedPopupData":{"hasParameterizedHeaderText":false,"headerText":"","defaultHeaderTextParameters":[],"hasParameterizedBodyText":false,"bodyText":"","defaultBodyTextParameters":[]},"interactions":[{"type":0,"interactionString":"Okay","dismiss":true,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}}]}'
-  systemUICommonConfig_Json: '{"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":540.0,"z":2.4000000953674318},"targetPosition":{"x":0.0,"y":0.0,"z":2.4000000953674318},"transitionDuration":1.0,"waitDuration":3.0},"popupConfigDataContainer":[{"type":0,"prefab":{"instanceID":25788},"prefabPath":"Prefab/pf_ToastPopup","isPrefabLoaded":false},{"type":1,"prefab":{"instanceID":25802},"prefabPath":"Prefab/pf_FullSizePopup","isPrefabLoaded":false}]}'
+    and try again.","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"INA005","dismiss_popUpIds":["INA006","INA007","INA008","INA009","INA010"],"prefabType":5,"behaviourType":1,"priority":6,"headertext":"Reset
+    Pointer","headerIconPath":"","bodyText":"Point your controller forward and \\n
+    hold <sprite name=\"SelectButton\"> button to recenter.\\n\\nPress Okay once
+    calibrated.","bodyInfoGraphicPath":"","interactions":[{"type":0,"interactionString":"Okay","interactionKey":"","dismiss":true,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":2,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"INA006","dismiss_popUpIds":["INA005","INA007","INA008","INA009","INA010"],"prefabType":5,"behaviourType":2,"priority":6,"headertext":"Reset
+    Pointer","headerIconPath":"","bodyText":"Your ray pointer is away from viewing
+    area.\\n\\n Point your JioGlass controller forward and hold the highlighted button
+    for one second to recenter.","bodyInfoGraphicPath":"Art/JG_Controller","interactions":[{"type":0,"interactionString":"Okay","interactionKey":"","dismiss":true,"showButtonAppearAnimation":false},{"type":3,"interactionString":"","interactionKey":"Don''t
+    show this again ","dismiss":false,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":2,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"INA007","dismiss_popUpIds":["INA000","INA001","INA005","INA006","INA009","INA002","INA003","INA004"],"prefabType":2,"behaviourType":2,"priority":6,"headertext":"Reset
+    Pointer","headerIconPath":"","bodyText":"Your ray pointer is away from viewing
+    area.\\n\\nHold your phone facing up and pointing forwards. Please press highlighted
+    button for one second to recenter.","bodyInfoGraphicPath":"Art/MobileImage","interactions":[{"type":0,"interactionString":"Okay","interactionKey":"","dismiss":true,"showButtonAppearAnimation":false},{"type":3,"interactionString":"","interactionKey":"Don''t
+    show this again ","dismiss":false,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":2,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":0.0,"z":0.0},"targetPosition":{"x":0.0,"y":0.0,"z":0.0},"transitionDuration":0.0,"waitDuration":0.0}},{"popUpId":"INA008","dismiss_popUpIds":["INA000","INA001","INA005","INA002","INA006","INA003","INA004","INA007","INA009","INA010","INA011"],"prefabType":0,"behaviourType":0,"priority":3,"headertext":"Controlpad
+    successfully connected.","headerIconPath":"Art/GreenDots","bodyText":"","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.4000000953674318},"targetPosition":{"x":0.0,"y":0.0,"z":2.4000000953674318},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"INA009","dismiss_popUpIds":["INA000","INA001","INA005","INA006","INA007","INA002","INA003","INA004"],"prefabType":2,"behaviourType":2,"priority":3,"headertext":"Reset
+    Pointer","headerIconPath":"","bodyText":"\\n\\nYour ray pointer is away from
+    viewing area.\\n\\nHold your phone facing up and pointing forwards. Please press
+    \\n highlighted button for one second to reset the pointer.\\n\\n","bodyInfoGraphicPath":"Art/RecenterMobile","interactions":[{"type":0,"interactionString":"Okay","interactionKey":"","dismiss":true,"showButtonAppearAnimation":false},{"type":3,"interactionString":"","interactionKey":"Don''t
+    show this again ","dismiss":false,"showButtonAppearAnimation":false}],"isAutoClose":false,"followBehaviours":2,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.4000000953674318},"targetPosition":{"x":0.0,"y":0.0,"z":2.4000000953674318},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"INA010","dismiss_popUpIds":["INA000","INA001","INA005","INA006","INA002","INA003","INA004","INA007","INA008","INA009"],"prefabType":3,"behaviourType":0,"priority":3,"headertext":"Virtual
+    Controller Unavailable","headerIconPath":"","bodyText":"Please run the Virtual
+    Controller on your phone\\n as shown below to continue.","bodyInfoGraphicPath":"Art/VC_Disconnected_Image","interactions":[],"isAutoClose":false,"followBehaviours":1,"popUpVisibleDuration":0.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.4000000953674318},"targetPosition":{"x":0.0,"y":0.0,"z":2.4000000953674318},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"INA011","dismiss_popUpIds":["INA002","INA003","INA004","INA005","INA006","INA007","INA009","INA010"],"prefabType":4,"behaviourType":1,"priority":6,"headertext":"Switched
+    to Gaze Control","headerIconPath":"","bodyText":"Look around to move the pointer
+    and hold to select","bodyInfoGraphicPath":"Art/pointer_head_small","interactions":[],"isAutoClose":true,"followBehaviours":1,"popUpVisibleDuration":3.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.4000000953674318},"targetPosition":{"x":0.0,"y":0.0,"z":2.4000000953674318},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"INA012","dismiss_popUpIds":["INA002","INA003","INA004","INA005","INA006","INA007","INA009","INA013"],"prefabType":0,"behaviourType":0,"priority":3,"headertext":"Switched
+    to Gaze pointer","headerIconPath":"Art/Head_Icon","bodyText":"","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":true,"followBehaviours":1,"popUpVisibleDuration":3.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.4000000953674318},"targetPosition":{"x":0.0,"y":0.0,"z":2.4000000953674318},"transitionDuration":1.0,"waitDuration":3.0}},{"popUpId":"INA013","dismiss_popUpIds":["INA002","INA003","INA004","INA005","INA006","INA007","INA009","INA010","INA011","INA012"],"prefabType":0,"behaviourType":0,"priority":3,"headertext":"Switched
+    to Controller Pointer","headerIconPath":"Art/Controller_Icon","bodyText":"","bodyInfoGraphicPath":"","interactions":[],"isAutoClose":true,"followBehaviours":1,"popUpVisibleDuration":3.0,"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.4000000953674318},"targetPosition":{"x":0.0,"y":0.0,"z":2.4000000953674318},"transitionDuration":1.0,"waitDuration":3.0}}]}'
+  systemUICommonConfig_Json: '{"transitionData":{"useCommon":true,"startPosition":{"x":0.0,"y":510.0,"z":2.4000000953674318},"targetPosition":{"x":0.0,"y":0.0,"z":2.4000000953674318},"transitionDuration":1.0,"waitDuration":3.0},"popupConfigDataContainer":[{"type":0,"prefab":{"instanceID":28874},"prefabPath":"Prefab/pf_ToastPopup","isPrefabLoaded":false},{"type":1,"prefab":{"instanceID":28918},"prefabPath":"Prefab/pf_FullSizePopup","isPrefabLoaded":false},{"type":2,"prefab":{"instanceID":15092},"prefabPath":"Prefab/pf_FullSizePopup_WithImage","isPrefabLoaded":false},{"type":3,"prefab":{"instanceID":28758},"prefabPath":"Prefab/pf_FullSizePopup_NoButton","isPrefabLoaded":false},{"type":4,"prefab":{"instanceID":28880},"prefabPath":"Prefab/pf_FullSizePopup_WithImageAtTop","isPrefabLoaded":false},{"type":5,"prefab":{"instanceID":30042},"prefabPath":"Prefab/Custom_RecenterCanvas","isPrefabLoaded":false}]}'
 --- !u!114 &111580887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,6 +492,10 @@ RectTransform:
   m_Children:
   - {fileID: 6135924421942568353}
   - {fileID: 789031022729618612}
+  - {fileID: 8348610302717498718}
+  - {fileID: 5771500867137242783}
+  - {fileID: 1661909523080141246}
+  - {fileID: 4489665360813568708}
   m_Father: {fileID: 34860212938041090}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -691,6 +687,142 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31530ed5566a2924d9bf61eac7b3230f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &918109566731299922
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 34860213212720042}
+    m_Modifications:
+    - target: {fileID: 3671481611993685651, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+        type: 3}
+      propertyPath: m_Name
+      value: Custom_RecenterCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671481611993685651, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671481611993685654, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671481611993685654, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671481611993685654, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671481611993685654, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671481611993685654, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671481611993685654, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671481611993685654, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671481611993685654, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671481611993685654, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671481611993685654, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671481611993685654, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671481611993685654, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671481611993685654, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671481611993685654, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671481611993685654, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671481611993685654, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671481611993685654, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671481611993685654, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671481611993685654, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671481611993685654, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671481611993685654, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8, type: 3}
+--- !u!1 &4489665360813568705 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3671481611993685651, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 918109566731299922}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &4489665360813568708 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3671481611993685654, guid: 2d6f6f07e29c39643a4f42ece3b7d8d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 918109566731299922}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1313011663622535080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1277,4 +1409,397 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5155596753520626270, guid: b61e274c96057784dbc29f059e0390ec,
     type: 3}
   m_PrefabInstance: {fileID: 1345297754536472575}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4912286630235572898
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 34860213212720042}
+    m_Modifications:
+    - target: {fileID: 4032914640486998012, guid: 98f966d5ec248604698232884f46ce25,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 98f966d5ec248604698232884f46ce25,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 98f966d5ec248604698232884f46ce25,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 98f966d5ec248604698232884f46ce25,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 98f966d5ec248604698232884f46ce25,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 98f966d5ec248604698232884f46ce25,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 98f966d5ec248604698232884f46ce25,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 98f966d5ec248604698232884f46ce25,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 98f966d5ec248604698232884f46ce25,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 98f966d5ec248604698232884f46ce25,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 98f966d5ec248604698232884f46ce25,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 98f966d5ec248604698232884f46ce25,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 98f966d5ec248604698232884f46ce25,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 98f966d5ec248604698232884f46ce25,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 98f966d5ec248604698232884f46ce25,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 720
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 98f966d5ec248604698232884f46ce25,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 98f966d5ec248604698232884f46ce25,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 98f966d5ec248604698232884f46ce25,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 98f966d5ec248604698232884f46ce25,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 98f966d5ec248604698232884f46ce25,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 98f966d5ec248604698232884f46ce25,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998013, guid: 98f966d5ec248604698232884f46ce25,
+        type: 3}
+      propertyPath: m_Name
+      value: pf_FullSizePopup_WithImage
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 98f966d5ec248604698232884f46ce25, type: 3}
+--- !u!1 &8348610302717498719 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4032914640486998013, guid: 98f966d5ec248604698232884f46ce25,
+    type: 3}
+  m_PrefabInstance: {fileID: 4912286630235572898}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &8348610302717498718 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4032914640486998012, guid: 98f966d5ec248604698232884f46ce25,
+    type: 3}
+  m_PrefabInstance: {fileID: 4912286630235572898}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6222288645096847054
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 34860213212720042}
+    m_Modifications:
+    - target: {fileID: 4704655678457147248, guid: ff41eaf8eaed5b6469a93f4e87808c7e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704655678457147248, guid: ff41eaf8eaed5b6469a93f4e87808c7e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704655678457147248, guid: ff41eaf8eaed5b6469a93f4e87808c7e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704655678457147248, guid: ff41eaf8eaed5b6469a93f4e87808c7e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704655678457147248, guid: ff41eaf8eaed5b6469a93f4e87808c7e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704655678457147248, guid: ff41eaf8eaed5b6469a93f4e87808c7e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704655678457147248, guid: ff41eaf8eaed5b6469a93f4e87808c7e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704655678457147248, guid: ff41eaf8eaed5b6469a93f4e87808c7e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704655678457147248, guid: ff41eaf8eaed5b6469a93f4e87808c7e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704655678457147248, guid: ff41eaf8eaed5b6469a93f4e87808c7e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704655678457147248, guid: ff41eaf8eaed5b6469a93f4e87808c7e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704655678457147248, guid: ff41eaf8eaed5b6469a93f4e87808c7e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704655678457147248, guid: ff41eaf8eaed5b6469a93f4e87808c7e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704655678457147248, guid: ff41eaf8eaed5b6469a93f4e87808c7e,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704655678457147248, guid: ff41eaf8eaed5b6469a93f4e87808c7e,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 720
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704655678457147248, guid: ff41eaf8eaed5b6469a93f4e87808c7e,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704655678457147248, guid: ff41eaf8eaed5b6469a93f4e87808c7e,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704655678457147248, guid: ff41eaf8eaed5b6469a93f4e87808c7e,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704655678457147248, guid: ff41eaf8eaed5b6469a93f4e87808c7e,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704655678457147248, guid: ff41eaf8eaed5b6469a93f4e87808c7e,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704655678457147248, guid: ff41eaf8eaed5b6469a93f4e87808c7e,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704655678457147249, guid: ff41eaf8eaed5b6469a93f4e87808c7e,
+        type: 3}
+      propertyPath: m_Name
+      value: pf_FullSizePopup_WithImageAtTop
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ff41eaf8eaed5b6469a93f4e87808c7e, type: 3}
+--- !u!1 &1661909523080141247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4704655678457147249, guid: ff41eaf8eaed5b6469a93f4e87808c7e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6222288645096847054}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1661909523080141246 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4704655678457147248, guid: ff41eaf8eaed5b6469a93f4e87808c7e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6222288645096847054}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7489405959809276259
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 34860213212720042}
+    m_Modifications:
+    - target: {fileID: 4032914640486998012, guid: 40c2afe41e4d3f44e89cf18fd359cd0c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 40c2afe41e4d3f44e89cf18fd359cd0c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 40c2afe41e4d3f44e89cf18fd359cd0c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 40c2afe41e4d3f44e89cf18fd359cd0c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 40c2afe41e4d3f44e89cf18fd359cd0c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 40c2afe41e4d3f44e89cf18fd359cd0c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 40c2afe41e4d3f44e89cf18fd359cd0c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 40c2afe41e4d3f44e89cf18fd359cd0c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 40c2afe41e4d3f44e89cf18fd359cd0c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 40c2afe41e4d3f44e89cf18fd359cd0c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 40c2afe41e4d3f44e89cf18fd359cd0c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 40c2afe41e4d3f44e89cf18fd359cd0c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 40c2afe41e4d3f44e89cf18fd359cd0c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 40c2afe41e4d3f44e89cf18fd359cd0c,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 40c2afe41e4d3f44e89cf18fd359cd0c,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 720
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 40c2afe41e4d3f44e89cf18fd359cd0c,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 40c2afe41e4d3f44e89cf18fd359cd0c,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 40c2afe41e4d3f44e89cf18fd359cd0c,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 40c2afe41e4d3f44e89cf18fd359cd0c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 40c2afe41e4d3f44e89cf18fd359cd0c,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998012, guid: 40c2afe41e4d3f44e89cf18fd359cd0c,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032914640486998013, guid: 40c2afe41e4d3f44e89cf18fd359cd0c,
+        type: 3}
+      propertyPath: m_Name
+      value: pf_FullSizePopup_NoButton
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 40c2afe41e4d3f44e89cf18fd359cd0c, type: 3}
+--- !u!1 &5771500867137242782 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4032914640486998013, guid: 40c2afe41e4d3f44e89cf18fd359cd0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7489405959809276259}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &5771500867137242783 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4032914640486998012, guid: 40c2afe41e4d3f44e89cf18fd359cd0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7489405959809276259}
   m_PrefabAsset: {fileID: 0}

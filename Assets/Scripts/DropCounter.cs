@@ -235,7 +235,6 @@ public class DropCounter : MonoBehaviour
             GenratedObject.transform.SetParent(parent);
             GenratedObject.transform.DOScale(1.85f, 0);
             GenratedObject.transform.DOLocalMove(Vector3.zero, 0.8f).onComplete += delegate { OnOrderDropOnMainPlatform(ObjectName); };
-
             visualiz.Add(GenratedObject);
         }
         else if (ObjectName == "Pizza")
@@ -297,7 +296,6 @@ public class DropCounter : MonoBehaviour
             {
                 Debug.Log("Pizza Pizza");
                 PlayerPrefs.SetInt("TutorialOneTime", 1);
-
             }
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             Debug.Log("GetActiveSceneName :"+ SceneManager.GetActiveScene().name);

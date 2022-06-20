@@ -15,16 +15,16 @@
     </activity>
   </application>
 
-  <uses-permission android:name="android.permission.CAMERA"/> uncomment permission  to use camera example 
-  <uses-permission android:name="android.permission.RECORD_AUDIO"/>  permission is required to use Voice example 
+  <!--<uses-permission android:name="android.permission.CAMERA"/>--> <!--uncomment permission  to use camera example -->
+  <!--<uses-permission android:name="android.permission.RECORD_AUDIO"/>--> <!-- permission is required to use Voice example -->
  
   <!--HARD STOPPED PERMISSIONS-->
+  
   <uses-permission android:name="android.permission.RECORD_AUDIO" tools:node="remove" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:node="remove"/>
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" tools:node="remove"/>
   <uses-permission android:name="android.permission.READ_PHONE_STATE" tools:node="remove"/>
   <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" tools:node="remove"/>
-	
   <uses-permission android:name="android.permission.WAKE_LOCK"/>
  
 </manifest>

@@ -26,6 +26,7 @@ public class Tutorial : MonoBehaviour
         if (tutorial == null)
         {
             tutorial = this;
+          //  return;
         }
         else
         {
