@@ -68,6 +68,8 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        
+        
         if (instance == null)
         {
             instance = this;
@@ -76,6 +78,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(this);
+            //return;
         }
         tutorialSetup();
 
@@ -114,14 +117,14 @@ public class GameManager : MonoBehaviour
         //}
         if (PlayerPrefs.GetInt("isMods") == 1)
         {
-            Debug.Log("TutorialOneTime 2 "); 
+           // Debug.Log("TutorialOneTime 2 "); 
 
             isTutorialOn = true;
             PlayerPrefs.SetInt("TutorialOneTime", 0);
         }
         else
         {
-            Debug.Log("TutorialOneTime 3 ");
+           // Debug.Log("TutorialOneTime 3 ");
 
             PlayerPrefs.SetInt("TutorialOneTime", 1);
             isTutorialOn = false;
@@ -165,7 +168,7 @@ public class GameManager : MonoBehaviour
     {
         if (playgame == true)
         {
-            Debug.Log("GetInfo Called");
+           // Debug.Log("GetInfo Called");
             var ray = JMRPointerManager.Instance.GetCurrentRay();
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, maxDistance: 100))
@@ -174,7 +177,7 @@ public class GameManager : MonoBehaviour
                 {
                     whatToSpawn = hit.collider.GetComponent<ItemCount>().Foodvalue;
                     MakeVadapaw(hit.transform.gameObject);
-                    Debug.Log("Shubham---Vaada");
+                  //  Debug.Log("Shubham---Vaada");
                 }
 
                 if (hit.collider.tag == "Sandwich")
@@ -212,7 +215,7 @@ public class GameManager : MonoBehaviour
                         GameObject bomb = Instantiate(vadapaw_I.foodIngredient[0], vada_dropppoint.transform.position, Quaternion.identity);
                         vadapaw = bomb;
                         vadapawcount++;
-                        Debug.Log(vadapawcount);
+                      //  Debug.Log(vadapawcount);
                     }
                     break;
                 case 2:
@@ -222,7 +225,7 @@ public class GameManager : MonoBehaviour
                         GameObject bomb2 = Instantiate(vadapaw_I.foodIngredient[1], vada_dropppoint.transform.position, Quaternion.identity);
                         vadapaw = bomb2;
                         vadapawcount++;
-                        Debug.Log(vadapawcount);
+                      //  Debug.Log(vadapawcount);
                     }
                     break;
                 case 3:
@@ -232,7 +235,7 @@ public class GameManager : MonoBehaviour
                         Instantiate(vadapaw_I.foodIngredient[2], vada_dropppoint.transform.position, Quaternion.identity);
                         vadapawcount++;
                         SoundManager.instance.SoundPlay_FD();
-                        Debug.Log(vadapawcount);
+                      //  Debug.Log(vadapawcount);
                     }
                     break;
                 default:
@@ -251,7 +254,7 @@ public class GameManager : MonoBehaviour
             //tagsFoodClickIndex("sandwich", sandwichcount);
             if (isTutorialOn)
             {
-                Debug.Log("tagsFoodClickIndex");
+                //Debug.Log("tagsFoodClickIndex");
                 tagsFoodClickIndex?.Invoke("sandwich", sandwichcount, hit);
             }
 
@@ -371,7 +374,7 @@ public class GameManager : MonoBehaviour
                     GameSetting.Instance.doneTutorial = true;
                     break;
                 default:
-                    Debug.Log("Please follow the food itme menu");
+                  //  Debug.Log("Please follow the food itme menu");
                     break;
             }
         }

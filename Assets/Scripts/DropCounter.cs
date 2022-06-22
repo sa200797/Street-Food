@@ -88,7 +88,7 @@ public class DropCounter : MonoBehaviour
             if (collision.gameObject.CompareTag("C_Vadapav"))
             {
                 GameManager.amount = 10;
-                Debug.Log("VadaPawComplete2");
+               // Debug.Log("VadaPawComplete2");
                 GameManager.vadaitemspawn = false;
                 GameManager.vadapawcount = 0;
                 //  collision.gameObject.GetComponent<JMRManipulation2>().enabled = false;
@@ -110,7 +110,7 @@ public class DropCounter : MonoBehaviour
             if (collision.gameObject.CompareTag("C_Sandwich"))
             {
                 GameManager.amount = 30;
-                Debug.Log("Sandwich Complete");
+               // Debug.Log("Sandwich Complete");
                 GameManager.sandwichitemsspawn = false;
                 GameManager.sandwichcount = 0;
 
@@ -127,7 +127,7 @@ public class DropCounter : MonoBehaviour
             if (collision.gameObject.CompareTag("C_Pizza"))
             {
                 GameManager.amount = 50;
-                Debug.Log("Pizza Complete");
+              //  Debug.Log("Pizza Complete");
                 GameManager.pizzaitemspawn = false;
                 GameManager.pizzacount = 0;
                 Destroy(collision.gameObject);
@@ -142,11 +142,11 @@ public class DropCounter : MonoBehaviour
         //Rushabh
         if (numberOffOrder == LevelManager.NumberOffOrder.TwoOrder)
         {
-            Debug.Log("Two Name"); 
+          //  Debug.Log("Two Name"); 
             if (collision.gameObject.CompareTag("C_Vadapav"))
             {
                 GameManager.amount = 10;
-                Debug.Log("VadaPawComplete2");
+               // Debug.Log("VadaPawComplete2");
                 GameManager.vadaitemspawn = false;
                 GameManager.vadapawcount = 0;
 
@@ -191,7 +191,7 @@ public class DropCounter : MonoBehaviour
             if (collision.gameObject.CompareTag("C_Pizza"))
             {
                 GameManager.amount = 50;
-                Debug.Log("Pizza Complete");    
+               // Debug.Log("Pizza Complete");    
                 GameManager.pizzaitemspawn = false;
                 GameManager.pizzacount = 0;
 
@@ -262,7 +262,7 @@ public class DropCounter : MonoBehaviour
 
     void OnOrderDropOnMainPlatform(string ObjectName)
     {
-        Debug.Log("ObjectName :  " + ObjectName + " is good");
+        //Debug.Log("ObjectName :  " + ObjectName + " is good");
 
         if (GameManager.instance.isTutorialOn == false)
         {
@@ -277,12 +277,12 @@ public class DropCounter : MonoBehaviour
             Tutorial.tutorial.OrderIndex = 0;
             Tutorial.tutorial.SetupOrderIndexSaggatation();
 
-            Debug.Log("is work in");
+        //    Debug.Log("is work in");
         }
 
         if (ObjectName == "Sandwich")
         {
-            Debug.Log("ObjectName : " + ObjectName + "is work in");
+          //  Debug.Log("ObjectName : " + ObjectName + "is work in");
             LevelManager.levelmanager.numberOffOrder = LevelManager.NumberOffOrder.TwoOrder;
             LevelManager.levelmanager.GetOrder();
             Tutorial.tutorial.SetupSaggatation(2);
@@ -294,12 +294,13 @@ public class DropCounter : MonoBehaviour
 
             if (PlayerPrefs.HasKey("TutorialOneTime") == true)          
             {
-                Debug.Log("Pizza Pizza");
+              //  Debug.Log("Pizza Pizza");
                 PlayerPrefs.SetInt("TutorialOneTime", 1);
             }
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(2);
+          //  SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             Debug.Log("GetActiveSceneName :"+ SceneManager.GetActiveScene().name);
-            Debug.Log("123");
+          //  Debug.Log("123");
         }
 
     }

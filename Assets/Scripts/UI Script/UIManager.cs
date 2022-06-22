@@ -181,7 +181,7 @@ public class UIManager : MonoBehaviour
     public void JioBackButton()
     {
         Scene scene = SceneManager.GetActiveScene();
-        Debug.Log("OnBackAction");
+      //  Debug.Log("OnBackAction");
         if (scene.name == "Environment full")
         {
             if (howtoplay_cc == true)
@@ -276,7 +276,7 @@ public class UIManager : MonoBehaviour
     #region Dislay Material
     public void ChangeMaterial()
     {
-        Debug.Log("Change Material");
+       // Debug.Log("Change Material");
         switch (DropCounter.ordervalidity)
         {
             case 1:
@@ -308,7 +308,7 @@ public class UIManager : MonoBehaviour
 
     public void OneOrderPlay()
     {
-        Debug.Log("is work  fasfasdasfdasd");
+      //  Debug.Log("is work  fasfasdasfdasd");
         openShop_btn.SetActive(false);
         GameManager.instance.playgame = true;
         timertext.transform.parent.transform.gameObject.SetActive(false);

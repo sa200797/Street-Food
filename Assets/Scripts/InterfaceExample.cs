@@ -56,7 +56,6 @@ public class InterfaceExample : MonoBehaviour, ISelectHandler,  ISelectClickHand
     public void OnSelectClicked(SelectClickEventData eventData)
     {
 
-
         Debug.Log("OnSelectClicked");
         
     }
