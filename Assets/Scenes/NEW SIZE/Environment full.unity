@@ -5436,7 +5436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc308e0d12f5de46bd8bba085119ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaning: 300
+  timeRemaning: 120
 --- !u!114 &581101923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13751,7 +13751,7 @@ GameObject:
   - component: {fileID: 1446187634}
   - component: {fileID: 1446187633}
   m_Layer: 5
-  m_Name: Main Pannel UI (1)
+  m_Name: Ordermenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -225,7 +225,7 @@ public class GameManager : MonoBehaviour
                         GameObject bomb2 = Instantiate(vadapaw_I.foodIngredient[1], vada_dropppoint.transform.position, Quaternion.identity);
                         vadapaw = bomb2;
                         vadapawcount++;
-                      //  Debug.Log(vadapawcount);
+                        Debug.Log(vadapawcount);
                     }
                     break;
                 case 3:
@@ -235,7 +235,7 @@ public class GameManager : MonoBehaviour
                         Instantiate(vadapaw_I.foodIngredient[2], vada_dropppoint.transform.position, Quaternion.identity);
                         vadapawcount++;
                         SoundManager.instance.SoundPlay_FD();
-                      //  Debug.Log(vadapawcount);
+                        Debug.Log(vadapawcount);
                     }
                     break;
                 default:
@@ -254,7 +254,7 @@ public class GameManager : MonoBehaviour
             //tagsFoodClickIndex("sandwich", sandwichcount);
             if (isTutorialOn)
             {
-                //Debug.Log("tagsFoodClickIndex");
+                Debug.Log("tagsFoodClickIndex");
                 tagsFoodClickIndex?.Invoke("sandwich", sandwichcount, hit);
             }
 

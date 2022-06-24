@@ -5,21 +5,20 @@ using UnityEngine;
 public class MainPannel : Singleton<MainPannel>
 {
 
-    //public static MainPannel instance;
+    public static MainPannel instance;
 
     public GameObject takeMultipleOrder;
     public GameObject takeMultipleOrderTime;
-   //ss private void Awake()
-    //{
-    //    if (instance == null)
-    //    {
-    //        instance = this;
-    //    }
-    //    else
-    //    {
-    //        Destroy(this);
-    //    }
-  //  }
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+       }
+      {
+            Destroy(this);
+        }
+   }
     // Start is called before the first frame update
     void Start()
     {

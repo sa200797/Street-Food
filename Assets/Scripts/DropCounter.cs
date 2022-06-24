@@ -297,8 +297,8 @@ public class DropCounter : MonoBehaviour
               //  Debug.Log("Pizza Pizza");
                 PlayerPrefs.SetInt("TutorialOneTime", 1);
             }
-            SceneManager.LoadScene(2);
-          //  SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //SceneManager.LoadScene(2);
+          SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             Debug.Log("GetActiveSceneName :"+ SceneManager.GetActiveScene().name);
           //  Debug.Log("123");
         }
