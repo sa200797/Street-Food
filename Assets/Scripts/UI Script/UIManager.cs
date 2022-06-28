@@ -337,6 +337,16 @@ public class UIManager : MonoBehaviour
         LevelManager.levelmanager.numberOffOrder = LevelManager.NumberOffOrder.TwoOrder;
         LevelManager.levelmanager.GetOrder();
     }
+     public void multipleOrdercombo()
+    {
+        openShop_btn.SetActive(false);
+        GameManager.instance.playgame = true;
+        //Timer.timerIsRunning = true;
+        timertext.transform.parent.transform.gameObject.SetActive(false);
+
+        LevelManager.levelmanager.numberOffOrder1 = LevelManager.NumberOffOrder1.TwoOrder1;
+        LevelManager.levelmanager.GetOrder1();
+    }
     public void multipleOrderWithtime()
     {
         openShop_btn.SetActive(false);

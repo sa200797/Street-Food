@@ -7,7 +7,7 @@ public class GameSetting : Singleton<GameSetting>
    public bool doneTutorial;  //Set or get
    public bool checkFreeTimeMods;  //Set or get
    public bool timeMods;  //Set or get
-
+    public bool comboMods;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,5 +31,9 @@ public class GameSetting : Singleton<GameSetting>
     public bool TimeMods()
     {
         return timeMods;
+    }
+    public bool CheckComboMods()
+    {
+        return comboMods;
     }
 }

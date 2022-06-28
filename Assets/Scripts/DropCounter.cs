@@ -6,6 +6,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class DropCounter : MonoBehaviour
 {
@@ -45,6 +46,11 @@ public class DropCounter : MonoBehaviour
     [SerializeField] List<GameObject> pathHoder;
     Timer GetTime;
 
+    public GameObject character;
+     public GameObject[] ship;
+     public Vector3 spawnPosition;
+     
+      Vector3 pos;
     void Awake()
     {
         SetupPoint();
@@ -71,6 +77,7 @@ public class DropCounter : MonoBehaviour
 
     void Start()
     {
+
         LevelMan = GameObject.Find("LevelManager");
         levelmanager = LevelMan.GetComponent<LevelManager>();
         move = true;
@@ -79,6 +86,11 @@ public class DropCounter : MonoBehaviour
         visualiz = new List<GameObject>();
         //Move this to LevelManager 
         //levelmanager.UiUpdate();
+       character.SetActive(true);
+        // int i = Random.Range(0,ship.Length);
+         
+        // Instantiate(ship[i],spawnPosition, Quaternion.Euler(new Vector3(0, 180, 0)));
+        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -334,6 +346,9 @@ public class DropCounter : MonoBehaviour
 
         var isWin = Enumerable.SequenceEqual(OrderName.OrderBy(t => t), levelmanager.TwoNameOrder.OrderBy(t => t));
         Debug.Log(" isWin : " + isWin);
+        character.SetActive(false);
+        int i = Random.Range(0,ship.Length);
+         Instantiate(ship[i],spawnPosition, Quaternion.Euler(new Vector3(0, 180, 0)));
 
         if (isWin == true)
         {

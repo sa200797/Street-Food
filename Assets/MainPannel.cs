@@ -9,15 +9,16 @@ public class MainPannel : Singleton<MainPannel>
 
     public GameObject takeMultipleOrder;
     public GameObject takeMultipleOrderTime;
+    public GameObject takeMultipleOrderCombo;
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-       }
-      {
-            Destroy(this);
-        }
+      // if (instance == null)
+      // {
+      //     instance = this;
+      //}
+      //
+      //     Destroy(this);
+      // }
    }
     // Start is called before the first frame update
     void Start()
