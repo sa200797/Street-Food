@@ -20,6 +20,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] internal bool isOrdercompleted1;
 
     [SerializeField] List<FoodType.foodtype> TwoOrderList;
+    [SerializeField] List<FoodType.foodtype> TwoOrderList1;
+
     [SerializeField] internal int NumerofOrder;
     [SerializeField] internal int NumerofOrder1;
 
@@ -28,11 +30,12 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] List<LevelList> TutorialList;
     [SerializeField] internal List<String> TwoNameOrder;
+     [SerializeField] internal List<String> TwoNameOrder1;
     [SerializeField] internal List<int> moneyOrder;
 
     [Space(10)]
     public int LevelOrderCount = 0;
-[Space(10)]
+    [Space(10)]
     public int LevelOrderCount1 = 0;
 
     public float addTime;
@@ -87,6 +90,10 @@ public class LevelManager : MonoBehaviour
     {
         return LevelOrderCount;
     }
+     public int GetOrderCount1()
+    {
+        return LevelOrderCount1;
+    }
  
     public void GetOrder()
     {
@@ -121,7 +128,7 @@ public class LevelManager : MonoBehaviour
     }
      public void GetOrder1()
     {
-        Debug.Log("get oder");
+        Debug.Log("get oder1 0");
         if (numberOffOrder1 == NumberOffOrder1.OneOrder1)
         {
             Debug.Log("get oder1 1");
@@ -169,19 +176,19 @@ public class LevelManager : MonoBehaviour
         //Level Order Count
         ApplyLevelIndex(LevelOrderCount);
     }
-     [ContextMenu("OrderUpdate")]
+     [ContextMenu("OrderUpdate1")]
     void UItwoOrderUpdate1()
     {
-        Debug.Log("UItwoOrderUpdate");
+        Debug.Log("UItwoOrderUpdate1");
         UpdateOrderNumber1();
         for (int j = 0; j < levelList1.Count; j++)
         {
-            Debug.Log("UItwoOrderUpdate");
-            levelList1[j].TwoOrderList = new List<FoodType.foodtype>();
+            Debug.Log("UItwoOrderUpdate1");
+            levelList1[j].TwoOrderList1 = new List<FoodType.foodtype>();
             for (int k = 0; k < NumerofOrder1; k++)
             {
                 Debug.Log("UItwoOrderUpdate 1");
-                levelList1[j].TwoOrderList.Add(TwoOrderList[getIntOrder()]);
+                levelList1[j].TwoOrderList1.Add(TwoOrderList1[getIntOrder1()]);
             }
         }
 
@@ -294,13 +301,14 @@ public class LevelManager : MonoBehaviour
         isOrdercompleted = false;
         #endregion
     }
+    //Hiral
      public void ApplyLevelIndex1(int LevelIndex1)
     {
         Debug.Log("called 1");
 
         String OrderString = String.Empty;
         String OrderAmountString = String.Empty;
-        TwoNameOrder = new List<String>();
+        TwoNameOrder1 = new List<String>();
         moneyOrder = new List<int>();
         //Debug.Log("called 2");
 
@@ -342,7 +350,7 @@ public class LevelManager : MonoBehaviour
                         //OrderString += TutorialList[j].TwoOrderList[k] + " " + "X" + " " + "1" + "--Rs50".ToString() + "\n";
                         OrderString += TutorialList[j].TwoOrderList[k].ToString() + "\n";
                     }
-                    TwoNameOrder.Add(TutorialList[j].TwoOrderList[k].ToString());
+                    TwoNameOrder1.Add(TutorialList[j].TwoOrderList[k].ToString());
                 }
             }
             Debug.Log(OrderString);
@@ -356,37 +364,37 @@ public class LevelManager : MonoBehaviour
         #region Normal
             Debug.Log("Not Tutorial");
             // Debug.Log("Normal Ismods" + isMods);
-            for (int i = 0; i < levelList1[LevelIndex1].TwoOrderList.Count; i++)
+            for (int i = 0; i < levelList1[LevelIndex1].TwoOrderList1.Count; i++)
             {
-                Debug.Log("Normal 1");
-                if (levelList1[LevelIndex1].TwoOrderList[i] == FoodType.foodtype.VadaPav)
+                Debug.Log("Normal1 1");
+                if (levelList1[LevelIndex1].TwoOrderList1[i] == FoodType.foodtype.VadaPav)
                 {
-                    Debug.Log("Normal 2");
+                    Debug.Log("Normal1 2");
 
                     moneyOrder.Add(10);
                     //OrderString += levelList[LevelIndex].TwoOrderList[i] + " " + "X" + " " + "1" + "--Rs10".ToString() + "\n";
-                    OrderString += levelList1[LevelIndex1].TwoOrderList[i] + "\n";
+                    OrderString += levelList1[LevelIndex1].TwoOrderList1[i] + "\n";
                     OrderAmountString += 10 + "\n";
                 }
-                else if (levelList1[LevelIndex1].TwoOrderList[i] == FoodType.foodtype.Sandwich)
+                else if (levelList1[LevelIndex1].TwoOrderList1[i] == FoodType.foodtype.Sandwich)
                 {   
-                    Debug.Log("Normal 3");
+                    Debug.Log("Normal1 3");
 
                     moneyOrder.Add(30);
                     //OrderString += levelList[LevelIndex].TwoOrderList[i] + " " + "X" + " " + "1" + "--Rs30".ToString() + "\n";
-                    OrderString += levelList1[LevelIndex1].TwoOrderList[i].ToString() + "\n";
+                    OrderString += levelList1[LevelIndex1].TwoOrderList1[i].ToString() + "\n";
                     OrderAmountString += 30 + "\n";
                 }
-                else if (levelList1[LevelIndex1].TwoOrderList[i] == FoodType.foodtype.Pizza)
+                else if (levelList1[LevelIndex1].TwoOrderList1[i] == FoodType.foodtype.Pizza)
                 {
-                    Debug.Log("Normal 4");
+                    Debug.Log("Normal1 4");
 
                     moneyOrder.Add(50);
                     //OrderString += levelList[LevelIndex].TwoOrderList[i] + " " + "X" + " " + "1" + "--Rs50".ToString() + "\n";
-                    OrderString += levelList1[LevelIndex1].TwoOrderList[i].ToString() + "\n";
+                    OrderString += levelList1[LevelIndex1].TwoOrderList1[i].ToString() + "\n";
                     OrderAmountString += 50 + "\n";
                 }
-                TwoNameOrder.Add(levelList1[LevelIndex1].TwoOrderList[i].ToString());
+                TwoNameOrder1.Add(levelList1[LevelIndex1].TwoOrderList1[i].ToString());
             }
         
         
@@ -481,7 +489,7 @@ public class LevelManager : MonoBehaviour
         }
     }
     void UpdateOrderNumber() { UIManager.instance.orderid.text = "Order No-" + " " + GetOrderCount().ToString(); }
-    void UpdateOrderNumber1() { UIManager.instance.orderid.text = "Order No-" + " " + GetOrderCount().ToString(); }
+    void UpdateOrderNumber1() { UIManager.instance.orderid.text = "Order Num-" + " " + GetOrderCount1().ToString(); }
     public void GenrateFood(FoodType.foodtype food)
     {
         switch (food)
@@ -503,6 +511,7 @@ public class LevelManager : MonoBehaviour
         }
     }
     int getIntOrder() { return UnityEngine.Random.Range(0, TwoOrderList.Count); }
+     int getIntOrder1() { return UnityEngine.Random.Range(0, TwoOrderList1.Count); }
     public string GetFoodName() { return orderList[0].ToString(); }
     public string GetFoodName1() { return orderList1[0].ToString(); }
 
@@ -526,6 +535,6 @@ public class LevelManager : MonoBehaviour
       [System.Serializable]
     public class LevelList1
     {
-        public List<FoodType.foodtype> TwoOrderList;
+        public List<FoodType.foodtype> TwoOrderList1;
     }
 }

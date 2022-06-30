@@ -18732,6 +18732,7 @@ MonoBehaviour:
   isOrdercompleted: 0
   isOrdercompleted1: 0
   TwoOrderList: 010000000200000003000000
+  TwoOrderList1: 010000000200000003000000
   NumerofOrder: 6
   NumerofOrder1: 2
   levelList:
@@ -18786,8 +18787,10 @@ MonoBehaviour:
   - TwoOrderList: 010000000100000002000000030000000200000001000000
   - TwoOrderList: 020000000200000001000000020000000100000001000000
   levelList1:
-  - TwoOrderList: 0100000001000000
-  - TwoOrderList: 0200000002000000
+  - TwoOrderList1: 0100000001000000
+  - TwoOrderList1: 0200000002000000
+  - TwoOrderList1: 0300000003000000
+  - TwoOrderList1: 0100000001000000
   TutorialList:
   - TwoOrderList: 010000000200000003000000
   TwoNameOrder:
@@ -18797,6 +18800,7 @@ MonoBehaviour:
   - Sandwich
   - Sandwich
   - Sandwich
+  TwoNameOrder1: []
   moneyOrder: 320000000a0000000a0000001e0000001e0000001e000000
   LevelOrderCount: 0
   LevelOrderCount1: 0
@@ -34021,7 +34025,9 @@ MonoBehaviour:
   LevelMan: {fileID: 1867225724}
   levelmanager: {fileID: 1867225725}
   OrderIndex: 0
+  OrderIndex1: 0
   numberOffOrder: 2
+  numberOffOrder1: 2
   transformPoint: {fileID: 0}
   score: 0
   foodParcel: {fileID: 8697485872540677600, guid: c4f969364cd25784b97a09df00cc7e59,
