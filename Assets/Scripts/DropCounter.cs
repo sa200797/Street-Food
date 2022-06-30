@@ -115,7 +115,7 @@ public class DropCounter : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (numberOffOrder == LevelManager.NumberOffOrder.OneOrder)
+        if (numberOffOrder == LevelManager.NumberOffOrder.OneOrder && UIManager.multi==true)
         {
             if (collision.gameObject.CompareTag("C_Vadapav"))
             {
@@ -172,7 +172,7 @@ public class DropCounter : MonoBehaviour
             }
         }
         //Rushabh
-        if (numberOffOrder == LevelManager.NumberOffOrder.TwoOrder)
+        if (numberOffOrder == LevelManager.NumberOffOrder.TwoOrder && UIManager.multi==true)
         {
           //  Debug.Log("Two Name"); 
             if (collision.gameObject.CompareTag("C_Vadapav"))
@@ -243,7 +243,7 @@ public class DropCounter : MonoBehaviour
             }
         }
         //Hiral
-         if (numberOffOrder1 == LevelManager.NumberOffOrder1.OneOrder1)
+         if (numberOffOrder1 == LevelManager.NumberOffOrder1.OneOrder1 && UIManager.combo==true)
         {
             if (collision.gameObject.CompareTag("C_Vadapav"))
             {
@@ -300,7 +300,7 @@ public class DropCounter : MonoBehaviour
             }
         }
         
-        if (numberOffOrder1 == LevelManager.NumberOffOrder1.TwoOrder1)
+        if (numberOffOrder1 == LevelManager.NumberOffOrder1.TwoOrder1 &&  UIManager.combo==true)
         {
           //  Debug.Log("Two Name"); 
             if (collision.gameObject.CompareTag("C_Vadapav"))
@@ -708,7 +708,7 @@ public class DropCounter : MonoBehaviour
 
             OrderIndex1 = 0;
             ordervalidity = 1;
-            UIManager.instance.ordercomplete.text = "Order Complete!! Thankyou ";
+            UIManager.instance.ordercomplete.text = "Order Completed!! Thank you ";
             UIManager.instance.ChangeMaterial();
             StartCoroutine(FoodDropComplete1());
             // StartCoroutine(IncreaseLevel());
@@ -937,7 +937,7 @@ public class DropCounter : MonoBehaviour
             //SavaData.instance.TotalOrderCompleted();
 
             ordervalidity = 1;
-            UIManager.instance.ordercomplete.text = "Order Completed!! Thankyou ";
+            UIManager.instance.ordercomplete.text = "Order Completed!!!! Thank you ";
 
             UIManager.instance.ChangeMaterial();
             StartCoroutine(FoodDropComplete1());

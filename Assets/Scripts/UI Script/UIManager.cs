@@ -78,7 +78,8 @@ public class UIManager : MonoBehaviour
 
     bool howtoplay_cc;
     bool gameplaycanvas_howtoplay;
-
+    public static bool combo=false;
+     public static bool multi=false;
     private void Awake()
     {
         if (instance == null)
@@ -326,6 +327,7 @@ public class UIManager : MonoBehaviour
 
         LevelManager.levelmanager.numberOffOrder = LevelManager.NumberOffOrder.OneOrder;
         LevelManager.levelmanager.GetOrder();
+        multi=true;
     }
     public void multipleOrder()
     {
@@ -336,6 +338,7 @@ public class UIManager : MonoBehaviour
 
         LevelManager.levelmanager.numberOffOrder = LevelManager.NumberOffOrder.TwoOrder;
         LevelManager.levelmanager.GetOrder();
+        multi=true;
     }
      public void multipleOrdercombo()
     {
@@ -346,6 +349,7 @@ public class UIManager : MonoBehaviour
 
         LevelManager.levelmanager.numberOffOrder1 = LevelManager.NumberOffOrder1.TwoOrder1;
         LevelManager.levelmanager.GetOrder1();
+        combo=true;
     }
     public void multipleOrderWithtime()
     {

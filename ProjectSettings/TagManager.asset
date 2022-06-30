@@ -4,33 +4,29 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - ErrorTextLayer
-  - iconView
-  - BackgroundLayer
-  - SecondaryTextLayer
-  - SurfaceLayer
-  - PrimaryLayer
-  - SecondaryLayer
-  - PrimaryTextLayer
   - HoverLayer
-  - ErrorLayer
+  - PrimaryTextLayer
+  - PrimaryLayer
+  - SurfaceLayer
   - SurfaceTextLayer
-  - BackgroundTextLayer
-  - DisabledTextLayer
+  - SecondaryTextLayer
+  - SecondaryLayer
   - DisabledLayer
-  - Search
-  - SecondryLayer
-  - Sandwich
-  - VadaPav
-  - C_Sandwich
-  - C_Vadapav
-  - BakeSandwich
-  - Toast
-  - Pizza
-  - C_Pizza
-  - Bake
-  - Pause
+  - DisabledTextLayer
+  - BackgroundLayer
+  - BackgroundTextLayer
   - UncookedPizza
+  - iconView
+  - Search
+  - ErrorLayer
+  - SecondryLayer
+  - C_Pizza
+  - C_Sandwich
+  - Pizza
+  - ErrorTextLayer
+  - C_Vadapav
+  - Clear
+  - BakeSandwich
   layers:
   - Default
   - TransparentFX
@@ -67,7 +63,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: SystemUI
-    uniqueID: 291007281
     locked: 0

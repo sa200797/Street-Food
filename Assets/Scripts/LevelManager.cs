@@ -318,21 +318,21 @@ public class LevelManager : MonoBehaviour
         if (GameManager.instance.isTutorialOn == true)
         {
             Debug.Log("Tutorial");
-            Debug.Log("called 3");
+            Debug.Log("called1 3");
 
             for (int j = 0; j < TutorialList.Count; j++)
             {
-                Debug.Log("called 4");
+                Debug.Log("called1 4");
                 Debug.Log("Tutorial");
                 for (int k = 0; k < TutorialList[j].TwoOrderList.Count; k++)
                 {
-                    Debug.Log("called 5");
+                    Debug.Log("called1 5");
 
                     Debug.Log("Tutorial" + TutorialList[j].TwoOrderList[k]);
 
                     if (TutorialList[j].TwoOrderList[k] == FoodType.foodtype.VadaPav)
                     {
-                        Debug.Log("called 6");
+                        Debug.Log("called1 6");
 
                         moneyOrder.Add(10);
                         //OrderString += TutorialList[j].TwoOrderList[k] + " " + "X" + " " + "1" + "--Rs10".ToString() + "\n";
@@ -398,7 +398,7 @@ public class LevelManager : MonoBehaviour
             }
         
         
-        Debug.Log(OrderString);
+        Debug.Log("....food....."+OrderString);
         UIManager.instance.orderDetails.text = OrderString;
         UIManager.instance.orderAmountDetails.text = OrderAmountString;
 
@@ -511,7 +511,7 @@ public class LevelManager : MonoBehaviour
         }
     }
     int getIntOrder() { return UnityEngine.Random.Range(0, TwoOrderList.Count); }
-     int getIntOrder1() { return UnityEngine.Random.Range(0, TwoOrderList1.Count); }
+    int getIntOrder1() { return UnityEngine.Random.Range(0, TwoOrderList1.Count); }
     public string GetFoodName() { return orderList[0].ToString(); }
     public string GetFoodName1() { return orderList1[0].ToString(); }
 
