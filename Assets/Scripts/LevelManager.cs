@@ -31,7 +31,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] List<LevelList> TutorialList;
     [SerializeField] internal List<String> TwoNameOrder;
      [SerializeField] internal List<String> TwoNameOrder1;
+
     [SerializeField] internal List<int> moneyOrder;
+    [SerializeField] internal List<int> moneyOrder1;
 
     [Space(10)]
     public int LevelOrderCount = 0;
@@ -248,7 +250,11 @@ public class LevelManager : MonoBehaviour
             }
             Debug.Log(OrderString);
             UIManager.instance.orderDetails.text = OrderString;
+            UIManager.instance.orderDetailsmenu.text = OrderString;
+
             UIManager.instance.orderAmountDetails.text = OrderAmountString;
+            UIManager.instance.orderAmountDetailsmenu.text = OrderAmountString;
+
             isOrdercompleted = false;
             return;
         }
@@ -293,7 +299,11 @@ public class LevelManager : MonoBehaviour
         
         Debug.Log(OrderString);
         UIManager.instance.orderDetails.text = OrderString;
+        UIManager.instance.orderDetailsmenu.text = OrderString;
+
         UIManager.instance.orderAmountDetails.text = OrderAmountString;
+        UIManager.instance.orderAmountDetailsmenu.text = OrderAmountString;
+
 
         int AllSum = moneyOrder.Take(moneyOrder.Count).Sum();
         UIManager.instance.TotalorderAmount.text = AllSum.ToString();
@@ -309,7 +319,7 @@ public class LevelManager : MonoBehaviour
         String OrderString = String.Empty;
         String OrderAmountString = String.Empty;
         TwoNameOrder1 = new List<String>();
-        moneyOrder = new List<int>();
+        moneyOrder1 = new List<int>();
         //Debug.Log("called 2");
 
         #region Tutorial
@@ -334,19 +344,19 @@ public class LevelManager : MonoBehaviour
                     {
                         Debug.Log("called1 6");
 
-                        moneyOrder.Add(10);
+                        moneyOrder1.Add(10);
                         //OrderString += TutorialList[j].TwoOrderList[k] + " " + "X" + " " + "1" + "--Rs10".ToString() + "\n";
                         OrderString += TutorialList[j].TwoOrderList[k].ToString() + "\n";
                     }
                     else if (TutorialList[j].TwoOrderList[k] == FoodType.foodtype.Sandwich)
                     {
-                        moneyOrder.Add(30);
+                        moneyOrder1.Add(30);
                         //OrderString += TutorialList[j].TwoOrderList[k] + " " + "X" + " " + "1" + "--Rs30".ToString() + "\n";
                         OrderString += TutorialList[j].TwoOrderList[k].ToString() + "\n";
                     }
                     else if (TutorialList[j].TwoOrderList[k] == FoodType.foodtype.Pizza)
                     {
-                        moneyOrder.Add(50);
+                        moneyOrder1.Add(50);
                         //OrderString += TutorialList[j].TwoOrderList[k] + " " + "X" + " " + "1" + "--Rs50".ToString() + "\n";
                         OrderString += TutorialList[j].TwoOrderList[k].ToString() + "\n";
                     }
@@ -355,7 +365,11 @@ public class LevelManager : MonoBehaviour
             }
             Debug.Log(OrderString);
             UIManager.instance.orderDetails.text = OrderString;
+            UIManager.instance.orderDetailsmenu.text = OrderString;
+
             UIManager.instance.orderAmountDetails.text = OrderAmountString;
+            UIManager.instance.orderAmountDetailsmenu.text = OrderAmountString;
+
             isOrdercompleted1 = false;
             return;
         }
@@ -371,7 +385,7 @@ public class LevelManager : MonoBehaviour
                 {
                     Debug.Log("Normal1 2");
 
-                    moneyOrder.Add(10);
+                    moneyOrder1.Add(10);
                     //OrderString += levelList[LevelIndex].TwoOrderList[i] + " " + "X" + " " + "1" + "--Rs10".ToString() + "\n";
                     OrderString += levelList1[LevelIndex1].TwoOrderList1[i] + "\n";
                     OrderAmountString += 10 + "\n";
@@ -380,7 +394,7 @@ public class LevelManager : MonoBehaviour
                 {   
                     Debug.Log("Normal1 3");
 
-                    moneyOrder.Add(30);
+                    moneyOrder1.Add(30);
                     //OrderString += levelList[LevelIndex].TwoOrderList[i] + " " + "X" + " " + "1" + "--Rs30".ToString() + "\n";
                     OrderString += levelList1[LevelIndex1].TwoOrderList1[i].ToString() + "\n";
                     OrderAmountString += 30 + "\n";
@@ -389,7 +403,7 @@ public class LevelManager : MonoBehaviour
                 {
                     Debug.Log("Normal1 4");
 
-                    moneyOrder.Add(50);
+                    moneyOrder1.Add(50);
                     //OrderString += levelList[LevelIndex].TwoOrderList[i] + " " + "X" + " " + "1" + "--Rs50".ToString() + "\n";
                     OrderString += levelList1[LevelIndex1].TwoOrderList1[i].ToString() + "\n";
                     OrderAmountString += 50 + "\n";
@@ -400,9 +414,13 @@ public class LevelManager : MonoBehaviour
         
         Debug.Log("....food....."+OrderString);
         UIManager.instance.orderDetails.text = OrderString;
-        UIManager.instance.orderAmountDetails.text = OrderAmountString;
+        UIManager.instance.orderDetailsmenu.text = OrderString;
 
-        int AllSum = moneyOrder.Take(moneyOrder.Count).Sum();
+        UIManager.instance.orderAmountDetails.text = OrderAmountString;
+        UIManager.instance.orderAmountDetailsmenu.text = OrderAmountString;
+
+
+        int AllSum = moneyOrder1.Take(moneyOrder1.Count).Sum();
         UIManager.instance.TotalorderAmount.text = AllSum.ToString();
 
         isOrdercompleted1 = false;
@@ -456,40 +474,59 @@ public class LevelManager : MonoBehaviour
     }
     public void UIOneOrderUpdate()
     {
+         Debug.Log("......update order.......");
         UpdateOrderNumber();
         // UIManager.instance.orderDetails.text = GetFoodName() + " " + "X" + " " + "1" + "--Rs" + 0010;
         if (orderList[0] == FoodType.foodtype.VadaPav)
         {
             UIManager.instance.orderDetails.text = GetFoodName() + " " + "X" + " " + "1" + "--Rs10".ToString();
+             UIManager.instance.orderDetailsmenu.text = GetFoodName() + " " + "X" + " " + "1" + "--Rs10".ToString();
         }
         else if (orderList[0] == FoodType.foodtype.Sandwich)
         {
             UIManager.instance.orderDetails.text = GetFoodName() + " " + "X" + " " + "1" + "--Rs30".ToString();
+            UIManager.instance.orderDetailsmenu.text = GetFoodName() + " " + "X" + " " + "1" + "--Rs30".ToString();
+
         }
         else if (orderList[0] == FoodType.foodtype.Pizza)
         {
             UIManager.instance.orderDetails.text = GetFoodName() + " " + "X" + " " + "1" + "--Rs50".ToString();
+            UIManager.instance.orderDetailsmenu.text = GetFoodName() + " " + "X" + " " + "1" + "--Rs50".ToString();
+
         }
     }
      public void UIOneOrderUpdate1()
     {
+        Debug.Log("......update order 1.......");
         UpdateOrderNumber1();
         // UIManager.instance.orderDetails.text = GetFoodName() + " " + "X" + " " + "1" + "--Rs" + 0010;
         if (orderList1[0] == FoodType.foodtype.VadaPav)
         {
             UIManager.instance.orderDetails.text = GetFoodName1() + " " + "X" + " " + "1" + "--Rs10".ToString();
+            UIManager.instance.orderDetailsmenu.text = GetFoodName1() + " " + "X" + " " + "1" + "--Rs10".ToString();
+
         }
         else if (orderList1[0] == FoodType.foodtype.Sandwich)
         {
             UIManager.instance.orderDetails.text = GetFoodName1() + " " + "X" + " " + "1" + "--Rs30".ToString();
+            UIManager.instance.orderDetailsmenu.text = GetFoodName1() + " " + "X" + " " + "1" + "--Rs30".ToString();
+            
         }
         else if (orderList1[0] == FoodType.foodtype.Pizza)
         {
             UIManager.instance.orderDetails.text = GetFoodName1() + " " + "X" + " " + "1" + "--Rs50".ToString();
+            UIManager.instance.orderDetailsmenu.text = GetFoodName1() + " " + "X" + " " + "1" + "--Rs50".ToString();
+
         }
     }
-    void UpdateOrderNumber() { UIManager.instance.orderid.text = "Order No-" + " " + GetOrderCount().ToString(); }
-    void UpdateOrderNumber1() { UIManager.instance.orderid.text = "Order Num-" + " " + GetOrderCount1().ToString(); }
+    void UpdateOrderNumber() 
+    {
+         UIManager.instance.orderid.text = "Order No-" + " " + GetOrderCount().ToString(); 
+    }
+    void UpdateOrderNumber1() 
+    { 
+        UIManager.instance.orderid.text = "Order Num-" + " " + GetOrderCount1().ToString(); 
+    }
     public void GenrateFood(FoodType.foodtype food)
     {
         switch (food)
@@ -513,7 +550,7 @@ public class LevelManager : MonoBehaviour
     int getIntOrder() { return UnityEngine.Random.Range(0, TwoOrderList.Count); }
     int getIntOrder1() { return UnityEngine.Random.Range(0, TwoOrderList1.Count); }
     public string GetFoodName() { return orderList[0].ToString(); }
-    public string GetFoodName1() { return orderList1[0].ToString(); }
+    public string GetFoodName1() { return orderList1[1].ToString(); }
 
     [System.Serializable]
     public enum NumberOffOrder
@@ -521,6 +558,7 @@ public class LevelManager : MonoBehaviour
         OneOrder = 1,
         TwoOrder = 2
     }
+     [System.Serializable]
      public enum NumberOffOrder1
     {
         OneOrder1 = 1,

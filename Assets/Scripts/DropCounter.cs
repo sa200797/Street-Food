@@ -39,6 +39,8 @@ public class DropCounter : MonoBehaviour
 
     [Space(20)]
     [SerializeField] internal UnityEvent OnOrderCompleted;
+      [Space(20)]
+    [SerializeField] internal UnityEvent OnOrderCompleted1;
     [SerializeField] internal UnityEvent OnOrderWrong;
 
     [SerializeField] Vector3 Position;
@@ -694,7 +696,7 @@ public class DropCounter : MonoBehaviour
             /*score += GameManager.amount;
             SavaData.instance.money = score;
             UIManager.instance.totalAmoumt.text = score.ToString();*/
-            var Amount = GameObject.Find("LevelManager").GetComponent<LevelManager>().moneyOrder;
+            var Amount = GameObject.Find("LevelManager").GetComponent<LevelManager>().moneyOrder1;
             int sum = Amount.Take(Amount.Count).Sum();
             GameManager.instance.CoinAddBalance(sum);
 
@@ -735,7 +737,7 @@ public class DropCounter : MonoBehaviour
                     break;
             }
             OrderName.Clear();
-            OnOrderCompleted.Invoke();
+            OnOrderCompleted1.Invoke();
             return;
         }
 
@@ -995,7 +997,7 @@ public class DropCounter : MonoBehaviour
         yield return new WaitForSeconds(4.0f);
         levelmanager.isOrdercompleted1 = true;
         levelmanager.GetOrder1();
-        UIManager.instance.ordercomplete.text = "New Order1";
+        UIManager.instance.ordercomplete.text = "NewOrder1";
         ordervalidity = 0;
         foodParcel.SetActive(false);
         pizzaBox.SetActive(false);

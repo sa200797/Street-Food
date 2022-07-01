@@ -33,6 +33,10 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI orderid;
     public TextMeshProUGUI orderDetails;
     public TextMeshProUGUI orderAmountDetails;
+
+     public TextMeshProUGUI orderDetailsmenu;
+    public TextMeshProUGUI orderAmountDetailsmenu;
+
     public TextMeshProUGUI TotalorderAmount;
 
 
@@ -47,6 +51,7 @@ public class UIManager : MonoBehaviour
     bool backscreen;
     public GameObject pause_backpannel;
 
+    public GameObject OrderMenu;
 
     [Header("Food Dekliver Option")]
     public GameObject Display;
@@ -309,6 +314,7 @@ public class UIManager : MonoBehaviour
 
     public void OneOrderPlay()
     {
+        OrderMenu.SetActive(true);
       //  Debug.Log("is work  fasfasdasfdasd");
         openShop_btn.SetActive(false);
         GameManager.instance.playgame = true;
@@ -320,6 +326,7 @@ public class UIManager : MonoBehaviour
     }
     public void OneOrderWithTime()
     {
+        OrderMenu.SetActive(true);
         openShop_btn.SetActive(false);
         GameManager.instance.playgame = true;
         Timer.timerIsRunning = true;
@@ -331,6 +338,7 @@ public class UIManager : MonoBehaviour
     }
     public void multipleOrder()
     {
+        OrderMenu.SetActive(true);
         openShop_btn.SetActive(false);
         GameManager.instance.playgame = true;
         //Timer.timerIsRunning = true;
@@ -342,6 +350,7 @@ public class UIManager : MonoBehaviour
     }
      public void multipleOrdercombo()
     {
+        OrderMenu.SetActive(true);
         openShop_btn.SetActive(false);
         GameManager.instance.playgame = true;
         //Timer.timerIsRunning = true;
@@ -353,6 +362,7 @@ public class UIManager : MonoBehaviour
     }
     public void multipleOrderWithtime()
     {
+        OrderMenu.SetActive(true);
         openShop_btn.SetActive(false);
         GameManager.instance.playgame = true;
         Timer.timerIsRunning = true;
@@ -364,6 +374,7 @@ public class UIManager : MonoBehaviour
 
     public void OnTutorial()
     {
+        OrderMenu.SetActive(true);
         openShop_btn.SetActive(false);
         GameManager.instance.playgame = true;
         //Timer.timerIsRunning = true;
