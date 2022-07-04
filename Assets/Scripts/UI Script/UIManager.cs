@@ -85,6 +85,9 @@ public class UIManager : MonoBehaviour
     bool gameplaycanvas_howtoplay;
     public static bool combo=false;
      public static bool multi=false;
+
+     public Image ObjectwithImage;
+public Sprite spriteToChangeItTo;
     private void Awake()
     {
         if (instance == null)
@@ -102,6 +105,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+         ObjectwithImage.sprite = spriteToChangeItTo;
         //image = GetComponent<Image>();
         sound = true;
 

@@ -51,10 +51,23 @@ public class DropCounter : MonoBehaviour
     Timer GetTime;
 
     public GameObject character;
+    public GameObject character1;
+    public GameObject character2;
+
+public static bool ch1=false;
+public static bool ch2=false;
+public static bool ch3=false;
+
      public GameObject[] ship;
-     public Vector3 spawnPosition;
+   
      
-      Vector3 pos;
+    //Vector3 pos;
+    public float speed;
+     public Vector3 destination;
+     public Vector3 destination1;
+   
+      public Vector3 spawnPosition;
+      public static bool completeordercharacter=false;
     void Awake()
     {
         SetupPoint();
@@ -101,6 +114,7 @@ public class DropCounter : MonoBehaviour
 
     void Start()
     {
+        Debug.Log(">>>>>>>>>>>>>>>>start>>>>>>>>>>>>");
 
         LevelMan = GameObject.Find("LevelManager");
         levelmanager = LevelMan.GetComponent<LevelManager>();
@@ -110,10 +124,64 @@ public class DropCounter : MonoBehaviour
         visualiz = new List<GameObject>();
         //Move this to LevelManager 
         //levelmanager.UiUpdate();
-       character.SetActive(true);
-       
-        
+       // ch1=true;
+       // if(ch1==true)
+       // {
+       //       character.SetActive(true);
+       //     
+       // }
+     character.SetActive(true);
+     //  character.transform.position = new Vector3(-4.04f, -1.85f, 10.31f);
+      //  int i = Random.Range(0,ship.Length);
+      // Instantiate(ship[i],spawnPosition, Quaternion.Euler(new Vector3(0, 180, 0)));
+      // ship[i].SetBool("completeorder", true);
     }
+    
+ 
+   //   void IncrementPosition ()
+   //   {
+   //       
+   //      // int i = Random.Range(0,ship.Length);
+   //     //  Instantiate(ship[i],spawnPosition, Quaternion.Euler(new Vector3(0, 180, 0)));
+
+   //       // Calculate the next position
+   //       float delta = speed * Time.deltaTime;
+   //       Vector3 currentPosition =character.transform.position;
+   //       Vector3 spawnPosition = Vector3.MoveTowards (currentPosition, destination, delta);
+
+   //       // Move the object to the next position
+   //       character.transform.position = spawnPosition;
+
+   //   }
+   //   void Decrement()
+   //   {
+   //   //    int i = Random.Range(0,ship.Length);
+   //   //  Instantiate(ship[i],spawnPosition, Quaternion.Euler(new Vector3(0, 180, 0)));
+
+   //    //  int i = Random.Range(0,ship.Length);
+   //     // Instantiate(ship[i],spawnPosition, Quaternion.Euler(new Vector3(0, 180, 0)));
+   //      //Vector3(0.170000002,-1.85000002,10.3100004)
+   //       float delta = speed * Time.deltaTime;
+   //       Vector3 currentPosition = character.transform.position;
+   //       Vector3 spawnPosition = Vector3.MoveTowards (currentPosition, destination1, delta);
+   //        character.transform.position = spawnPosition;
+   //   }
+   //void Update () {
+   //    // If the object is not at the target destination
+   //    if (destination != character.transform.position) {
+   //        // Move towards the destination each frame until the object reaches it
+   //        IncrementPosition ();
+   //    }
+   //     if (destination1 != character.transform.position && characterposition==true ) {
+   //        // Move towards the destination each frame until the object reaches it
+   //        Decrement ();
+   //    }
+   //}
+   //// Set the destination to cause the object to smoothly glide to the specified location
+   //public void SetDestination (Vector3 value) {
+   //    destination = value;
+   //    destination1=value;
+   //}
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -604,10 +672,39 @@ public class DropCounter : MonoBehaviour
 
         var isWin = Enumerable.SequenceEqual(OrderName.OrderBy(t => t), levelmanager.TwoNameOrder.OrderBy(t => t));
         Debug.Log(" isWin : " + isWin);
-        character.SetActive(false);
-        int i = Random.Range(0,ship.Length);
-         Instantiate(ship[i],spawnPosition, Quaternion.Euler(new Vector3(0, 180, 0)));
+        //  character.GetComponent<Animator> ().enabled = true;
+        completeordercharacter=true;
+        // GetComponent<Animation>().Play("animchar");
+      //  character.SetActive(false);
+       
+      int i = Random.Range(0,ship.Length);
+        Instantiate(ship[i],spawnPosition, Quaternion.Euler(new Vector3(0, 180, 0)));
+     // ship[i].GetComponent<Animator> ().enabled = true;
+     // Debug.Log(".................heer................"+ship[i]);
+     //if(ch1==true)
+     //{
+     //      character.SetActive(false);
+     //      ch1=false;
+     //      character1.SetActive(true);
+     //      ch2=true;
+     //}
+     //if(ch2==true)
+     //{
+     //      character1.SetActive(false);
+     //      ch2=false;
+     //      character2.SetActive(true);
+     //      ch3=true;
+     //}
+     //if(ch3==true)
+     //{
+     //      character2.SetActive(false);
+     //      ch3=false;
+     //      character.SetActive(true);
+     //      ch1=true;
+     //}
+     
 
+      
         if (isWin == true)
         {
             /*score += GameManager.amount;
@@ -687,9 +784,32 @@ public class DropCounter : MonoBehaviour
 
         var isWin = Enumerable.SequenceEqual(OrderName.OrderBy(t => t), levelmanager.TwoNameOrder1.OrderBy(t => t));
         Debug.Log(" isWin : " + isWin);
-        character.SetActive(false);
-        int i = Random.Range(0,ship.Length);
-         Instantiate(ship[i],spawnPosition, Quaternion.Euler(new Vector3(0, 180, 0)));
+       character.GetComponent<Animator> ().enabled = true;
+    if(ch1==true)
+      {
+        
+            character.SetActive(false);
+            ch1=false;
+            character1.SetActive(true);
+            ch2=true;
+      }
+      if(ch2==true)
+      {
+            character1.SetActive(false);
+            ch2=false;
+            character2.SetActive(true);
+            ch3=true;
+      }
+      if(ch3==true)
+      {
+            character2.SetActive(false);
+            ch3=false;
+            character.SetActive(true);
+            ch1=true;
+      }
+      //  character.SetActive(false);
+      //  int i = Random.Range(0,ship.Length);
+      //  Instantiate(ship[i],spawnPosition, Quaternion.Euler(new Vector3(0, 180, 0)));
 
         if (isWin == true)
         {
@@ -984,6 +1104,7 @@ public class DropCounter : MonoBehaviour
         levelmanager.isOrdercompleted = true;
         levelmanager.GetOrder();
         UIManager.instance.ordercomplete.text = "New Order";
+        
         ordervalidity = 0;
         foodParcel.SetActive(false);
         pizzaBox.SetActive(false);
@@ -998,6 +1119,7 @@ public class DropCounter : MonoBehaviour
         levelmanager.isOrdercompleted1 = true;
         levelmanager.GetOrder1();
         UIManager.instance.ordercomplete.text = "NewOrder1";
+       
         ordervalidity = 0;
         foodParcel.SetActive(false);
         pizzaBox.SetActive(false);
