@@ -5780,6 +5780,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeRemaning: 180
+  ObjectwithImage: {fileID: 1037469088}
+  spriteToChangeItTo: {fileID: 21300000, guid: 4b5d77ce70c7c8a41832e54461d5f672, type: 3}
+  spriteToChangeItTo1: {fileID: 21300000, guid: d2fff0b24a95d764ea7143f061a3684f, type: 3}
 --- !u!114 &581101923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8339,7 +8342,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &781076127
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10979,12 +10982,12 @@ GameObject:
   - component: {fileID: 1037469089}
   - component: {fileID: 1037469088}
   m_Layer: 5
-  m_Name: Image
+  m_Name: EMOGI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1037469087
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10993,7 +10996,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037469086}
   m_LocalRotation: {x: -0.173796, y: 0.105684325, z: -0.026394086, w: 0.97873855}
-  m_LocalPosition: {x: 0, y: 0, z: -43}
+  m_LocalPosition: {x: 0, y: 0, z: 24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2076922468849478566}
@@ -11001,8 +11004,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2339, y: 1239}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: 1848, y: 1369}
+  m_SizeDelta: {x: 350, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1037469088
 MonoBehaviour:
@@ -12906,7 +12909,7 @@ MonoBehaviour:
   ordercomplete: {fileID: 1126547466}
   CurrountBalance: {fileID: 1128861126}
   newAddBalance: {fileID: 519393339}
-  sprite1: {fileID: 21300000, guid: 570c0cce59dd5bb489112adaaefa31da, type: 3}
+  emogi: {fileID: 1037469086}
 --- !u!4 &1147600184
 Transform:
   m_ObjectHideFlags: 0
@@ -20559,7 +20562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8419570380580546152, guid: f0ff69a0fe4a0ec4c96aed89c4a19284, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.04
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 8419570380580546152, guid: f0ff69a0fe4a0ec4c96aed89c4a19284, type: 3}
       propertyPath: m_LocalPosition.y

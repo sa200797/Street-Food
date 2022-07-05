@@ -86,8 +86,7 @@ public class UIManager : MonoBehaviour
     public static bool combo=false;
      public static bool multi=false;
 
-     public Image ObjectwithImage;
-public Sprite spriteToChangeItTo;
+    public GameObject emogi;
     private void Awake()
     {
         if (instance == null)
@@ -105,7 +104,7 @@ public Sprite spriteToChangeItTo;
     // Start is called before the first frame update
     void Start()
     {
-         ObjectwithImage.sprite = spriteToChangeItTo;
+        
         //image = GetComponent<Image>();
         sound = true;
 
@@ -335,7 +334,7 @@ public Sprite spriteToChangeItTo;
         GameManager.instance.playgame = true;
         Timer.timerIsRunning = true;
         timertext.transform.parent.transform.gameObject.SetActive(true);
-
+        emogi.SetActive(true);
         LevelManager.levelmanager.numberOffOrder = LevelManager.NumberOffOrder.OneOrder;
         LevelManager.levelmanager.GetOrder();
         multi=true;
@@ -371,7 +370,7 @@ public Sprite spriteToChangeItTo;
         GameManager.instance.playgame = true;
         Timer.timerIsRunning = true;
         timertext.transform.parent.transform.gameObject.SetActive(true);
-
+      emogi.SetActive(true);
         LevelManager.levelmanager.numberOffOrder = LevelManager.NumberOffOrder.TwoOrder;
         LevelManager.levelmanager.GetOrder();
     }
